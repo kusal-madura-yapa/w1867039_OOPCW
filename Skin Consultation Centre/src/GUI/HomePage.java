@@ -65,10 +65,24 @@ public class HomePage extends JFrame {
         noticePanel.setBackground(new Color(0xFF9956AF, true)); // set the background color of the panel
         noticePanel.setBounds(300, 110, 550, 610); // set the size of the panel
 
-        // create a notice panel right
-        JPanel noticePanelRight = new JPanel();
-        noticePanelRight.setBackground(new Color(0xFF56AFA2, true)); // set the background color of the panel
-        noticePanelRight.setBounds(850, 110, 150, 610); // set the size of the panel
+
+        // create a notice label to display the notice
+        JLabel noticeLabel = new JLabel("Notice: This is a notice");
+        noticeLabel.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        noticeLabel.setForeground(Color.WHITE); // set the color of the text
+        noticeLabel.setVisible(true); // set the label to be visible
+
+
+
+        // create a notice panel right top
+        JPanel noticePanelRightTop = new JPanel();
+        noticePanelRightTop.setBackground(new Color(0xFF9956AF, true)); // set the background color of the panel
+        noticePanelRightTop.setBounds(850, 110, 140, 560); // set the size of the panel
+
+        // create a notice panel right bottom
+        JPanel noticePanelRightBottom = new JPanel();
+        noticePanelRightBottom.setBackground(new Color(0xFF9956AF, true)); // set the background color of the panel
+        noticePanelRightBottom.setBounds(850, 670, 140, 50); // set the size of the panel
 
         // Create panel for footer text
         JPanel footerPanel = new JPanel();
@@ -93,6 +107,8 @@ public class HomePage extends JFrame {
         patientButton.setForeground(Color.WHITE); // set the color of the text
         patientButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
         patientButton.setBorder(BorderFactory.createLineBorder(Color.WHITE,10)); // set the border of the button
+        patientButton.setFocusPainted(false); // remove the focus paint
+
 
 
         //create a button to SkinCareCenter page
@@ -101,6 +117,7 @@ public class HomePage extends JFrame {
         SkinCareCenterButton.setForeground(Color.WHITE); // set the color of the text
         SkinCareCenterButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
         SkinCareCenterButton.setBorder(BorderFactory.createLineBorder(Color.WHITE,10)); // set the border of the button
+        SkinCareCenterButton.setFocusPainted(false); // remove the focus paint
 
 
         // create a button to view the doctor list
@@ -109,6 +126,7 @@ public class HomePage extends JFrame {
         doctorListButton.setForeground(Color.WHITE); // set the color of the text
         doctorListButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
         doctorListButton.setBorder(BorderFactory.createLineBorder(Color.WHITE,10)); // set the border of the button
+        doctorListButton.setFocusPainted(false); // remove the focus paint
 
 
         // create a button to view the patient list
@@ -117,10 +135,15 @@ public class HomePage extends JFrame {
         patientListButton.setForeground(Color.WHITE); // set the color of the text
         patientListButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
         patientListButton.setBorder(BorderFactory.createLineBorder(Color.WHITE,10)); // set the border of the button
+        patientListButton.setFocusPainted(false); // remove the focus paint
 
-
-
-
+        // create a button to Exit
+        JButton exitButton = new JButton("      Exit      ");
+        exitButton.setBackground(new Color(0xFF814301)); // set the background color of the button
+        exitButton.setForeground(Color.WHITE); // set the color of the text
+        exitButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text\
+        exitButton.setBorder(BorderFactory.createLineBorder(Color.WHITE,5)); // set the border of the button
+        exitButton.setFocusPainted(false); // remove the focus paint
 
 
 
@@ -149,7 +172,8 @@ public class HomePage extends JFrame {
 
         frame.add(footerPanel);
         frame.add(noticePanel);
-        frame.add(noticePanelRight);
+        frame.add(noticePanelRightTop);
+        frame.add(noticePanelRightBottom);
         // Panel add components
         titlePanelForImage.add(titleImageLabel);
         titlePanelForText.add(titleTextLable);
@@ -162,7 +186,14 @@ public class HomePage extends JFrame {
         buttonPanel.add(patientListButton);
 
 
+        // notice panel add components
+        noticePanel.add(noticeLabel);
 
+
+        //notice panel right add components
+        noticePanelRightBottom.add(exitButton);
+
+        // footer panel add components
 
         // Frame visible
         frame.setVisible(true);
