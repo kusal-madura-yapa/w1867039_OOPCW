@@ -24,8 +24,8 @@ public class Patient extends Parson {
      * @param patientEmail
      * @param patientGender
      */
-    public Patient(String name, String surname, int DateOfBirth, int monthOfBirth,int yearOfBirth, int contactNumber, int patientId, String patientAddress, String patientEmail, String patientGender) {
-        super(name, surname, DateOfBirth, contactNumber,yearOfBirth, monthOfBirth);
+    public Patient(String name, String surname, String DateOfBirth, String contactNumber, int patientId, String patientAddress, String patientEmail, String patientGender) {
+        super(name, surname, DateOfBirth, contactNumber);
         this.patientId = patientId;
         this.patientAddress = patientAddress;
         this.patientEmail = patientEmail;

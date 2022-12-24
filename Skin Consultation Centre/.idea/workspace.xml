@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="dea1f6d7-4264-4f24-aa45-b6f9609dfcad" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/GUI/Aboutus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/DoctorAdd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/HomePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/PatientAdd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/SkinCareCenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/VeiwDoctors.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/VeiwPatients.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/doctors.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Doctor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Doctor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Parson.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Parson.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Patient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/WestminsterSkinConsultationManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/WestminsterSkinConsultationManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConsoleSystem/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleSystem/Patient.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2J5y5QVPX7FnTzA91i5lITKT4pA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ConsoleSystem" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kusal\Desktop\w1867039_OOPCW\Skin Consultation Centre\src\GUI\Image" />
+      <recent name="C:\Users\kusal\Desktop\w1867039_OOPCW\Skin Consultation Centre\src\GUI" />
+      <recent name="C:\Users\kusal\Desktop\w1867039_OOPCW\Skin Consultation Centre\src\Images" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.HomePage">
+    <configuration name="ConsoleSystem.main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ConsoleSystem.main" />
+      <module name="Skin Consultation Centre." />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ConsoleSystem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Control" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.Control" />
+      <module name="Skin Consultation Centre." />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Doctor" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ConsoleSystem.Doctor" />
+      <module name="Skin Consultation Centre." />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ConsoleSystem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HomePage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.HomePage" />
+      <module name="Skin Consultation Centre." />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Label" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Label" />
+      <module name="Skin Consultation Centre." />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Parson" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ConsoleSystem.Parson" />
+      <module name="Skin Consultation Centre." />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ConsoleSystem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WestminsterSkinConsultationManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ConsoleSystem.WestminsterSkinConsultationManager" />
+      <module name="Skin Consultation Centre." />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ConsoleSystem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.HomePage" />
+        <item itemvalue="Application.Label" />
+        <item itemvalue="Application.Control" />
+        <item itemvalue="Application.WestminsterSkinConsultationManager" />
+        <item itemvalue="Application.Parson" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dea1f6d7-4264-4f24-aa45-b6f9609dfcad" name="Changes" comment="" />
+      <created>1671382056750</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1671382056750</updated>
+      <workItem from="1671382057931" duration="375000" />
+      <workItem from="1671382509383" duration="2155000" />
+      <workItem from="1671384704525" duration="35000" />
+      <workItem from="1671385023571" duration="6163000" />
+      <workItem from="1671596723212" duration="6926000" />
+      <workItem from="1671625604511" duration="1142000" />
+      <workItem from="1671627015525" duration="1961000" />
+      <workItem from="1671684452599" duration="7552000" />
+      <workItem from="1671800608758" duration="122000" />
+      <workItem from="1671801225947" duration="34000" />
+      <workItem from="1671871381927" duration="4630000" />
+      <workItem from="1671876469589" duration="5486000" />
+      <workItem from="1671893031170" duration="6816000" />
+      <workItem from="1671900487885" duration="4320000" />
+      <workItem from="1671905014862" duration="3687000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
