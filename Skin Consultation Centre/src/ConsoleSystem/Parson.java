@@ -1,6 +1,10 @@
 package ConsoleSystem;
 
-public class Parson {
+import javax.swing.*;
+import java.io.*;
+import java.util.ArrayList;
+
+public  class  Parson {
     private String name;
     private String surname;
     private String dateOfBirth;
@@ -47,11 +51,6 @@ public class Parson {
     public void setContactNumber(String contactNumber){
         this.contactNumber = contactNumber;
     }
-
-
-
-
-
 
 
 }

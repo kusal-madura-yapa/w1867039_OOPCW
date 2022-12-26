@@ -1,8 +1,7 @@
 package ConsoleSystem;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import javax.swing.*;
+import java.io.*;
 import java.util.ArrayList;
 public class Patient extends Parson {
     // patient Unique details
@@ -19,14 +18,14 @@ public class Patient extends Parson {
      * Constructor for Patient
      * person details and patient details from super class
      *
-     * @param name
-     * @param surname
-     * @param DateOfBirth
+     * @param name get the name according to the super class
+     * @param surname get the surname according to the super class
+     * @param DateOfBirth   get the date of birth according to the super class
      * @param contactNumber  get the details of the patient
-     * @param patientId
-     * @param patientAddress
-     * @param patientEmail
-     * @param patientGender
+     * @param patientId get the patient id of the patient
+     * @param patientAddress get the patient address of the patient
+     * @param patientEmail get the patient email of the patient
+     * @param patientGender get the person gender of the patient
      */
     public Patient(String name, String surname, String DateOfBirth, String contactNumber, String patientId, String patientAddress, String patientEmail, String patientGender) {
         super(name, surname, DateOfBirth, contactNumber);
@@ -86,14 +85,14 @@ public class Patient extends Parson {
 
     /**
      * @param patientId the patientId to set
-     * @param name
-     * @param surname
-     * @param DateOfBirth
-     * @param contactNumber
-     * @param patientId
-     * @param patientAddress
-     * @param patientEmail
-     * @param patientGender
+     * @param name the name to set
+     * @param surname the surname to set
+     * @param DateOfBirth the DateOfBirth to set
+     * @param contactNumber the contactNumber to set
+     * @param patientId the patientId to set
+     * @param patientAddress the patientAddress to set
+     * @param patientEmail the patientEmail to set
+     * @param patientGender the patientGender to set
      */
     // method to add patient details
     public static void addPatientObject(String name, String surname, String DateOfBirth, String contactNumber, String  patientId, String patientAddress, String patientEmail, String patientGender) {
@@ -127,7 +126,8 @@ public class Patient extends Parson {
     /**
      *
      * handel the persorn data store in to the patient file
-     * @throws IOException
+     * @throws IOException if the file is not found or not able to write
+     * @return the patient details save in the file
      */
     public static void savePatientDetails() {
         try {
@@ -140,6 +140,33 @@ public class Patient extends Parson {
             bufferedWriter.close();
         } catch (IOException e) {
             System.out.println("Error writing to file");
+        }
+    }
+
+    // methode for get the details from the file
+
+    public static void loadPatientListFromFile() {
+        try {
+            FileReader fileReader = new FileReader("Patient.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] patientDetails = line.split(" ");
+                String name = patientDetails[0];
+                String surname = patientDetails[1];
+                String DateOfBirth = patientDetails[2];
+                String contactNumber = patientDetails[3];
+                String patientId = patientDetails[4];
+                String patientAddress = patientDetails[5];
+                String patientEmail = patientDetails[6];
+                String patientGender = patientDetails[7];
+
+                Patient patient = new Patient(name, surname, DateOfBirth, contactNumber, patientId, patientAddress, patientEmail, patientGender);
+                patientArrayList.add(patient);
+            }
+            bufferedReader.close();
+        } catch (Exception e) { // if any missing file or any other error
+            JOptionPane.showMessageDialog(null, "Error in loading this file");
         }
     }
 }

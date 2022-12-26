@@ -18,19 +18,19 @@ public class Doctor extends Parson {
      * Constructor for Doctor
      * person details and doctor details from super class
      *
-     * @param name
-     * @param surname
-     * @param DateOfBirth
+     * @param name           get the name according to the super class
+     * @param surname        get the surname according to the super class
+     * @param DateOfBirth    get the date of birth according to the super class
      * @param contactNumber  get the details of the doctor
-     * @param specialization
-     * @param licenceNumber
+     * @param specialization get the specialization of the doctor
+     * @param licenceNumber  get the licence number of the doctor
      */
-    public Doctor(String name, String surname, String  DateOfBirth,String  contactNumber, String specialization, int licenceNumber) {
+    public Doctor(String name, String surname, String DateOfBirth, String contactNumber, String specialization, int licenceNumber) {
         super(name, surname, DateOfBirth, contactNumber);
         this.specialization = specialization;
         this.licenceNumber = licenceNumber;
     }
-    
+
 
     /**
      * @return the specialization
@@ -76,7 +76,7 @@ public class Doctor extends Parson {
      *             System.out.println("Doctor added successfully") print message to the console
      *             this method is used to add a new doctor to the system
      */
-    public static void addDoctorObject(String name, String surname, String DateOfBirth,  String  contactNumber, String specialization, int licenceNumber) {
+    public static void addDoctorObject(String name, String surname, String DateOfBirth, String contactNumber, String specialization, int licenceNumber) {
         Doctor doctor = new Doctor(name, surname, DateOfBirth, contactNumber, specialization, licenceNumber);
         doctorArrayList.add(doctor);
         System.out.println("Doctor added successfully");
@@ -89,7 +89,7 @@ public class Doctor extends Parson {
     @Override
     public String toString() {
         System.out.println("Doctor details");
-        return getName() + " " + getSurname() + " " + getDateOfBirth() + " " + getContactNumber() + " " + getSpecialization() + " " + getLicenceNumber() ;
+        return getName() + " " + getSurname() + " " + getDateOfBirth() + " " + getContactNumber() + " " + getSpecialization() + " " + getLicenceNumber();
     }
 
     /**
@@ -116,6 +116,7 @@ public class Doctor extends Parson {
                 // if you need to delete a doctor from the doctorArrayList
                 // you can use the remove method
                 doctorRemoveProcess(i);
+                saveDoctorListToFileAfterDelete();
             }
         }
     }
@@ -145,6 +146,7 @@ public class Doctor extends Parson {
 
     /**
      * This method is used to count the number of doctors in the doctorArrayList
+     *
      * @print doctorArrayList.size() number of doctors in the doctorArrayList
      */
     public static void countDoctorList() {
@@ -155,8 +157,9 @@ public class Doctor extends Parson {
 
     /**
      * this methode sort the array list of doctors by their surName
+     *
      * @param doctorArrayList array list of doctors
-     * previous arrayList updated as the sorted arrayList.
+     *                        previous arrayList updated as the sorted arrayList.
      */
     public static void sortDoctorListBySurName(ArrayList<Doctor> doctorArrayList) {
 
@@ -175,11 +178,24 @@ public class Doctor extends Parson {
         System.out.println("Doctors list sorted by surname");
     }
 
+    // when delete a doctor from the system the doctorArrayList will be updated and need to update the doctorArrayList in the file
+
+    public static void saveDoctorListToFileAfterDelete() {
+        try {
+            FileWriter fileWriter = new FileWriter("doctors.txt");
+            Writer output = new BufferedWriter(fileWriter);
+            for (int i = 0; i < doctorArrayList.size(); i++) {
+                output.write(doctorArrayList.get(i).toString() + "\n");
+            }
+            output.close();
+        } catch (Exception e) { // if any missing file or any other error
+            JOptionPane.showMessageDialog(null, "Error in saving this file");
+        }
+    }
+
     /**
      * this methode going to sve the arrayList data in to a file called doctors.txt
-     *
      */
-
     public static void saveDoctorListToFile() {
         try {
             FileWriter fileWriter = new FileWriter("doctors.txt");
@@ -195,21 +211,28 @@ public class Doctor extends Parson {
 
     /**
      * this methode going to read and load the arrayList data from a file called doctors.txt
-     *
      */
+    public static void loadDoctorListFromFile() {
+        try {
+            FileReader fileReader = new FileReader("doctors.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] doctorDetails = line.split(" ");
+                String name = doctorDetails[0];
+                String surname = doctorDetails[1];
+                String dateOfBirth = doctorDetails[2];
+                String contactNumber = doctorDetails[3];
+                String specialization = doctorDetails[4];
+                int licenceNumber = Integer.parseInt(doctorDetails[5]);
+                Doctor doctor = new Doctor(name, surname, dateOfBirth, contactNumber, specialization, licenceNumber);
+                doctorArrayList.add(doctor);
+            }
+            bufferedReader.close();
+        } catch (Exception e) { // if any missing file or any other error
+            JOptionPane.showMessageDialog(null, "Error in loading this file");
+        }
+    }
 
-//    public static void loadDoctorListFromFile() {
-//        try {
-//            FileReader fileReader = new FileReader("doctors.txt");
-//            BufferedReader inputData = new BufferedReader(fileReader);
-//            String line;
-//            while ((line = inputData.readLine()) != null) {
-//                doctorArrayList.add(new Doctor(line));
-//            }
-//            inputData.close();
-//        } catch (Exception e) { // if any missing file or any other error
-//            JOptionPane.showMessageDialog(null, "Error in loading this file");
-//        }
-//    }
 }
 

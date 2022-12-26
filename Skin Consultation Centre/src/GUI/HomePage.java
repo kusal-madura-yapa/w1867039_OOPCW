@@ -3,6 +3,7 @@ package GUI;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class HomePage extends JFrame {
     public HomePage() {
@@ -35,8 +36,6 @@ public class HomePage extends JFrame {
         titleTextLable.setHorizontalAlignment(JLabel.CENTER); // set the horizontal alignment of the text
 
 
-
-
         // JPanel for the buttons
         // create a panel to hold the buttons
         JPanel buttonPanelTop = new JPanel();
@@ -58,7 +57,7 @@ public class HomePage extends JFrame {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(new Color(0x16163B)); // set the background color of the panel
         buttonPanel.setBounds(9, 120, 281, 590); // set the size of the panel
-        buttonPanel.setLayout(new GridLayout(5,1,50,70)); // set the layout of the panel
+        buttonPanel.setLayout(new GridLayout(3, 1, 50, 70)); // set the layout of the panel
 
         // create a notice panel
         JPanel noticePanel = new JPanel();
@@ -71,7 +70,6 @@ public class HomePage extends JFrame {
         noticeLabel.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
         noticeLabel.setForeground(Color.WHITE); // set the color of the text
         noticeLabel.setVisible(true); // set the label to be visible
-
 
 
         // create a notice panel right top
@@ -90,61 +88,71 @@ public class HomePage extends JFrame {
         footerPanel.setBounds(0, 721, 1000, 50); // set the size of the panel
 
 
+//        // buttons
+//        // create a button for enter doctor page
+//        JButton enterDoctorPageButton = new JButton("Go to Doctor Page");
+//        enterDoctorPageButton.setBounds(100, 100, 100, 10); // set the size of the button
+//        enterDoctorPageButton.setBackground(new Color(0xFF814301)); // set the background color of the button
+//        enterDoctorPageButton.setForeground(Color.WHITE); // set the color of the text
+//        enterDoctorPageButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+//        enterDoctorPageButton.setFocusPainted(false); // remove the focus paint
+//        enterDoctorPageButton.setBorder(BorderFactory.createLineBorder(Color.WHITE,10)); // set the border of the button
 
-        // buttons
-        // create a button for enter doctor page
-        JButton enterDoctorPageButton = new JButton("Go to Doctor Page");
-        enterDoctorPageButton.setBounds(100, 100, 100, 10); // set the size of the button
-        enterDoctorPageButton.setBackground(new Color(0xFF814301)); // set the background color of the button
-        enterDoctorPageButton.setForeground(Color.WHITE); // set the color of the text
-        enterDoctorPageButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        enterDoctorPageButton.setFocusPainted(false); // remove the focus paint
-        enterDoctorPageButton.setBorder(BorderFactory.createLineBorder(Color.WHITE,10)); // set the border of the button
-
-        // create a button to open the patient page
-        JButton patientButton = new JButton("Go to Patient Page");
-        patientButton.setBackground(new Color(0xFF814301)); // set the background color of the button
-        patientButton.setForeground(Color.WHITE); // set the color of the text
-        patientButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        patientButton.setBorder(BorderFactory.createLineBorder(Color.WHITE,10)); // set the border of the button
-        patientButton.setFocusPainted(false); // remove the focus paint
-
+//        // create a button to open the patient page
+//        JButton patientButton = new JButton("Go to Patient Page");
+//        patientButton.setBackground(new Color(0xFF814301)); // set the background color of the button
+//        patientButton.setForeground(Color.WHITE); // set the color of the text
+//        patientButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+//        patientButton.setBorder(BorderFactory.createLineBorder(Color.WHITE,10)); // set the border of the button
+//        patientButton.setFocusPainted(false); // remove the focus paint
 
 
         //create a button to SkinCareCenter page
         JButton SkinCareCenterButton = new JButton("Skin Care Center");
-        SkinCareCenterButton.setBackground(new Color(0xFF814301)); // set the background color of the button
+        SkinCareCenterButton.setBackground(new Color(0x5E0393)); // set the background color of the button
         SkinCareCenterButton.setForeground(Color.WHITE); // set the color of the text
         SkinCareCenterButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        SkinCareCenterButton.setBorder(BorderFactory.createLineBorder(Color.WHITE,10)); // set the border of the button
+        SkinCareCenterButton.setBorder(BorderFactory.createLineBorder(Color.WHITE, 10)); // set the border of the button
         SkinCareCenterButton.setFocusPainted(false); // remove the focus paint
+        // add action listener to the button
+        SkinCareCenterButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // create a new frame
+                SkinCareCenter skinCareCenter = new SkinCareCenter();
+            }
+        });
 
 
         // create a button to view the doctor list
         JButton doctorListButton = new JButton("Doctor List");
-        doctorListButton.setBackground(new Color(0xFF814301)); // set the background color of the button
+        doctorListButton.setBackground(new Color(0x5E0393)); // set the background color of the button
         doctorListButton.setForeground(Color.WHITE); // set the color of the text
         doctorListButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        doctorListButton.setBorder(BorderFactory.createLineBorder(Color.WHITE,10)); // set the border of the button
+        doctorListButton.setBorder(BorderFactory.createLineBorder(Color.WHITE, 10)); // set the border of the button
         doctorListButton.setFocusPainted(false); // remove the focus paint
 
 
         // create a button to view the patient list
         JButton patientListButton = new JButton("Patient List");
-        patientListButton.setBackground(new Color(0xFF814301)); // set the background color of the button
+        patientListButton.setBackground(new Color(0x5E0393)); // set the background color of the button
         patientListButton.setForeground(Color.WHITE); // set the color of the text
         patientListButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        patientListButton.setBorder(BorderFactory.createLineBorder(Color.WHITE,10)); // set the border of the button
+        patientListButton.setBorder(BorderFactory.createLineBorder(Color.WHITE, 10)); // set the border of the button
         patientListButton.setFocusPainted(false); // remove the focus paint
 
         // create a button to Exit
         JButton exitButton = new JButton("      Exit      ");
-        exitButton.setBackground(new Color(0xFF814301)); // set the background color of the button
+        exitButton.setBackground(new Color(0x5E0393)); // set the background color of the button
         exitButton.setForeground(Color.WHITE); // set the color of the text
         exitButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text\
-        exitButton.setBorder(BorderFactory.createLineBorder(Color.WHITE,5)); // set the border of the button
+        exitButton.setBorder(BorderFactory.createLineBorder(Color.WHITE, 5)); // set the border of the button
         exitButton.setFocusPainted(false); // remove the focus paint
-
+        // add action listener to the button
+        exitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0); // exit the program
+            }
+        });
 
 
         // IconImage
@@ -179,8 +187,8 @@ public class HomePage extends JFrame {
         titlePanelForText.add(titleTextLable);
 
         // button panel add components
-        buttonPanel.add(enterDoctorPageButton);
-        buttonPanel.add(patientButton);
+//        buttonPanel.add(enterDoctorPageButton);
+//        buttonPanel.add(patientButton);
         buttonPanel.add(SkinCareCenterButton);
         buttonPanel.add(doctorListButton);
         buttonPanel.add(patientListButton);
@@ -201,18 +209,6 @@ public class HomePage extends JFrame {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     // add the about us action listener to the button
     public void actionPerformedForAboutUs() {
         Aboutus aboutus = new Aboutus();
@@ -220,45 +216,8 @@ public class HomePage extends JFrame {
 
     }
 
-    // add the add doctor action listener to the button
-    public void actionPerformedForAddDoctor() {
-        DoctorAdd doctorAdd = new DoctorAdd();
-        this.setVisible(false);
-    }
-
-    // add the patient action listener to the button
-    public void actionPerformedForPatient() {
-        PatientAdd patient = new PatientAdd();
-        this.setVisible(false);
-    }
-
-    // add the view doctor action listener to the button
-    public void actionPerformedForViewDoctor() {
-        VeiwDoctors veiwDoctors = new VeiwDoctors();
-        // hide the home page
-        this.setVisible(false);
-    }
-    // add the view patient action listener to the button
-    public void actionPerformedForViewPatient() {
-        VeiwPatients veiwPatients = new VeiwPatients();
-        this.setVisible(false);
-    }
-
-    // Skin Care Center action listener
-    public void actionPerformedForSkinCareCenter() {
-        SkinCareCenter skinCareCenter = new SkinCareCenter();
-        this.setVisible(false);
-    }
-
-
-    // add the exit action listener to the button
-    public void actionPerformedForExit() {
-        System.exit(0);
-    }
-
-
     // Main method to run the program
     public static void main(String[] args) {
-         new HomePage();
+        new HomePage();
     }
 }
