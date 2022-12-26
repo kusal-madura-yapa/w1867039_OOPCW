@@ -21,8 +21,6 @@ public class Doctor extends Parson {
      * @param name
      * @param surname
      * @param DateOfBirth
-     * @param monthOfBirth
-     * @param yearOfBirth
      * @param contactNumber  get the details of the doctor
      * @param specialization
      * @param licenceNumber

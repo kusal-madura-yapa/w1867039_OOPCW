@@ -1,12 +1,16 @@
 package ConsoleSystem;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 public class Patient extends Parson {
     // patient Unique details
-    private int patientId;
+    private String patientId;
     private String patientAddress;
     private String patientEmail;
     private String patientGender;
+
 
     // array list to store patients
     public static ArrayList<Patient> patientArrayList = new ArrayList<Patient>();
@@ -24,7 +28,7 @@ public class Patient extends Parson {
      * @param patientEmail
      * @param patientGender
      */
-    public Patient(String name, String surname, String DateOfBirth, String contactNumber, int patientId, String patientAddress, String patientEmail, String patientGender) {
+    public Patient(String name, String surname, String DateOfBirth, String contactNumber, String patientId, String patientAddress, String patientEmail, String patientGender) {
         super(name, surname, DateOfBirth, contactNumber);
         this.patientId = patientId;
         this.patientAddress = patientAddress;
@@ -36,7 +40,7 @@ public class Patient extends Parson {
     /**
      * @return the patientId
      */
-    public int getPatientId() {
+    public String  getPatientId() {
         return patientId;
     }
     /**
@@ -60,7 +64,7 @@ public class Patient extends Parson {
      * @param patientId the patientId to set
      */
 
-    public void setPatientId(int patientId) {
+    public void setPatientId(String  patientId) {
         this.patientId = patientId;}
 
     /**
@@ -79,4 +83,63 @@ public class Patient extends Parson {
     public void setPatientGender(String patientGender) {
         this.patientGender = patientGender;}
 
+
+    /**
+     * @param patientId the patientId to set
+     * @param name
+     * @param surname
+     * @param DateOfBirth
+     * @param contactNumber
+     * @param patientId
+     * @param patientAddress
+     * @param patientEmail
+     * @param patientGender
+     */
+    // method to add patient details
+    public static void addPatientObject(String name, String surname, String DateOfBirth, String contactNumber, String  patientId, String patientAddress, String patientEmail, String patientGender) {
+        Patient patient = new Patient(name, surname, DateOfBirth, contactNumber, patientId, patientAddress, patientEmail, patientGender);
+        patientArrayList.add(patient);
+    }
+
+
+    // to String method to print patient details
+    /**
+     * @return the details stored in the array list
+     */
+    @Override
+    public String toString() {
+        System.out.println("Patient Details");
+        return getName() + " " + getSurname() + " " + getDateOfBirth() + " " + getContactNumber() + " " + getPatientId() + " " + getPatientAddress() + " " + getPatientEmail() + " " + getPatientGender();
+    }
+    /**
+     *
+     * @return the patient details print in the console
+     */
+    // method to display patient details
+    public static void displayPatientDetails() {
+        for (Patient patient : patientArrayList) {
+            System.out.println(patient.toString());
+        }
+
+    }
+
+    // method to save the patent details to a file
+    /**
+     *
+     * handel the persorn data store in to the patient file
+     * @throws IOException
+     */
+    public static void savePatientDetails() {
+        try {
+            FileWriter fileWriter = new FileWriter("PatientDetails.txt");
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            for (Patient patient : patientArrayList) {
+                bufferedWriter.write(patient.toString());
+                bufferedWriter.newLine();
+            }
+            bufferedWriter.close();
+        } catch (IOException e) {
+            System.out.println("Error writing to file");
+        }
+    }
 }
