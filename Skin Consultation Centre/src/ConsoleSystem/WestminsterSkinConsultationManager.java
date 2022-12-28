@@ -1,5 +1,10 @@
 package ConsoleSystem;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class WestminsterSkinConsultationManager implements SkinConsultationManager {
@@ -17,6 +22,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
 
     @Override
     public void consoleMenu() {
+
         System.out.println("===============================================================\n" +
                 "Welcome to Westminster Skin Consultation Manager\n" +
                 "===============================================================\n" +
@@ -60,7 +66,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
                 consoleMenu();
                 break;
             case "DL":
-                Doctor.loadDoctorListFromFile();
+//                Doctor.loadDoctorListFromFile();
                 consoleMenu();
                 break;
             case "DO":
@@ -105,8 +111,6 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
 //                consoleMenu();
 //                break;
             case "E":
-                Doctor.sortDoctorListBySurName(Doctor.doctorArrayList);
-                Doctor.saveDoctorListToFile();
                 Patient.savePatientDetails();
                 System.out.println("Thank you for using Westminster Skin Consultation Manager");
                 System.exit(0);
@@ -148,10 +152,12 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
                     boolcatch = true;
                 } catch (Exception e) {
                     System.out.println("Invalid input");
+                    break;
                 }
             } while (!boolcatch);
         } else {
             System.out.println("Doctor list is full");
+
         }
         consoleMenu();
 
@@ -255,14 +261,13 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
             } else {
                 System.out.println("Consultation not deleted");
             }
-
             consoleMenu();
-
         } catch (Exception e) {
             System.out.println("Invalid input");
         }
         consoleMenu();
     }
+
 
 }
 

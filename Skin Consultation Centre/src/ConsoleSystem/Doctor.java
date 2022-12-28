@@ -3,6 +3,8 @@ package ConsoleSystem;
 import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Doctor extends Parson {
@@ -209,30 +211,7 @@ public class Doctor extends Parson {
         }
     }
 
-    /**
-     * this methode going to read and load the arrayList data from a file called doctors.txt
-     */
-    public static void loadDoctorListFromFile() {
-        try {
-            FileReader fileReader = new FileReader("doctors.txt");
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] doctorDetails = line.split(" ");
-                String name = doctorDetails[0];
-                String surname = doctorDetails[1];
-                String dateOfBirth = doctorDetails[2];
-                String contactNumber = doctorDetails[3];
-                String specialization = doctorDetails[4];
-                int licenceNumber = Integer.parseInt(doctorDetails[5]);
-                Doctor doctor = new Doctor(name, surname, dateOfBirth, contactNumber, specialization, licenceNumber);
-                doctorArrayList.add(doctor);
-            }
-            bufferedReader.close();
-        } catch (Exception e) { // if any missing file or any other error
-            JOptionPane.showMessageDialog(null, "Error in loading this file");
-        }
-    }
+
 
 }
 

@@ -1,12 +1,16 @@
 package GUI;
 
+import ConsoleSystem.Doctor;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class HomePage extends JFrame {
+
     public HomePage() {
+
 
         // JPanel for title icon image
         JPanel titlePanelForImage = new JPanel();
@@ -65,11 +69,11 @@ public class HomePage extends JFrame {
         noticePanel.setBounds(300, 110, 550, 610); // set the size of the panel
 
 
-        // create a notice label to display the notice
-        JLabel noticeLabel = new JLabel("Notice: This is a notice");
-        noticeLabel.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        noticeLabel.setForeground(Color.WHITE); // set the color of the text
-        noticeLabel.setVisible(true); // set the label to be visible
+//        // create a notice label to display the notice
+//        JLabel noticeLabel = new JLabel("Notice: This is a notice");
+//        noticeLabel.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+//        noticeLabel.setForeground(Color.WHITE); // set the color of the text
+//        noticeLabel.setVisible(true); // set the label to be visible
 
 
         // create a notice panel right top
@@ -86,6 +90,14 @@ public class HomePage extends JFrame {
         JPanel footerPanel = new JPanel();
         footerPanel.setBackground(new Color(0x262628)); // set the background color of the panel
         footerPanel.setBounds(0, 721, 1000, 50); // set the size of the panel
+
+
+        // create a text field to display note in notice panel
+        JTextField noticeText = new JTextField("This is a notice");
+        noticeText.setPreferredSize(new Dimension(500, 500));
+        noticeText.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        noticeText.setForeground(Color.WHITE); // set the color of the text
+        noticeText.setVisible(true); // set the label to be visible
 
 
 //        // buttons
@@ -119,6 +131,8 @@ public class HomePage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // create a new frame
                 SkinCareCenter skinCareCenter = new SkinCareCenter();
+
+
             }
         });
 
@@ -130,6 +144,13 @@ public class HomePage extends JFrame {
         doctorListButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
         doctorListButton.setBorder(BorderFactory.createLineBorder(Color.WHITE, 10)); // set the border of the button
         doctorListButton.setFocusPainted(false); // remove the focus paint
+        // add action listener to the button
+        doctorListButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // create a new frame
+                ViewDoctors doctorList = new ViewDoctors();
+            }
+        });
 
 
         // create a button to view the patient list
@@ -139,6 +160,13 @@ public class HomePage extends JFrame {
         patientListButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
         patientListButton.setBorder(BorderFactory.createLineBorder(Color.WHITE, 10)); // set the border of the button
         patientListButton.setFocusPainted(false); // remove the focus paint
+        // add action listener to the button
+        patientListButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // create a new frame
+                ViewPatients patientList = new ViewPatients();
+            }
+        });
 
         // create a button to Exit
         JButton exitButton = new JButton("      Exit      ");
@@ -195,7 +223,7 @@ public class HomePage extends JFrame {
 
 
         // notice panel add components
-        noticePanel.add(noticeLabel);
+//        noticePanel.add(noticeLabel);
 
 
         //notice panel right add components
