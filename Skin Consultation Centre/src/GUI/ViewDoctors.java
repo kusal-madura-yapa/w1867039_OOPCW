@@ -12,6 +12,7 @@ public class ViewDoctors {
 
     ViewDoctors() {
 
+        Doctor.loadDoctorListFromFile();
 
         JTable table = new JTable();
         Object[] columns = {"Firstname ", "Surname ", "DateOfBirth", "Contact Number", "Specialization", "License Number"};

@@ -63,36 +63,29 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         switch (consoleCommand) {
             case "DA":
                 addDoctor();
-                consoleMenu();
                 break;
             case "DL":
-//                Doctor.loadDoctorListFromFile();
-                consoleMenu();
+                Doctor.loadDoctorListFromFile();
                 break;
             case "DO":
                 Doctor.sortDoctorListBySurName(Doctor.doctorArrayList);
-                consoleMenu();
             case "DP":
                 Doctor.printDoctorList();
-                consoleMenu();
                 break;
             case "DF": // in find include the delete option also
                 findDoctor();
-                consoleMenu();
                 break;
             case "DS":
+                Doctor.loadDoctorListFromFile();
                 Doctor.saveDoctorListToFile();
-                consoleMenu();
                 break;
 
             case "CA":
                 addConsultation();
-                consoleMenu();
                 break;
 
             case "CD":
                 deleteConsultation();
-                consoleMenu();
                 break;
 
 //            case "PL":
@@ -118,7 +111,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
                 System.out.println("Please enter a valid letter");
                 consoleMenu();
                 break;
-        }
+        }consoleMenu();
     }
 
 

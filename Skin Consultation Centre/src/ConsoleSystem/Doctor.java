@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Doctor extends Parson {
+public class Doctor extends Parson implements Serializable {
 
     // Doctor unique attributes (specialization, licence number)
     private String specialization;
@@ -211,6 +211,27 @@ public class Doctor extends Parson {
         }
     }
 
+    /**
+     * this methode going to load the arrayList data from a file called doctors.txt
+     */
+
+    public static void loadDoctorListFromFile()  {
+
+        try {
+            FileReader fileReader = new FileReader("doctors.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] doctorDetails = line.split(" ");
+                Doctor.addDoctorObject(doctorDetails[0], doctorDetails[1], doctorDetails[2], doctorDetails[3], doctorDetails[4], Integer.parseInt(doctorDetails[5]));
+
+            }
+            bufferedReader.close();
+        } catch (Exception e) { // if any missing file or any other error
+            System.out.println("Error in loading this file");
+
+        }
+    }
 
 
 }
