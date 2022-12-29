@@ -70,7 +70,7 @@ public class ViewPatients {
 
         // get the data in patient array list and add to the table
         Patient.patientArrayList.forEach(patient -> {
-            Object[] row = new Object[7];
+            Object[] row = new Object[8];
             row[0] = patient.getName();
             row[1] = patient.getSurname();
             row[2] = patient.getDateOfBirth();

@@ -98,6 +98,7 @@ public class Patient extends Parson {
     public static void addPatientObject(String name, String surname, String DateOfBirth, String contactNumber, String  patientId, String patientAddress, String patientEmail, String patientGender) {
         Patient patient = new Patient(name, surname, DateOfBirth, contactNumber, patientId, patientAddress, patientEmail, patientGender);
         patientArrayList.add(patient);
+        System.out.println("Patient added successfully");
     }
 
 

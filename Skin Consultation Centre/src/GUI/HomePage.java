@@ -73,7 +73,6 @@ public class HomePage extends JFrame {
         // create a notice label to display the notice
 
 
-
         JLabel noticeLabel = new JLabel("Notice: in this version, the system can view Doctors. "); // create a label to display the text
         noticeLabel.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
         noticeLabel.setForeground(Color.WHITE); // set the color of the text
@@ -97,7 +96,6 @@ public class HomePage extends JFrame {
         JLabel noticeLabel5 = new JLabel("Notice: in this version, the system can view Doctors. "); // create a label to display the text
         noticeLabel5.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
         noticeLabel5.setForeground(Color.WHITE); // set the color of the text
-
 
 
         // create a notice panel right top
@@ -147,7 +145,7 @@ public class HomePage extends JFrame {
         aboutUsButton.setBackground(new Color(0x5E0393)); // set the background color of the button
         aboutUsButton.setForeground(Color.WHITE); // set the color of the text
         aboutUsButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        aboutUsButton.setBorder(BorderFactory.createLineBorder(Color.WHITE,10)); // set the border of the button
+        aboutUsButton.setBorder(BorderFactory.createLineBorder(Color.WHITE, 10)); // set the border of the button
         aboutUsButton.setFocusPainted(false); // remove the focus paint
 
         // add the about us action listener to the button
@@ -156,7 +154,6 @@ public class HomePage extends JFrame {
                 // create a new frame
                 new Aboutus();
                 frame.setVisible(false);
-
             }
         });
         //
@@ -173,13 +170,11 @@ public class HomePage extends JFrame {
         SkinCareCenterButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // create a new frame
-                SkinCareCenter skinCareCenter = new SkinCareCenter();
+                new SkinCareCenter();
                 frame.setVisible(false);
 
             }
         });
-
-
         // create a button to view the doctor list
         JButton doctorListButton = new JButton("Doctor List");
         doctorListButton.setBackground(new Color(0x5E0393)); // set the background color of the button
@@ -191,13 +186,11 @@ public class HomePage extends JFrame {
         doctorListButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // create a new frame
-                ViewDoctors doctorList = new ViewDoctors();
+                new ViewDoctors();
                 frame.setVisible(false);
 
             }
         });
-
-
         // create a button to view the patient list
         JButton patientListButton = new JButton("Patient List");
         patientListButton.setBackground(new Color(0x5E0393)); // set the background color of the button
@@ -276,7 +269,6 @@ public class HomePage extends JFrame {
         noticePanel.add(noticeLabel4);
         noticePanel.add(noticeLabel5);
         noticePanel.add(aboutUsButton);
-
 
 
         //notice panel right add components

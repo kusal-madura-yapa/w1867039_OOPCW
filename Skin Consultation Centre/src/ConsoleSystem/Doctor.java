@@ -81,7 +81,6 @@ public class Doctor extends Parson implements Serializable {
     public static void addDoctorObject(String name, String surname, String DateOfBirth, String contactNumber, String specialization, int licenceNumber) {
         Doctor doctor = new Doctor(name, surname, DateOfBirth, contactNumber, specialization, licenceNumber);
         doctorArrayList.add(doctor);
-        System.out.println("Doctor added successfully");
 
     }
 
