@@ -2,11 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dea1f6d7-4264-4f24-aa45-b6f9609dfcad" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PatientDetails.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PatientDetails.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doctors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/doctors.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/WestminsterSkinConsultationManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/WestminsterSkinConsultationManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ConsoleSystem/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleSystem/Doctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConsoleSystem/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleSystem/Patient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ConsoleSystem/WestminsterSkinConsultationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleSystem/WestminsterSkinConsultationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ViewDoctors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ViewDoctors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ViewPatients.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ViewPatients.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +56,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm"
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "configurable.group.appearance"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -178,7 +190,9 @@
       <workItem from="1671900487885" duration="4320000" />
       <workItem from="1671905014862" duration="6266000" />
       <workItem from="1672052719270" duration="12725000" />
-      <workItem from="1672210510779" duration="20909000" />
+      <workItem from="1672210510779" duration="21297000" />
+      <workItem from="1672291708566" duration="682000" />
+      <workItem from="1672292925218" duration="9227000" />
     </task>
     <servers />
   </component>

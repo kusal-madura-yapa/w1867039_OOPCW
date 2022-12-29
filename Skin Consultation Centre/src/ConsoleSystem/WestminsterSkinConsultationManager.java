@@ -22,7 +22,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
 
     @Override
     public void consoleMenu() {
-
+        Doctor.loadDoctorListFromFile();
         System.out.println("===============================================================\n" +
                 "Welcome to Westminster Skin Consultation Manager\n" +
                 "===============================================================\n" +

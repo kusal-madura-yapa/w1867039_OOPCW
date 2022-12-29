@@ -11,6 +11,7 @@ public class HomePage extends JFrame {
 
     public HomePage() {
 
+        JFrame frame = new JFrame("Welcome Westminster Center for Skin.");
 
         // JPanel for title icon image
         JPanel titlePanelForImage = new JPanel();
@@ -69,11 +70,34 @@ public class HomePage extends JFrame {
         noticePanel.setBounds(300, 110, 550, 610); // set the size of the panel
 
 
-//        // create a notice label to display the notice
-//        JLabel noticeLabel = new JLabel("Notice: This is a notice");
-//        noticeLabel.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-//        noticeLabel.setForeground(Color.WHITE); // set the color of the text
-//        noticeLabel.setVisible(true); // set the label to be visible
+        // create a notice label to display the notice
+
+
+
+        JLabel noticeLabel = new JLabel("Notice: in this version, the system can view Doctors. "); // create a label to display the text
+        noticeLabel.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        noticeLabel.setForeground(Color.WHITE); // set the color of the text
+
+        JLabel noticeLabel1 = new JLabel("Notice: in this version, the system can view Doctors. "); // create a label to display the text
+        noticeLabel1.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        noticeLabel1.setForeground(Color.WHITE); // set the color of the text
+
+        JLabel noticeLabel2 = new JLabel("Notice: in this version, the system can view Doctors. "); // create a label to display the text
+        noticeLabel2.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        noticeLabel2.setForeground(Color.WHITE); // set the color of the text
+
+        JLabel noticeLabel3 = new JLabel("Notice: in this version, the system can view Doctors. "); // create a label to display the text
+        noticeLabel3.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        noticeLabel3.setForeground(Color.WHITE); // set the color of the text
+
+        JLabel noticeLabel4 = new JLabel("Notice: in this version, the system can view Doctors. "); // create a label to display the text
+        noticeLabel4.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        noticeLabel4.setForeground(Color.WHITE); // set the color of the text
+
+        JLabel noticeLabel5 = new JLabel("Notice: in this version, the system can view Doctors. "); // create a label to display the text
+        noticeLabel5.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        noticeLabel5.setForeground(Color.WHITE); // set the color of the text
+
 
 
         // create a notice panel right top
@@ -118,6 +142,25 @@ public class HomePage extends JFrame {
 //        patientButton.setBorder(BorderFactory.createLineBorder(Color.WHITE,10)); // set the border of the button
 //        patientButton.setFocusPainted(false); // remove the focus paint
 
+        // create a button to open the AboutUs page
+        JButton aboutUsButton = new JButton("   About Us   ");
+        aboutUsButton.setBackground(new Color(0x5E0393)); // set the background color of the button
+        aboutUsButton.setForeground(Color.WHITE); // set the color of the text
+        aboutUsButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        aboutUsButton.setBorder(BorderFactory.createLineBorder(Color.WHITE,10)); // set the border of the button
+        aboutUsButton.setFocusPainted(false); // remove the focus paint
+
+        // add the about us action listener to the button
+        aboutUsButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // create a new frame
+                new Aboutus();
+                frame.setVisible(false);
+
+            }
+        });
+        //
+
 
         //create a button to SkinCareCenter page
         JButton SkinCareCenterButton = new JButton("Skin Care Center");
@@ -131,7 +174,7 @@ public class HomePage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // create a new frame
                 SkinCareCenter skinCareCenter = new SkinCareCenter();
-
+                frame.setVisible(false);
 
             }
         });
@@ -149,6 +192,8 @@ public class HomePage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // create a new frame
                 ViewDoctors doctorList = new ViewDoctors();
+                frame.setVisible(false);
+
             }
         });
 
@@ -165,6 +210,7 @@ public class HomePage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // create a new frame
                 ViewPatients patientList = new ViewPatients();
+                frame.setVisible(false);
             }
         });
 
@@ -187,7 +233,7 @@ public class HomePage extends JFrame {
         ImageIcon imageIcon = new ImageIcon("src\\GUI\\Image\\icon.png");
 
         // Create a new JFrame container.
-        JFrame frame = new JFrame("Welcome Westminster Center for Skin.");
+
         // normal creat frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1000, 800);
@@ -223,7 +269,14 @@ public class HomePage extends JFrame {
 
 
         // notice panel add components
-//        noticePanel.add(noticeLabel);
+        noticePanel.add(noticeLabel);
+        noticePanel.add(noticeLabel1);
+        noticePanel.add(noticeLabel2);
+        noticePanel.add(noticeLabel3);
+        noticePanel.add(noticeLabel4);
+        noticePanel.add(noticeLabel5);
+        noticePanel.add(aboutUsButton);
+
 
 
         //notice panel right add components
@@ -233,14 +286,6 @@ public class HomePage extends JFrame {
 
         // Frame visible
         frame.setVisible(true);
-
-    }
-
-
-    // add the about us action listener to the button
-    public void actionPerformedForAboutUs() {
-        Aboutus aboutus = new Aboutus();
-        this.setVisible(false);
 
     }
 

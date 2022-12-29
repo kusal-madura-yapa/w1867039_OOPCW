@@ -132,14 +132,13 @@ public class Patient extends Parson {
     public static void savePatientDetails() {
         try {
             FileWriter fileWriter = new FileWriter("PatientDetails.txt");
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            for (Patient patient : patientArrayList) {
-                bufferedWriter.write(patient.toString());
-                bufferedWriter.newLine();
+            Writer output = new BufferedWriter(fileWriter);
+            for (int i = 0; i < patientArrayList.size(); i++) {
+                output.write(patientArrayList.get(i).toString() + "\n");
             }
-            bufferedWriter.close();
-        } catch (IOException e) {
-            System.out.println("Error writing to file");
+            output.close();
+        } catch (Exception e) { // if any missing file or any other error
+            JOptionPane.showMessageDialog(null, "Error in saving this file");
         }
     }
 
@@ -147,26 +146,18 @@ public class Patient extends Parson {
 
     public static void loadPatientListFromFile() {
         try {
-            FileReader fileReader = new FileReader("Patient.txt");
+            FileReader fileReader = new FileReader("PatientDetails.txt");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] patientDetails = line.split(" ");
-                String name = patientDetails[0];
-                String surname = patientDetails[1];
-                String DateOfBirth = patientDetails[2];
-                String contactNumber = patientDetails[3];
-                String patientId = patientDetails[4];
-                String patientAddress = patientDetails[5];
-                String patientEmail = patientDetails[6];
-                String patientGender = patientDetails[7];
+                Patient.addPatientObject(patientDetails[0], patientDetails[1], patientDetails[2], patientDetails[3], patientDetails[4], patientDetails[5], patientDetails[6], patientDetails[7]);
 
-                Patient patient = new Patient(name, surname, DateOfBirth, contactNumber, patientId, patientAddress, patientEmail, patientGender);
-                patientArrayList.add(patient);
             }
             bufferedReader.close();
         } catch (Exception e) { // if any missing file or any other error
-            JOptionPane.showMessageDialog(null, "Error in loading this file");
+            System.out.println("Error in loading this file");
+
         }
     }
 }

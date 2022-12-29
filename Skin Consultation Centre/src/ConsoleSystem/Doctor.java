@@ -224,7 +224,6 @@ public class Doctor extends Parson implements Serializable {
             while ((line = bufferedReader.readLine()) != null) {
                 String[] doctorDetails = line.split(" ");
                 Doctor.addDoctorObject(doctorDetails[0], doctorDetails[1], doctorDetails[2], doctorDetails[3], doctorDetails[4], Integer.parseInt(doctorDetails[5]));
-
             }
             bufferedReader.close();
         } catch (Exception e) { // if any missing file or any other error
