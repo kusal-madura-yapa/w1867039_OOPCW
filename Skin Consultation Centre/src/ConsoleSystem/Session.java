@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class Session {
 
-    private static String sessionID;
+    private  String sessionID;
     private int licenceNumber;
     private int sessionDuration;
     private Date sessionDateTime;

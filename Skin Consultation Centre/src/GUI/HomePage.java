@@ -124,7 +124,7 @@ public class HomePage extends JFrame implements ActionListener {
 
         // buttons
         // create a button for enter doctor page
-        JButton AddSessionButton = new JButton("Add Doctor Session");
+        JButton AddSessionButton = new JButton("Add OR Remove Session");
         AddSessionButton.setBackground(new Color(0x5E0393)); // set the background color of the button
         AddSessionButton.setForeground(Color.WHITE); // set the color of the text
         AddSessionButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text

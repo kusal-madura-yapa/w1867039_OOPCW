@@ -1,5 +1,7 @@
 package GUI;
 
+
+
 import ConsoleSystem.Doctor;
 import ConsoleSystem.Session;
 
@@ -12,8 +14,8 @@ import java.util.Date;
 
 import static java.lang.Integer.parseInt;
 
-public class AddSession extends JFrame {
-    AddSession(){
+public class RemoveSession extends JFrame {
+    RemoveSession(){
         JFrame frame = new JFrame("Westminster Center Add Session");
         // load the data from the file
         Session.loadSessionFromFile();
@@ -26,29 +28,7 @@ public class AddSession extends JFrame {
         panelTopLeft1.setVisible(true);// set the visibility of the panel
         panelTopLeft1.setLayout(new GridLayout(1, 2, 10, 10)); // set the layout of the panel
 
-        // panel top left  2
-        JPanel panelTopLeft2 = new JPanel(); // Licence Number
-        panelTopLeft2.setBounds(0, 70, 800, 40); // set the size of the panel
-        panelTopLeft2.setBackground(new Color(0x212121));// set the background color of the panel
-        panelTopLeft2.setLayout(null);// set the layout of the panel
-        panelTopLeft2.setVisible(true);// set the visibility of the panel
-        panelTopLeft2.setLayout(new GridLayout(1, 2, 10, 10)); // set the layout of the panel
 
-        // panel top left  3
-        JPanel panelTopLeft3 = new JPanel(); // Session Date and Time
-        panelTopLeft3.setBounds(0, 130, 800, 40); // set the size of the panel
-        panelTopLeft3.setBackground(new Color(0x212121));// set the background color of the panel
-        panelTopLeft3.setLayout(null);// set the layout of the panel
-        panelTopLeft3.setVisible(true);// set the visibility of the panel
-        panelTopLeft3.setLayout(new GridLayout(1, 2, 10, 10)); // set the layout of the panel
-
-        // panel top left  4
-        JPanel panelTopLeft4 = new JPanel(); // Max Patients
-        panelTopLeft4.setBounds(0, 190, 800, 40); // set the size of the panel
-        panelTopLeft4.setBackground(new Color(0x212121));// set the background color of the panel
-        panelTopLeft4.setLayout(null);// set the layout of the panel
-        panelTopLeft4.setVisible(true);// set the visibility of the panel
-        panelTopLeft4.setLayout(new GridLayout(1, 2, 10, 10)); // set the layout of the panel
 
         // panel top left  5
         JPanel panelForTableOfSesssion = new JPanel();  // patient address
@@ -77,32 +57,14 @@ public class AddSession extends JFrame {
 
 
         // Labels for the panel top left
-        JLabel labelTopLeft1 = new JLabel(" * Session ID: ");
+        JLabel labelTopLeft1 = new JLabel(" * Enter Session ID to remove : ");
         labelTopLeft1.setBounds(0, 0, 250, 30); // set the size of the label
         labelTopLeft1.setForeground(Color.WHITE); // set the color of the text
         labelTopLeft1.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
         labelTopLeft1.setHorizontalAlignment(JLabel.LEFT); // set the alignment of the text
         labelTopLeft1.setVisible(true); // set the visibility of the label
 
-        JLabel labelTopLeft2 = new JLabel(" * Licence Number: ");
-        labelTopLeft2.setBounds(0, 0, 300, 30); // set the size of the label
-        labelTopLeft2.setForeground(Color.WHITE); // set the color of the text
-        labelTopLeft2.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        labelTopLeft2.setHorizontalAlignment(JLabel.LEFT); // set the alignment of the text
-        labelTopLeft2.setVisible(true); // set the visibility of the label
 
-        JLabel labelTopLeft3 = new JLabel(" * Date and Time dd/MM/yyyy/HH:mm : ");
-        labelTopLeft3.setBounds(0, 0, 300, 30); // set the size of the label
-        labelTopLeft3.setForeground(Color.WHITE); // set the color of the text
-        labelTopLeft3.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        labelTopLeft3.setHorizontalAlignment(JLabel.LEFT); // set the alignment of the text
-        labelTopLeft3.setVisible(true); // set the visibility of the label
-
-        JLabel labelTopLeft4 = new JLabel(" * Maximum Patients: ");
-        labelTopLeft4.setBounds(0, 0, 300, 30); // set the size of the label
-        labelTopLeft4.setForeground(Color.WHITE); // set the color of the text
-        labelTopLeft4.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        labelTopLeft4.setHorizontalAlignment(JLabel.LEFT); // set the alignment of the text
 
 
 
@@ -112,25 +74,6 @@ public class AddSession extends JFrame {
         textFieldTopLeft1.setFont(new Font("Arial", Font.PLAIN, 20)); // set the font of the text field
         textFieldTopLeft1.setVisible(true); // set the visibility of the text field
         textFieldTopLeft1.setBackground(new Color(0xA6A0A8)); // set the background color of the text field
-
-
-        JTextField textFieldTopLeft2 = new JTextField(); // patient surname
-        textFieldTopLeft2.setPreferredSize(new Dimension(600, 50)); // set the size of the text field
-        textFieldTopLeft2.setFont(new Font("Arial", Font.PLAIN, 20)); // set the font of the text field
-        textFieldTopLeft2.setVisible(true); // set the visibility of the text field
-        textFieldTopLeft2.setBackground(new Color(0xA6A0A8)); // set the background color of the text field
-
-        JTextField textFieldTopLeft3 = new JTextField(); // patient ID
-        textFieldTopLeft3.setPreferredSize(new Dimension(600, 50)); // set the size of the text field
-        textFieldTopLeft3.setFont(new Font("Arial", Font.PLAIN, 20)); // set the font of the text field
-        textFieldTopLeft3.setVisible(true); // set the visibility of the text field
-        textFieldTopLeft3.setBackground(new Color(0xA6A0A8)); // set the background color of the text field
-
-        JTextField textFieldTopLeft4 = new JTextField(); // patient contact number
-        textFieldTopLeft4.setPreferredSize(new Dimension(600, 50)); // set the size of the text field
-        textFieldTopLeft4.setFont(new Font("Arial", Font.PLAIN, 20)); // set the font of the text field
-        textFieldTopLeft4.setVisible(true); // set the visibility of the text field
-        textFieldTopLeft4.setBackground(new Color(0xA6A0A8)); // set the background color of the text field
 
 
         // create a panel for the bottom of the frame
@@ -151,10 +94,9 @@ public class AddSession extends JFrame {
             frame.dispose();
             new HomePage();
         });
-
         // Add the session
-        JButton btnAddDataSession = new JButton(" Add Session ");
-        btnAddDataSession.setBounds(550, 10, 180, 30);
+        JButton btnAddDataSession = new JButton(" Remove Session ");
+        btnAddDataSession.setBounds(750, 10, 220, 30);
         btnAddDataSession.setBackground(new Color(0x5E0393));
         btnAddDataSession.setForeground(new Color(0xFFFFFF));
         btnAddDataSession.setFont(new Font("Serif", Font.BOLD, 20));
@@ -163,32 +105,17 @@ public class AddSession extends JFrame {
         btnAddDataSession.addActionListener(e -> {
             // get the data from the text field
             String sessionID = textFieldTopLeft1.getText();
-            int licenceNumber = parseInt(textFieldTopLeft2.getText());
-            Date sessionDateAndTime;
-            try {
-                sessionDateAndTime = new SimpleDateFormat("dd/MM/yyyy").parse(textFieldTopLeft3.getText());
-            } catch (ParseException ex) {
-                throw new RuntimeException(ex);
-            }
-            int maxPatient = parseInt(textFieldTopLeft4.getText());
-            Doctor.loadDoctorListFromFile();
-            Session.addSessionObject(sessionID, licenceNumber, sessionDateAndTime, maxPatient);
-            Session.saveSessionIntoFile();
-            JOptionPane.showMessageDialog(null, "Session added successfully");
-            frame.dispose();
-            new AddSession();
-        });
 
-        // remove the session button
-        JButton btnRemoveDataSession = new JButton(" Remove Page ");
-        btnRemoveDataSession.setBounds(790, 10, 180, 30);
-        btnRemoveDataSession.setBackground(new Color(0x5E0393));
-        btnRemoveDataSession.setForeground(new Color(0xFFFFFF));
-        btnRemoveDataSession.setFont(new Font("Serif", Font.BOLD, 20));
-        btnRemoveDataSession.setFocusPainted(false);
-        btnRemoveDataSession.setVisible(true);
-        btnRemoveDataSession.addActionListener(e -> {
-            // get the data from the text field
+            // find and remove the session
+
+            for (int i = 0; i < Session.sessionList.size(); i++) {
+                if (Session.sessionList.get(i).getSessionID().equals(sessionID)) {
+                    Session.sessionList.remove(i);
+                    Session.saveSessionIntoFile();
+                    break;
+                }
+            }
+
             frame.dispose();
             new RemoveSession();
         });
@@ -235,35 +162,25 @@ public class AddSession extends JFrame {
 
         // add the panel to the frame
         frame.add(panelTopLeft1);
-        frame.add(panelTopLeft2);
-        frame.add(panelTopLeft3);
-        frame.add(panelTopLeft4);
         frame.add(panelForTableOfSesssion);
         frame.add(panelBottom);
 
 
         // add the label to the panel
         panelTopLeft1.add(labelTopLeft1);
-        panelTopLeft2.add(labelTopLeft2);
-        panelTopLeft3.add(labelTopLeft3);
-        panelTopLeft4.add(labelTopLeft4);
+
 
         // add the text field to the panel
         panelTopLeft1.add(textFieldTopLeft1);
-        panelTopLeft2.add(textFieldTopLeft2);
-        panelTopLeft3.add(textFieldTopLeft3);
-        panelTopLeft4.add(textFieldTopLeft4);
+
 
         // add the button to the panel
         panelBottom.add(btnBack);
         panelBottom.add(btnAddDataSession);
-        panelBottom.add(btnRemoveDataSession);
 
 
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
-        new AddSession();
-    }
 }
+
