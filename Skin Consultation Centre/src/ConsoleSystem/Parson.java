@@ -9,7 +9,7 @@ public  class  Parson {
     private  String name;
     private String surname;
 
-    Date dateOfBirth = new Date();
+    Date dateOfBirth ;
 
 
 //    SimpleDateFormat formatterOfDate = new SimpleDateFormat("dd/MM/yyyy");\

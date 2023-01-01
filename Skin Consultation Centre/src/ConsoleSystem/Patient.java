@@ -101,7 +101,6 @@ public class Patient extends Parson {
     public static void addPatientObject(String name, String surname, Date DateOfBirth, String contactNumber, String  patientId, String patientAddress, String patientEmail, String patientGender) {
         Patient patient = new Patient(name, surname, DateOfBirth, contactNumber, patientId, patientAddress, patientEmail, patientGender);
         patientArrayList.add(patient);
-        System.out.println("Patient added successfully");
     }
 
 
@@ -111,7 +110,6 @@ public class Patient extends Parson {
      */
     @Override
     public String toString() {
-        System.out.println("Patient Details");
         return getName() + "," + getSurname() + "," + getDateOfBirth() + "," + getContactNumber() + "," + getPatientId() + "," + getPatientAddress() + "," + getPatientEmail() + "," + getPatientGender();
     }
     /**
@@ -134,9 +132,13 @@ public class Patient extends Parson {
      * @return the patient details save in the file
      */
     public static void savePatientDetails() {
+
         try {
             FileWriter fileWriter = new FileWriter("PatientDetails.txt");
             Writer output = new BufferedWriter(fileWriter);
+
+            //FILE CLERAING
+            output.write("");
             for (int i = 0; i < patientArrayList.size(); i++) {
                 output.write(patientArrayList.get(i).toString() + "\n");
             }
@@ -153,8 +155,11 @@ public class Patient extends Parson {
             FileReader fileReader = new FileReader("PatientDetails.txt");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
+            // ARRAY LIST EMPTY PATIENT DETAILS
+            patientArrayList.clear();
+            // read the file line by line
             while ((line = bufferedReader.readLine()) != null) {
-                String[] patientDetails = line.split(" ");
+                String[] patientDetails = line.split(",");
 //                Date dateOfBirth = new SimpleDateFormat("dd/MM/yyyy").parse(patientDetails[2]);
                 Patient.addPatientObject(patientDetails[0], patientDetails[1],null, patientDetails[3], patientDetails[4], patientDetails[5], patientDetails[6], patientDetails[7]);
             }

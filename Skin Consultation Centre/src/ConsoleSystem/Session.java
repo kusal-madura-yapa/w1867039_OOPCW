@@ -7,9 +7,8 @@ import java.util.Date;
 
 public class Session {
 
-    private  String sessionID;
+    private String sessionID;
     private int licenceNumber;
-    private int sessionDuration;
     private Date sessionDateTime;
     private int maxPatients;
 
@@ -55,13 +54,9 @@ public class Session {
         this.licenceNumber = licenceNumber;
     }
 
-    // set sessionDuration
-    public void setSessionDuration(int sessionDuration) {
-        this.sessionDuration = sessionDuration;
-    }
 
-    // set sessionDate
-    public void setSessionDate(Date sessionDate) {
+    // set sessionDateAndTime
+    public void setSessionDateAndTime(Date sessionDate) {
         this.sessionDateTime = sessionDate;
     }
 
@@ -127,8 +122,9 @@ public class Session {
 
     @Override
     public String toString() {
-        return  getSessionID() + ","+getLicenceNumber()+"," + getSessionDateAndTime() + "," + getMaxPatients();
+        return getSessionID() + "," + getLicenceNumber() + "," + getSessionDateAndTime() + "," + getMaxPatients();
     }
+
     // display all sessions
     public static void displayAllSessions() {
         for (Session session : sessionList) {
@@ -161,23 +157,23 @@ public class Session {
         // clear the sessionList
         sessionList.clear();
         try {
-        FileReader fileReader = new FileReader("session.txt");
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        String line;
-        // ARRAY LIST OF DOCTORS SHOULD BE EMPTY
-        while ((line = bufferedReader.readLine()) != null) {
-            String[] sessionDetails = line.split(",");
-            String sessionID = sessionDetails[0];
-            int licenceNumber  = Integer.parseInt(sessionDetails[1]);
-            Date sessionDateTime = Doctor.StringToDate(sessionDetails[2]);
-            int maxPatients = Integer.parseInt(sessionDetails[3]);
-            Session session = new Session(sessionID, licenceNumber, sessionDateTime, maxPatients);
-            sessionList.add(session);
-        }
-        bufferedReader.close();
-    } catch (Exception e) { // LOOP NOT CRASHING IF FILE NOT FOUND
+            FileReader fileReader = new FileReader("session.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            // ARRAY LIST OF DOCTORS SHOULD BE EMPTY
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] sessionDetails = line.split(",");
+                String sessionID = sessionDetails[0];
+                int licenceNumber = Integer.parseInt(sessionDetails[1]);
+                Date sessionDateTime = Doctor.StringToDate(sessionDetails[2]);
+                int maxPatients = Integer.parseInt(sessionDetails[3]);
+                Session session = new Session(sessionID, licenceNumber, sessionDateTime, maxPatients);
+                sessionList.add(session);
+            }
+            bufferedReader.close();
+        } catch (Exception e) { // LOOP NOT CRASHING IF FILE NOT FOUND
 
+        }
     }
-}
 
 }

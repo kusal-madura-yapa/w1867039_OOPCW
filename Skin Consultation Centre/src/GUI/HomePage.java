@@ -141,6 +141,7 @@ public class HomePage extends JFrame implements ActionListener {
         });
 
 
+
 //        // create a button to open the patient page
 //        JButton patientButton = new JButton("Go to Patient Page");
 //        patientButton.setBackground(new Color(0xFF814301)); // set the background color of the button
@@ -149,24 +150,8 @@ public class HomePage extends JFrame implements ActionListener {
 //        patientButton.setBorder(BorderFactory.createLineBorder(Color.WHITE,10)); // set the border of the button
 //        patientButton.setFocusPainted(false); // remove the focus paint
 
-        // create a button to open the AboutUs page
-        JButton aboutUsButton = new JButton("   About Us   ");
-        aboutUsButton.setBackground(new Color(0x5E0393)); // set the background color of the button
-        aboutUsButton.setForeground(Color.WHITE); // set the color of the text
-        aboutUsButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        aboutUsButton.setBorder(BorderFactory.createLineBorder(Color.WHITE, 10)); // set the border of the button
-        aboutUsButton.setFocusPainted(false); // remove the focus paint
 
-        // add the about us action listener to the button
-        aboutUsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // create a new frame
-                new Aboutus();
-                frame.setVisible(false);
-            }
-        });
-        //
+
 
 
         //create a button to SkinCareCenter page
@@ -200,7 +185,6 @@ public class HomePage extends JFrame implements ActionListener {
                 // create a new frame
                 new ViewDoctors();
                 frame.setVisible(false);
-
             }
         });
         // create a button to view the patient list
@@ -219,7 +203,6 @@ public class HomePage extends JFrame implements ActionListener {
                 frame.setVisible(false);
             }
         });
-
         // create a button to Exit
         JButton exitButton = new JButton("      Exit      ");
         exitButton.setBackground(new Color(0x5E0393)); // set the background color of the button
@@ -234,8 +217,6 @@ public class HomePage extends JFrame implements ActionListener {
                 System.exit(0); // exit the program
             }
         });
-
-
         // IconImage
         ImageIcon imageIcon = new ImageIcon("src\\GUI\\Image\\icon.png");
 
@@ -283,7 +264,6 @@ public class HomePage extends JFrame implements ActionListener {
         noticePanel.add(noticeLabel4);
 
         noticePanel.add(noticeLabel5);
-        noticePanel.add(aboutUsButton);
 
 
         //notice panel right add components

@@ -153,8 +153,6 @@ public class Doctor extends Parson implements Serializable {
         int lastNumberOfDoctors = doctorArrayList.size();
         System.out.println("Still we have " + lastNumberOfDoctors + " number of  doctors in the system.");
     }
-
-
     /**
      * this methode sort the array list of doctors by their surName
      *
@@ -261,7 +259,6 @@ public class Doctor extends Parson implements Serializable {
 
         }
     }
-
     /**
      * this methode going check if the doctor is already in the arrayList and return true if the doctor is already in the arrayList
      */
