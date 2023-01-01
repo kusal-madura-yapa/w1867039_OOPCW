@@ -2,10 +2,9 @@ package ConsoleSystem;
 
 import javax.swing.*;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Objects;
-import java.util.Scanner;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class Doctor extends Parson implements Serializable {
 
@@ -27,7 +26,7 @@ public class Doctor extends Parson implements Serializable {
      * @param specialization get the specialization of the doctor
      * @param licenceNumber  get the licence number of the doctor
      */
-    public Doctor(String name, String surname, String DateOfBirth, String contactNumber, String specialization, int licenceNumber) {
+    public Doctor(String name, String surname, Date DateOfBirth, String contactNumber, String specialization, int licenceNumber) {
         super(name, surname, DateOfBirth, contactNumber);
         this.specialization = specialization;
         this.licenceNumber = licenceNumber;
@@ -78,7 +77,7 @@ public class Doctor extends Parson implements Serializable {
      *             System.out.println("Doctor added successfully") print message to the console
      *             this method is used to add a new doctor to the system
      */
-    public static void addDoctorObject(String name, String surname, String DateOfBirth, String contactNumber, String specialization, int licenceNumber) {
+    public static void addDoctorObject(String name, String surname, Date DateOfBirth, String contactNumber, String specialization, int licenceNumber) {
         Doctor doctor = new Doctor(name, surname, DateOfBirth, contactNumber, specialization, licenceNumber);
         doctorArrayList.add(doctor);
 
@@ -89,8 +88,7 @@ public class Doctor extends Parson implements Serializable {
      */
     @Override
     public String toString() {
-        System.out.println("Doctor details");
-        return getName() + " " + getSurname() + " " + getDateOfBirth() + " " + getContactNumber() + " " + getSpecialization() + " " + getLicenceNumber();
+        return getName() + "," + getSurname() + "," + getDateOfBirth() + "," + getContactNumber() + "," + getSpecialization() + "," + getLicenceNumber();
     }
 
     /**
@@ -98,8 +96,9 @@ public class Doctor extends Parson implements Serializable {
      * using the toString method in the Doctor class
      */
     public static void printDoctorList() {
+
         for (Doctor doctor : doctorArrayList) {
-            System.out.println(doctor);
+            System.out.println(doctor.toString());
         }
     }
 
@@ -185,6 +184,11 @@ public class Doctor extends Parson implements Serializable {
         try {
             FileWriter fileWriter = new FileWriter("doctors.txt");
             Writer output = new BufferedWriter(fileWriter);
+
+            //DELETE THE CONTENT OF THE FILE
+            output.write("");
+
+            // write the doctorArrayList to the file
             for (int i = 0; i < doctorArrayList.size(); i++) {
                 output.write(doctorArrayList.get(i).toString() + "\n");
             }
@@ -201,9 +205,12 @@ public class Doctor extends Parson implements Serializable {
         try {
             FileWriter fileWriter = new FileWriter("doctors.txt");
             Writer output = new BufferedWriter(fileWriter);
-            for (int i = 0; i < doctorArrayList.size(); i++) {
+            //DELETE THE CONTENT OF THE FILE
+            output.write("");
+            for (int i = 0; i < Doctor.doctorArrayList.size(); i++) {
                 output.write(doctorArrayList.get(i).toString() + "\n");
             }
+            output.flush();
             output.close();
         } catch (Exception e) { // if any missing file or any other error
             JOptionPane.showMessageDialog(null, "Error in saving this file");
@@ -214,23 +221,59 @@ public class Doctor extends Parson implements Serializable {
      * this methode going to load the arrayList data from a file called doctors.txt
      */
 
-    public static void loadDoctorListFromFile()  {
+    public static Date StringToDate(String inputStringDate) {
+        //Instantiating the SimpleDateFormat class
+        SimpleDateFormat formatter = new SimpleDateFormat("EEE MMM d HH:mm:ss zzz yyyy", Locale.ENGLISH);
+        //Parsing the given String to Date object
+        Date date;
+        try {
+            date = formatter.parse(inputStringDate);
+            return date;
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
+    public static void loadDoctorListFromFile() {
+        doctorArrayList.clear();
         try {
             FileReader fileReader = new FileReader("doctors.txt");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
+            // ARRAY LIST OF DOCTORS SHOULD BE EMPTY
+
             while ((line = bufferedReader.readLine()) != null) {
-                String[] doctorDetails = line.split(" ");
-                Doctor.addDoctorObject(doctorDetails[0], doctorDetails[1], doctorDetails[2], doctorDetails[3], doctorDetails[4], Integer.parseInt(doctorDetails[5]));
+                String[] doctorDetails = line.split(",");
+                String name = doctorDetails[0];
+                String surname = doctorDetails[1];
+//                Date dateOfBirth = null;
+                Date dateOfBirth = StringToDate(doctorDetails[2]);
+
+                String contactNumber = doctorDetails[3];
+                String specialization = doctorDetails[4];
+                int licenceNumber = Integer.parseInt(doctorDetails[5]);
+                Doctor doctor = new Doctor(name, surname, dateOfBirth, contactNumber, specialization, licenceNumber);
+                doctorArrayList.add(doctor);
             }
             bufferedReader.close();
-        } catch (Exception e) { // if any missing file or any other error
-            System.out.println("Error in loading this file");
-
+        } catch (Exception e) { // LOOP NOT CRASHING IF FILE NOT FOUND
+            System.out.println("File not found");
         }
     }
 
+    /**
+     * this methode going check if the doctor is already in the arrayList and return true if the doctor is already in the arrayList
+     */
+
+    public static boolean checkDoctorAlreadyInList(int licenceNumber) {
+        for (Doctor doctor : doctorArrayList) {
+            if (doctor.getLicenceNumber() == licenceNumber) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
 

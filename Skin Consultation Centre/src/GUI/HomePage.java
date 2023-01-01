@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class HomePage extends JFrame {
+public class HomePage extends JFrame implements ActionListener {
 
     public HomePage() {
 
@@ -150,6 +150,7 @@ public class HomePage extends JFrame {
 
         // add the about us action listener to the button
         aboutUsButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 // create a new frame
                 new Aboutus();
@@ -168,6 +169,7 @@ public class HomePage extends JFrame {
         SkinCareCenterButton.setFocusPainted(false); // remove the focus paint
         // add action listener to the button
         SkinCareCenterButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 // create a new frame
                 new SkinCareCenter();
@@ -184,6 +186,7 @@ public class HomePage extends JFrame {
         doctorListButton.setFocusPainted(false); // remove the focus paint
         // add action listener to the button
         doctorListButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 // create a new frame
                 new ViewDoctors();
@@ -200,6 +203,7 @@ public class HomePage extends JFrame {
         patientListButton.setFocusPainted(false); // remove the focus paint
         // add action listener to the button
         patientListButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 // create a new frame
                 ViewPatients patientList = new ViewPatients();
@@ -216,6 +220,7 @@ public class HomePage extends JFrame {
         exitButton.setFocusPainted(false); // remove the focus paint
         // add action listener to the button
         exitButton.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0); // exit the program
             }
@@ -267,6 +272,7 @@ public class HomePage extends JFrame {
         noticePanel.add(noticeLabel2);
         noticePanel.add(noticeLabel3);
         noticePanel.add(noticeLabel4);
+
         noticePanel.add(noticeLabel5);
         noticePanel.add(aboutUsButton);
 
@@ -284,5 +290,11 @@ public class HomePage extends JFrame {
     // Main method to run the program
     public static void main(String[] args) {
         new HomePage();
+    }
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
 }

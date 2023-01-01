@@ -3,7 +3,7 @@ package GUI;
 import javax.swing.*;
 import java.awt.*;
 
-public class ConsultationAdd {
+public class ConsultationAdd extends JFrame {
     ConsultationAdd() {
 
 

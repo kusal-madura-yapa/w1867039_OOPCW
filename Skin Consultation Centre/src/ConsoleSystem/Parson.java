@@ -2,15 +2,24 @@ package ConsoleSystem;
 
 import javax.swing.*;
 import java.io.*;
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public  class  Parson {
-    private String name;
+    private  String name;
     private String surname;
-    private String dateOfBirth;
-    private String contactNumber;
 
-    public Parson(String name, String surname, String DateOfBirth, String contactNumber) {
+    Date dateOfBirth = new Date();
+
+
+//    SimpleDateFormat formatterOfDate = new SimpleDateFormat("dd/MM/yyyy");\
+//    String date = formatterOfDate.format(dateOfBirth);
+
+
+
+    private  String contactNumber;
+
+    public Parson(String name, String surname, Date DateOfBirth, String contactNumber) {
         this.name = name;
         this.surname = surname;
         this.dateOfBirth = DateOfBirth;
@@ -18,7 +27,7 @@ public  class  Parson {
 
     }
 
-    public String getName(){
+    public  String getName(){
         return name;
     }
 
@@ -26,7 +35,7 @@ public  class  Parson {
         return surname;
     }
 
-    public String getDateOfBirth(){
+    public  Date getDateOfBirth(){
         return dateOfBirth;
     }
 
@@ -44,7 +53,7 @@ public  class  Parson {
         this.surname = surname;
     }
 
-    public void setDateOfBirth(String DateOfBirth){
+    public void setDateOfBirth(Date DateOfBirth){
         this.dateOfBirth = DateOfBirth;
     }
 

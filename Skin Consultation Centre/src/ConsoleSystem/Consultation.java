@@ -137,5 +137,16 @@ public class Consultation {
             }
         }
     }
+
     // show available doctors
+
+    /**
+     * @param doctorID get the doctor ID and show the available doctors by use of the loop
+     */
+    public static void showAvailableDoctors(String doctorID) {
+        for (Consultation consultation : consultationList) {
+            if (consultation.getDoctorID().equals(doctorID)) {
+                System.out.println("Doctor ID: " + consultation.getDoctorID());
+            }
+        }}
 }

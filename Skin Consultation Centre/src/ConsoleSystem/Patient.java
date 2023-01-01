@@ -2,7 +2,10 @@ package ConsoleSystem;
 
 import javax.swing.*;
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+
 public class Patient extends Parson {
     // patient Unique details
     private String patientId;
@@ -27,7 +30,7 @@ public class Patient extends Parson {
      * @param patientEmail get the patient email of the patient
      * @param patientGender get the person gender of the patient
      */
-    public Patient(String name, String surname, String DateOfBirth, String contactNumber, String patientId, String patientAddress, String patientEmail, String patientGender) {
+    public Patient(String name, String surname, Date DateOfBirth, String contactNumber, String patientId, String patientAddress, String patientEmail, String patientGender) {
         super(name, surname, DateOfBirth, contactNumber);
         this.patientId = patientId;
         this.patientAddress = patientAddress;
@@ -95,7 +98,7 @@ public class Patient extends Parson {
      * @param patientGender the patientGender to set
      */
     // method to add patient details
-    public static void addPatientObject(String name, String surname, String DateOfBirth, String contactNumber, String  patientId, String patientAddress, String patientEmail, String patientGender) {
+    public static void addPatientObject(String name, String surname, Date DateOfBirth, String contactNumber, String  patientId, String patientAddress, String patientEmail, String patientGender) {
         Patient patient = new Patient(name, surname, DateOfBirth, contactNumber, patientId, patientAddress, patientEmail, patientGender);
         patientArrayList.add(patient);
         System.out.println("Patient added successfully");
@@ -152,8 +155,8 @@ public class Patient extends Parson {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] patientDetails = line.split(" ");
-                Patient.addPatientObject(patientDetails[0], patientDetails[1], patientDetails[2], patientDetails[3], patientDetails[4], patientDetails[5], patientDetails[6], patientDetails[7]);
-
+//                Date dateOfBirth = new SimpleDateFormat("dd/MM/yyyy").parse(patientDetails[2]);
+                Patient.addPatientObject(patientDetails[0], patientDetails[1],null, patientDetails[3], patientDetails[4], patientDetails[5], patientDetails[6], patientDetails[7]);
             }
             bufferedReader.close();
         } catch (Exception e) { // if any missing file or any other error

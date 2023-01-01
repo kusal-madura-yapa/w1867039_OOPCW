@@ -6,7 +6,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
-public class ViewPatients {
+public class ViewPatients extends JFrame {
 
     ViewPatients(){
         // Create a new JFrame container.

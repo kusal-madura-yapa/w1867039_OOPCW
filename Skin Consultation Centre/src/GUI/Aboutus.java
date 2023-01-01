@@ -3,7 +3,7 @@ package GUI;
 import javax.swing.*;
 import java.awt.*;
 
-public class Aboutus {
+public class Aboutus extends JFrame {
 
     Aboutus() {
         JFrame frame = new JFrame("Westminster Center for Skin.");

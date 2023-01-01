@@ -4,8 +4,11 @@ import ConsoleSystem.Patient;
 
 import javax.swing.*;
 import java.awt.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-public class SkinCareCenter {
+public class SkinCareCenter extends JFrame {
     SkinCareCenter(){
         {
             JFrame frame = new JFrame("Skin Care Center");
@@ -241,6 +244,7 @@ public class SkinCareCenter {
             btnAddDataPatient.setForeground(new Color(0xFFFFFF));
             btnAddDataPatient.setFont(new Font("Serif", Font.BOLD, 20));
             btnAddDataPatient.setFocusPainted(false);
+
             btnAddDataPatient.addActionListener(e -> {
                 String patientName = textFieldTopLeft1.getText();
                 String patientSurname = textFieldTopLeft2.getText();
@@ -248,7 +252,12 @@ public class SkinCareCenter {
                 String patientContactNumber = textFieldTopLeft4.getText();
                 String patientAddress = textFieldTopLeft5.getText();
                 String patientEmail = textFieldTopLeft6.getText();
-                String patientDateOfBirth = textFieldTopLeft7.getText();
+                Date patientDateOfBirth = null;
+                try {
+                    patientDateOfBirth = new SimpleDateFormat("dd/MM/yyyy").parse(textFieldTopLeft7.getText());
+                } catch (ParseException ex) {
+                    throw new RuntimeException(ex);
+                }
                 String patientGender = null;
                 if (e.getSource() == radioButtonTopLeft1) {
                     patientGender = radioButtonTopLeft1.getText();
@@ -256,11 +265,9 @@ public class SkinCareCenter {
                     patientGender = radioButtonTopLeft2.getText();
                 }
 //            String patientDateOfBirth = textFieldTopLeft7.getText();
-                Patient.addPatientObject(patientName, patientSurname, patientID, patientContactNumber, patientAddress, patientEmail, patientDateOfBirth, patientGender);
+                Patient.addPatientObject(patientName, patientSurname,patientDateOfBirth ,patientContactNumber,patientID, patientAddress, patientEmail, patientGender);
                 Patient.savePatientDetails();
                 // add patient to the data in to patient class addObjectPatient
-
-
                 frame.dispose();
                 new ConsultationAdd();
             });

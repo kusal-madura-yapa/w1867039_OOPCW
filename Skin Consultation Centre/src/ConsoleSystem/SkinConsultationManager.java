@@ -8,8 +8,9 @@ public interface SkinConsultationManager {
     public void addDoctor();
     public void addConsultation();
     public void findDoctor();
+    public void addPatient();
+
+    public void addSessionByManager();
 
 
-
-//    public void addPatient();
 }

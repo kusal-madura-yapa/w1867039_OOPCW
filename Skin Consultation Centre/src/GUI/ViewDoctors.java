@@ -8,7 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.Objects;
 
-public class ViewDoctors {
+public class ViewDoctors extends JFrame {
 
     ViewDoctors() {
 

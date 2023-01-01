@@ -1,10 +1,7 @@
 package ConsoleSystem;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.Iterator;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class WestminsterSkinConsultationManager implements SkinConsultationManager {
@@ -15,14 +12,18 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
 
     //main method.
     public static void main(String[] args) {
+
         WestminsterSkinConsultationManager westminsterSkinConsultationManager = new WestminsterSkinConsultationManager();
+        Doctor.loadDoctorListFromFile();
+        Patient.loadPatientListFromFile();
+//        Consultation.loadConsultationListFromFile();
+        Session.loadSessionFromFile();
         westminsterSkinConsultationManager.consoleMenu();
     }
 
-
     @Override
     public void consoleMenu() {
-        Doctor.loadDoctorListFromFile();
+
         System.out.println("===============================================================\n" +
                 "Welcome to Westminster Skin Consultation Manager\n" +
                 "===============================================================\n" +
@@ -35,10 +36,13 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
                 "DS - Save the Doctors Details.\n" +
                 "CA - Add Consultation\n" +
                 "CD - Delete Consultation\n" +
-//                "PA - Add Patient\n" +
-//                "PP - Display Patient\n" +
-//                "PL - Load  Patients Details.\n" +
-//                "PS - Save the Patients Details.\n" +
+                "AS - Add Session\n" +
+                "SD - Display Session\n" +
+                "PA - Add Patient\n" +
+                "PP - Display Patient\n" +
+                "PL - Load  Patients Details.\n" +
+                "PS - Save the Patients Details.\n" +
+
 
 
                 "E. Exit the Program.\n" +
@@ -76,10 +80,8 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
                 findDoctor();
                 break;
             case "DS":
-                Doctor.loadDoctorListFromFile();
                 Doctor.saveDoctorListToFile();
                 break;
-
             case "CA":
                 addConsultation();
                 break;
@@ -87,33 +89,38 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
             case "CD":
                 deleteConsultation();
                 break;
+            case "AS":
+                addSessionByManager();
+                break;
+            case "SD":
+                Session.displayAllSessions();
+                break;
 
-//            case "PL":
-//                Patient.loadPatientListFromFile();
-//                consoleMenu();
-//            case "PA":
-//                addPatient();
-//                consoleMenu();
-//                break;
-//            case "PS":
-//                Patient.savePatientDetails();
-//                consoleMenu();
-//                break;
-//            case "PP":
-//                Patient.displayPatientDetails();
-//                consoleMenu();
-//                break;
             case "E":
-                Patient.savePatientDetails();
                 System.out.println("Thank you for using Westminster Skin Consultation Manager");
                 System.exit(0);
+            case "PL":
+                Patient.loadPatientListFromFile();
+                consoleMenu();
+            case "PA":
+                addPatient();
+                consoleMenu();
+                break;
+            case "PS":
+                Patient.savePatientDetails();
+                consoleMenu();
+                break;
+            case "PP":
+                Patient.displayPatientDetails();
+                consoleMenu();
+                break;
             default:
                 System.out.println("Please enter a valid letter");
                 consoleMenu();
                 break;
-        }consoleMenu();
+        }
+        consoleMenu();
     }
-
 
     /**
      * Add a new Doctor only 10 allowed in the system
@@ -132,10 +139,11 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
                     System.out.println("Please enter the Doctor's surname: ");
                     String surname = input.nextLine();
                     System.out.println("Please enter the Doctor's Date of Birth format (dd/mm/yyyy) :  ");
-                    String DateOfBirth = input.nextLine();
+                    String dateOfBirth = input.nextLine();
+                    Date DateOfBirth = new SimpleDateFormat("dd/MM/yyyy").parse(dateOfBirth);
                     System.out.println("Please enter the Doctor's contact number: ");
                     String contactNumber = input.nextLine();
-                    System.out.println("Please enter the Doctor's specialization [ Dermatologist, Medical , Cosmetic , General , Pediatrician");
+                    System.out.println("Please enter the Doctor's specialization Dermatologist, Medical , Cosmetic , General , Pediatrician");
                     String specialization = input.nextLine();
                     System.out.println("Please enter the Doctor's licence number: ");
                     int licenceNumber = input.nextInt();
@@ -150,10 +158,8 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
             } while (!boolcatch);
         } else {
             System.out.println("Doctor list is full");
-
         }
         consoleMenu();
-
     }
 
     /**
@@ -170,36 +176,32 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         ;
     }
 
+    /**
+     * Add a new Patient only 10 allowed in the system
+     * get the details of the patient
+     * add the patient to the patient array list
+     */
 
-//    // Patient part
-//    @Override
-//    public void addPatient() {
-//        try {
-//            Scanner input = new Scanner(System.in);
-//            System.out.println("Please enter the Patient's name: ");
-//            String name = input.nextLine();
-//            System.out.println("Please enter the Patient's surname: ");
-//            String surname = input.nextLine();
-//            System.out.println("Please enter the Patient's Date of Birth: ");
-//            String DateOfBirth = input.nextLine();
-//            System.out.println("Please enter the Patient's contact number: ");
-//            String contactNumber = input.nextLine();
-//            System.out.println("Please enter the Patient's address: ");
-//            String address = input.nextLine();
-//            System.out.println("Please enter the Patient's patient number: ");
-//            String patientNumber = input.nextLine();
-//            System.out.println("Please enter the Patient's Email address: ");
-//            String emailAddress = input.nextLine();
-//            System.out.println("Please enter the Patient Gender Enter Male Or Female");
-//            String patientGender = input.nextLine();
-//            Patient.addPatientObject(name, surname, DateOfBirth, contactNumber, address, patientNumber, emailAddress, patientGender);
-//            consoleMenu();
-//            System.out.println("Patient added successfully");
-//        } catch (Exception e) {
-//            System.out.println("Invalid input");
-//        }
-//        consoleMenu();
-//    }
+    @Override
+    public void addSessionByManager() {
+        try {
+            Scanner input = new Scanner(System.in);
+            System.out.println("Please enter the session ID : ");
+            String sessionID = input.next();
+            System.out.println("Please enter the Doctor's licence number: ");
+            int licenceNumber = input.nextInt();
+            System.out.println("Please enter the Doctor's session Date and time dd/MM/yyyy/HH:mm : ");
+            String SessionDate = input.next();
+            Date sessionDateTime = new SimpleDateFormat("dd/MM/yyyy/HH:mm").parse(SessionDate);
+            System.out.println("Please enter the maximum patient going to see during the session : ");
+            int maxPatients = input.nextInt();
+//            Session session = new Session(licenceNumber,sessionDuration, sessionDate, maxPatients,sessionStartTime);
+            Session.addSessionObject(sessionID, licenceNumber, sessionDateTime, maxPatients);
+            System.out.println("Session added successfully");
+        } catch (Exception e) {
+            System.out.println("Invalid input");
+        }
+    }
 
 
     // add Consultation part
@@ -234,6 +236,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         }
         consoleMenu();
     }
+
     /**
      * Delete a Consultation
      * get the details of the consultation
@@ -255,6 +258,37 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
                 System.out.println("Consultation not deleted");
             }
             consoleMenu();
+        } catch (Exception e) {
+            System.out.println("Invalid input");
+        }
+        consoleMenu();
+    }
+
+    // Patient part
+    @Override
+    public void addPatient() {
+        try {
+            Scanner input = new Scanner(System.in);
+            System.out.println("Please enter the Patient's name: ");
+            String name = input.nextLine();
+            System.out.println("Please enter the Patient's surname: ");
+            String surname = input.nextLine();
+            System.out.println("Please enter the Patient's Date of Birth: ");
+            String dateOfBirth = input.next();
+            Date DateOfBirth = new SimpleDateFormat("dd/MM/yyyy").parse(dateOfBirth);
+            System.out.println("Please enter the Patient's contact number: ");
+            String contactNumber = input.nextLine();
+            System.out.println("Please enter the Patient's address: ");
+            String address = input.nextLine();
+            System.out.println("Please enter the Patient's patient number: ");
+            String patientNumber = input.nextLine();
+            System.out.println("Please enter the Patient's Email address: ");
+            String emailAddress = input.nextLine();
+            System.out.println("Please enter the Patient Gender Enter Male Or Female");
+            String patientGender = input.nextLine();
+            Patient.addPatientObject(name, surname, DateOfBirth, contactNumber, address, patientNumber, emailAddress, patientGender);
+            consoleMenu();
+            System.out.println("Patient added successfully");
         } catch (Exception e) {
             System.out.println("Invalid input");
         }

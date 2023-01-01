@@ -1,0 +1,187 @@
+package ConsoleSystem;
+
+import javax.swing.*;
+import java.io.*;
+import java.sql.Time;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Scanner;
+import java.util.Date;
+
+public class Session {
+
+    private static String sessionID;
+    private int licenceNumber;
+    private int sessionDuration;
+    private Date sessionDateTime;
+    private int maxPatients;
+
+
+    //    // session constructor
+    public Session(String sessionID, int licenceNumber, Date sessionDate, int maxPatients) {
+        this.sessionID = sessionID;
+        this.licenceNumber = licenceNumber;
+        this.sessionDateTime = sessionDate;
+        this.maxPatients = maxPatients;
+
+
+    }
+
+    // Getters and Setters
+
+    // get sessionID
+    public String getSessionID() {
+        return sessionID;
+    }
+
+    // get licenceNumber
+    public int getLicenceNumber() {
+        return licenceNumber;
+    }
+
+    // get sessionDate
+    public Date getSessionDate() {
+        return sessionDateTime;
+    }
+
+    // get maxPatients
+    public int getMaxPatients() {
+        return this.maxPatients;
+    }
+
+
+    // set sessionID
+    public static void setSessionID(String sessionID) {
+        sessionID = sessionID;
+    }
+
+    // set doctorID
+    public void setlicenceNumber(int licenceNumber) {
+        this.licenceNumber = licenceNumber;
+    }
+
+    // set sessionDuration
+    public void setSessionDuration(int sessionDuration) {
+        this.sessionDuration = sessionDuration;
+    }
+
+    // set sessionDate
+    public void setSessionDate(Date sessionDate) {
+        this.sessionDateTime = sessionDate;
+    }
+
+    // set maxPatients
+    public void setMaxPatients(int maxPatients) {
+        this.maxPatients = maxPatients;
+    }
+
+    // session ArrayList
+    private static ArrayList<Session> sessionList = new ArrayList<Session>();
+
+
+    //check the session date already exist or not by pass the session date and return true or false
+    public static boolean checkSessionDate(Date sessionDate) {
+        for (Session session : sessionList) {
+            if (session.getSessionDate().equals(sessionDate)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // check the session id already get or not
+    public static boolean sessionIDCheck(String sessionID) {
+        for (Session session : sessionList) {
+            if (session.getSessionID().equals(sessionID)) {
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+
+    // add session
+    public static void addSessionObject(String sessionID, int licenceNumber, Date sessionDateTime, int maxPatients) {
+        // check the doctorID is valid
+        if (sessionIDCheck(sessionID)) {
+            if (Doctor.checkDoctorAlreadyInList(licenceNumber)) {
+                if (checkSessionDate(sessionDateTime)) {
+                    // create a new session object
+                    Session session = new Session(sessionID, licenceNumber, sessionDateTime,
+                            maxPatients);
+                    // add the session object to the sessionList
+                    sessionList.add(session);
+                    // write the session object to the session.txt
+                    saveSessionIntoFile();
+                    // print a success message
+                } else {
+                    // print an error message
+                    System.out.println("Error: Session date must be invalid.");
+                }
+            } else {
+                // print an error message
+                System.out.println("Error: Doctor ID does not exist.");
+            }
+        } else {
+            // print an error message
+            System.out.println("Error: Session ID already exists.");
+        }
+    }
+
+
+    @Override
+    public String toString() {
+        return  getSessionID() + " "+getLicenceNumber()+" " + getSessionDate() + " " + getMaxPatients();
+    }
+    // display all sessions
+    public static void displayAllSessions() {
+        for (Session session : sessionList) {
+            System.out.println(session);
+        }
+    }
+
+    // save session into file
+    public static void saveSessionIntoFile() {
+        // delete the array list and save the information
+        try {
+            FileWriter fileWriter = new FileWriter("session.txt");
+            Writer output = new BufferedWriter(fileWriter);
+
+            //DELETE THE CONTENT OF THE FILE
+            output.write("");
+            // write the doctorArrayList to the file
+            for (int i = 0; i < sessionList.size(); i++) {
+                output.write(sessionList.get(i).toString() + "\n");
+            }
+            output.close();
+        } catch (Exception e) { // if any missing file or any other error
+            JOptionPane.showMessageDialog(null, "Error in saving this file");
+        }
+    }
+
+    // load the session from the session.txt
+    public static void loadSessionFromFile() {
+
+        // clear the sessionList
+        sessionList.clear();
+        try {
+        FileReader fileReader = new FileReader("session.txt");
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        String line;
+        // ARRAY LIST OF DOCTORS SHOULD BE EMPTY
+        while ((line = bufferedReader.readLine()) != null) {
+            String[] sessionDetails = line.split(",");
+            String sessionID = sessionDetails[0];
+            int licenceNumber  = Integer.parseInt(sessionDetails[1]);
+            Date sessionDateTime = Doctor.StringToDate(sessionDetails[2]);
+            int maxPatients = Integer.parseInt(sessionDetails[3]);
+            addSessionObject(sessionID, licenceNumber, sessionDateTime, maxPatients);
+        }
+        bufferedReader.close();
+    } catch (Exception e) { // LOOP NOT CRASHING IF FILE NOT FOUND
+        System.out.println("File not found");
+    }
+}
+
+}
