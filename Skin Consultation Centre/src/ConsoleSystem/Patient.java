@@ -112,7 +112,7 @@ public class Patient extends Parson {
     @Override
     public String toString() {
         System.out.println("Patient Details");
-        return getName() + " " + getSurname() + " " + getDateOfBirth() + " " + getContactNumber() + " " + getPatientId() + " " + getPatientAddress() + " " + getPatientEmail() + " " + getPatientGender();
+        return getName() + "," + getSurname() + "," + getDateOfBirth() + "," + getContactNumber() + "," + getPatientId() + "," + getPatientAddress() + "," + getPatientEmail() + "," + getPatientGender();
     }
     /**
      *

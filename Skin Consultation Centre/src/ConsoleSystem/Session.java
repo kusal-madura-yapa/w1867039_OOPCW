@@ -2,10 +2,7 @@ package ConsoleSystem;
 
 import javax.swing.*;
 import java.io.*;
-import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Scanner;
 import java.util.Date;
 
 public class Session {
@@ -23,8 +20,6 @@ public class Session {
         this.licenceNumber = licenceNumber;
         this.sessionDateTime = sessionDate;
         this.maxPatients = maxPatients;
-
-
     }
 
     // Getters and Setters
@@ -40,7 +35,7 @@ public class Session {
     }
 
     // get sessionDate
-    public Date getSessionDate() {
+    public Date getSessionDateAndTime() {
         return sessionDateTime;
     }
 
@@ -76,13 +71,13 @@ public class Session {
     }
 
     // session ArrayList
-    private static ArrayList<Session> sessionList = new ArrayList<Session>();
+    public static ArrayList<Session> sessionList = new ArrayList<Session>();
 
 
     //check the session date already exist or not by pass the session date and return true or false
     public static boolean checkSessionDate(Date sessionDate) {
         for (Session session : sessionList) {
-            if (session.getSessionDate().equals(sessionDate)) {
+            if (session.getSessionDateAndTime().equals(sessionDate)) {
                 return false;
             }
         }
@@ -121,7 +116,7 @@ public class Session {
                 }
             } else {
                 // print an error message
-                System.out.println("Error: Doctor ID does not exist.");
+                System.out.println("Error: licence number does not exist.");
             }
         } else {
             // print an error message
@@ -132,7 +127,7 @@ public class Session {
 
     @Override
     public String toString() {
-        return  getSessionID() + " "+getLicenceNumber()+" " + getSessionDate() + " " + getMaxPatients();
+        return  getSessionID() + ","+getLicenceNumber()+"," + getSessionDateAndTime() + "," + getMaxPatients();
     }
     // display all sessions
     public static void displayAllSessions() {
@@ -176,11 +171,12 @@ public class Session {
             int licenceNumber  = Integer.parseInt(sessionDetails[1]);
             Date sessionDateTime = Doctor.StringToDate(sessionDetails[2]);
             int maxPatients = Integer.parseInt(sessionDetails[3]);
-            addSessionObject(sessionID, licenceNumber, sessionDateTime, maxPatients);
+            Session session = new Session(sessionID, licenceNumber, sessionDateTime, maxPatients);
+            sessionList.add(session);
         }
         bufferedReader.close();
     } catch (Exception e) { // LOOP NOT CRASHING IF FILE NOT FOUND
-        System.out.println("File not found");
+
     }
 }
 

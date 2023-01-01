@@ -62,7 +62,7 @@ public class HomePage extends JFrame implements ActionListener {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(new Color(0x16163B)); // set the background color of the panel
         buttonPanel.setBounds(9, 120, 281, 590); // set the size of the panel
-        buttonPanel.setLayout(new GridLayout(3, 1, 50, 70)); // set the layout of the panel
+        buttonPanel.setLayout(new GridLayout(4, 1, 50, 70)); // set the layout of the panel
 
         // create a notice panel
         JPanel noticePanel = new JPanel();
@@ -122,15 +122,24 @@ public class HomePage extends JFrame implements ActionListener {
         noticeText.setVisible(true); // set the label to be visible
 
 
-//        // buttons
-//        // create a button for enter doctor page
-//        JButton enterDoctorPageButton = new JButton("Go to Doctor Page");
-//        enterDoctorPageButton.setBounds(100, 100, 100, 10); // set the size of the button
-//        enterDoctorPageButton.setBackground(new Color(0xFF814301)); // set the background color of the button
-//        enterDoctorPageButton.setForeground(Color.WHITE); // set the color of the text
-//        enterDoctorPageButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-//        enterDoctorPageButton.setFocusPainted(false); // remove the focus paint
-//        enterDoctorPageButton.setBorder(BorderFactory.createLineBorder(Color.WHITE,10)); // set the border of the button
+        // buttons
+        // create a button for enter doctor page
+        JButton AddSessionButton = new JButton("Add Doctor Session");
+        AddSessionButton.setBackground(new Color(0x5E0393)); // set the background color of the button
+        AddSessionButton.setForeground(Color.WHITE); // set the color of the text
+        AddSessionButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        AddSessionButton.setBorder(BorderFactory.createLineBorder(Color.WHITE, 10)); // set the border of the button
+        AddSessionButton.setFocusPainted(false); // remove the focus paint
+        // action listener for the add session page button
+        AddSessionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // create a new frame
+                new AddSession();
+                frame.setVisible(false);
+            }
+        });
+
 
 //        // create a button to open the patient page
 //        JButton patientButton = new JButton("Go to Patient Page");
@@ -259,8 +268,8 @@ public class HomePage extends JFrame implements ActionListener {
         titlePanelForText.add(titleTextLable);
 
         // button panel add components
-//        buttonPanel.add(enterDoctorPageButton);
-//        buttonPanel.add(patientButton);
+        buttonPanel.add(AddSessionButton);
+//buttonPanel.add(patientButton);
         buttonPanel.add(SkinCareCenterButton);
         buttonPanel.add(doctorListButton);
         buttonPanel.add(patientListButton);

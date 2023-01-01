@@ -51,6 +51,7 @@ public class ViewDoctors extends JFrame {
         btnBack.setBackground(new Color(0x5E0393));
         btnBack.setForeground(new Color(0xFFFFFF));
         btnBack.setFont(new Font("Serif", Font.BOLD, 20));
+        btnBack.setVisible(true);
         btnBack.addActionListener(e -> {
             frame.dispose();
             new HomePage();

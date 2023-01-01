@@ -258,7 +258,7 @@ public class Doctor extends Parson implements Serializable {
             }
             bufferedReader.close();
         } catch (Exception e) { // LOOP NOT CRASHING IF FILE NOT FOUND
-            System.out.println("File not found");
+
         }
     }
 
