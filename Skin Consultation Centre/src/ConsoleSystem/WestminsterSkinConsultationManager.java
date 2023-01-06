@@ -1,5 +1,7 @@
 package ConsoleSystem;
 
+import javax.swing.*;
+import java.sql.SQLOutput;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
@@ -226,16 +228,19 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
             String sessionID = input.nextLine();
             System.out.println("Please enter the Doctor Licence Number: ");
             int licenceNumber = input.nextInt();
-            System.out.println("Please enter the session Date and time dd/MM/yyyy/HH:mm : ");
-            String sessionDateT = input.nextLine();
-            Date sessionDateTime = new SimpleDateFormat("dd/MM/yyyy/HH:mm").parse(sessionDateT);
+//            System.out.println("Please enter the session Date and time dd/MM/yyyy/HH:mm : ");
+//            String sessionDate = input.nextLine();
+//            Date sessionDateTime = new SimpleDateFormat("dd/MM/yyyy/HH:mm").parse(sessionDate);
             System.out.println("Please enter the count of patient : ");
             int patientCount = input.nextInt();
-            System.out.println("Please enter the Consultation duration in minutes : ");
+            System.out.println("Please enter the Consultation duration in 30/60/120 minutes : ");
             int consultationDuration = input.nextInt();
             System.out.println("Please enter the Consultation description : ");
-            String consultationDescription = input.nextLine();
-            int maxPatient = Session.findSessionObject(sessionID).getMaxPatients();
+            String consultationDescription = input.next();
+            consultationDescription+=input.nextLine();
+            System.out.println("\n");
+            int maxPatient = 10;
+            Date sessionDateTime = new Date();
             Consultation.addConsultationObject(patientID,sessionID,licenceNumber,sessionDateTime,maxPatient,consultationID,patientCount,consultationDuration,consultationDescription);
             consoleMenu();
             System.out.println("Consultation added successfully");
@@ -247,31 +252,31 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
     // Patient part
     @Override
     public void addPatient() {
-//        try {
-//            Scanner input = new Scanner(System.in);
-//            System.out.println("Please enter the Patient's name: ");
-//            String name = input.nextLine();
-//            System.out.println("Please enter the Patient's surname: ");
-//            String surname = input.nextLine();
-//            System.out.println("Please enter the Patient's Date of Birth: ");
-//            String dateOfBirth = input.nextLine();
-//            Date DateOfBirth = new SimpleDateFormat("dd/MM/yyyy").parse(dateOfBirth);
-//            System.out.println("Please enter the Patient's contact number: ");
-//            String contactNumber = input.nextLine();
-//            System.out.println("Please enter the Patient's address: ");
-//            String address = input.nextLine();
-//            System.out.println("Please enter the Patient's patient ID: ");
-//            String patientId = input.nextLine();
-//            System.out.println("Please enter the Patient's Email address: ");
-//            String emailAddress = input.nextLine();
-//            System.out.println("/n");
-//            String patientGender = "Male";
-//            Patient.addPatientObject(name, surname, DateOfBirth, contactNumber, address, patientId, emailAddress, patientGender);
-//            System.out.println("Patient added successfully");
-//
-//        } catch (Exception e) {
-//            System.out.println("Invalid input");
-//        }
+        try {
+            Scanner input = new Scanner(System.in);
+            System.out.println("Please enter the Patient's name: ");
+            String name = input.nextLine();
+            System.out.println("Please enter the Patient's surname: ");
+            String surname = input.nextLine();
+            System.out.println("Please enter the Patient's Date of Birth: ");
+            String dateOfBirth = input.nextLine();
+            Date DateOfBirth = new SimpleDateFormat("dd/MM/yyyy").parse(dateOfBirth);
+            System.out.println("Please enter the Patient's contact number: ");
+            String contactNumber = input.nextLine();
+            System.out.println("Please enter the Patient's address: ");
+            String address = input.nextLine();
+            System.out.println("Please enter the Patient's patient ID: ");
+            String patientId = input.nextLine();
+            System.out.println("Please enter the Patient's Email address: ");
+            String emailAddress = input.nextLine();
+            System.out.println("\n");
+            String patientGender = "Male";
+            Patient.addPatientObject(name, surname, DateOfBirth, contactNumber, address, patientId, emailAddress, patientGender);
+            System.out.println("Patient added successfully");
+
+        } catch (Exception e) {
+            System.out.println("Invalid input");
+        }
     }
 
 

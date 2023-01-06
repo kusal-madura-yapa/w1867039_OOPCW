@@ -252,7 +252,7 @@ public class SkinCareCenter extends JFrame {
                 String patientContactNumber = textFieldTopLeft4.getText();
                 String patientAddress = textFieldTopLeft5.getText();
                 String patientEmail = textFieldTopLeft6.getText();
-                Date patientDateOfBirth = null;
+                Date patientDateOfBirth;
                 try {
                     patientDateOfBirth = new SimpleDateFormat("dd/MM/yyyy").parse(textFieldTopLeft7.getText());
                 } catch (ParseException ex) {

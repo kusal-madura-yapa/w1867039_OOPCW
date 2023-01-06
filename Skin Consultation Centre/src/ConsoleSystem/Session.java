@@ -103,7 +103,6 @@ public class Session {
 
     // add session
     public static void addSessionObject(String sessionID, int licenceNumber, Date sessionDateTime, int maxPatients) {
-        loadSessionFromFile();
         // check the doctorID is valid
         if (sessionIDCheck(sessionID)) {
             if (Doctor.checkDoctorAlreadyInList(licenceNumber)) {
@@ -117,6 +116,7 @@ public class Session {
                         // write the session object to the session.txt
                         saveSessionIntoFile();
                         // print a success message
+                        System.out.println("Session added successfully");
                     } else {
                         JOptionPane.showMessageDialog(null, "Max patients should be greater than 0");
                     }

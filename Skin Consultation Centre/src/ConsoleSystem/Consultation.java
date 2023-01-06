@@ -1,5 +1,7 @@
 package ConsoleSystem;
 
+import org.w3c.dom.ls.LSOutput;
+
 import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
@@ -11,7 +13,7 @@ public class Consultation extends Session {
 
     private int patientCount;
 
-
+private Date sessionDate;
     private int requestedTime;
 
     private String description;
@@ -56,6 +58,9 @@ public class Consultation extends Session {
         return description;
     }
 
+
+
+
     // set consultationID
 
     public void setConsultationID(String consultationID) {
@@ -97,25 +102,63 @@ public class Consultation extends Session {
                 maxPatient = session.getMaxPatients();
 
                 maxPatient = maxPatient - patientCount;
-                if (!(maxPatient <= 0)) {
-                    for (int i = 0; i < Session.sessionList.size(); i++) {
-                        if (Session.sessionList.get(i).getSessionID().equals(SessionID)) {
-                            Session.sessionList.remove(i);
-                            Session.saveSessionIntoFile();
-                            break;
-                        }
-                    }
-                    Session.addSessionObject(SessionID, licenceNumber, sessionDate, maxPatient);
+                int temp= maxPatient;
+                if (maxPatient < 0) {
+                    return false;
+
+                } else {
+                    Session.sessionList.remove(session);
+                    Session.addSessionObject(SessionID, licenceNumber, sessionDate, temp);
                     return true;
                 }
             }
+
+            break;
         }
         return false;
     }
 
     // added patient store in arraylist
-    public static void addPatientIDAddedDiscount(String patientID) {
-                        patientList.add(patientID);
+    public static void addPatientIDAddedDiscount(String patientID, int patientCount,int requestedTime) {
+
+        try {
+            FileReader fileReader = new FileReader("ConsultationPriceDetails.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            // ARRAY LIST EMPTY PATIENT DETAILS
+            patientList.clear();
+            // read the file line by line
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] consultationPrice = line.split("\n");
+                String paID = consultationPrice[0];
+                patientList.add(paID);
+            }
+            bufferedReader.close();
+        } catch (Exception e) { // if any missing file or any other error
+            System.out.println("Error in loading this file");
+        }
+
+        int price = 0;
+        if (patientList.contains(patientID)) {
+            int temp = requestedTime/60;
+            price=temp * 25;
+
+            System.out.println("Patient already added price is: " + (price * patientCount)+ "Euro");
+        } else {
+            int temp = requestedTime/60;
+            price=temp * 15;
+            System.out.println("Patient Newly added Discount will be applied price is: " + (price * patientCount)+ "Euro");
+        }
+        patientList.add(patientID);
+        try {
+            FileWriter fileWriter = new FileWriter("ConsultationPriceDetails.txt");
+            Writer output = new BufferedWriter(fileWriter);
+            output.write("");
+                output.write(patientList.get(Integer.parseInt(patientID)) + "\n");
+            output.close();
+        } catch (Exception e) { // if any missing file or any other error
+            JOptionPane.showMessageDialog(null, "Error in saving this file");
+        }
     }
 
     // Description encryption
@@ -137,8 +180,7 @@ public class Consultation extends Session {
     }
 
 
-
-    // add consultation
+    // add consultation object
     /**
      * @param consultationID
      * @param patientId
@@ -163,7 +205,7 @@ public class Consultation extends Session {
                             Consultation consultation = new Consultation(sessionID, licenceNumber, sessionDate, maxPatients, consultationID, patientCount, requestedTime, description);
                             consultationList.add(consultation);
                             // price method
-                            addPatientIDAddedDiscount(patientId);
+                            addPatientIDAddedDiscount(patientId, patientCount,requestedTime);
                             saveConsultationIntoFile();
                         } else {
                             System.out.println("Consultation ID already in used");
@@ -181,14 +223,11 @@ public class Consultation extends Session {
             System.out.println("Session ID does not exist");
         }
 
-
     }
-
-
     // toString method
     @Override
     public String toString() {
-        return getSessionID() + "," + getLicenceNumber() +  "," + getMaxPatients() + "," + getConsultationID() + "," + getPatientCount() + "," + getRequestedTime() + "," + getDescription();
+        return getSessionID() + "," + getLicenceNumber() + "," + getMaxPatients() + ","+getSessionDateAndTime() +","+ getConsultationID() + "," + getPatientCount() + "," + getRequestedTime() + "," + getDescription();
     }
 
     // save consultation into file
@@ -209,6 +248,7 @@ public class Consultation extends Session {
 
 
     }
+
     // load consultation from file
     public static void loadConsultationFromFile() {
         try {
@@ -239,7 +279,6 @@ public class Consultation extends Session {
 
         }
     }
-
 
 
 }
