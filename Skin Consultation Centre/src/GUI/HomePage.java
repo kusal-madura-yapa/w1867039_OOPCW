@@ -1,6 +1,7 @@
 package GUI;
 
 import ConsoleSystem.Doctor;
+import ConsoleSystem.Patient;
 
 import javax.swing.*;
 import java.awt.*;
@@ -278,6 +279,7 @@ public class HomePage extends JFrame implements ActionListener {
 
     // Main method to run the program
     public static void main(String[] args) {
+        Patient.loadPatientListFromFile();
         new HomePage();
     }
 

@@ -79,6 +79,16 @@ public class Session {
         return true;
     }
 
+    //find the session object by passing the sessionID and return the session object
+
+    public static Session findSessionObject(String sessionID) {
+        for (Session session : sessionList) {
+            if (session.getSessionID().equals(sessionID)) {
+                return session;
+            }
+        }
+        return null;
+    }
     // check the session id already get or not
     public static boolean sessionIDCheck(String sessionID) {
         for (Session session : sessionList) {
@@ -93,18 +103,23 @@ public class Session {
 
     // add session
     public static void addSessionObject(String sessionID, int licenceNumber, Date sessionDateTime, int maxPatients) {
+        loadSessionFromFile();
         // check the doctorID is valid
         if (sessionIDCheck(sessionID)) {
             if (Doctor.checkDoctorAlreadyInList(licenceNumber)) {
                 if (checkSessionDate(sessionDateTime)) {
-                    // create a new session object
-                    Session session = new Session(sessionID, licenceNumber, sessionDateTime,
-                            maxPatients);
-                    // add the session object to the sessionList
-                    sessionList.add(session);
-                    // write the session object to the session.txt
-                    saveSessionIntoFile();
-                    // print a success message
+                    if (maxPatients > 0) {
+                        // create a new session object
+                        Session session = new Session(sessionID, licenceNumber, sessionDateTime,
+                                maxPatients);
+                        // add the session object to the sessionList
+                        sessionList.add(session);
+                        // write the session object to the session.txt
+                        saveSessionIntoFile();
+                        // print a success message
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Max patients should be greater than 0");
+                    }
                 } else {
                     // print an error message
                     System.out.println("Error: Session date must be invalid.");

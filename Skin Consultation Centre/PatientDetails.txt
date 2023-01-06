@@ -1,2 +1,2 @@
-rft5g,rtyh,null,yuju,jrjjyju,juujju,mmm,null
-kusal,uaa,null,Feb,20,00:00:00,IST,2000
+dd,ddd,Sun Apr 23 00:00:00 IST 2000,112,edwd3,21,wefr,null
+s,s,Sat Jan 01 00:00:00 IST 2000,00000s,dd,0122,@D,null

@@ -86,6 +86,29 @@ public class Patient extends Parson {
         this.patientGender = patientGender;}
 
 
+
+
+    // check the patient id is unique
+    public static boolean checkPatientId(String patientId) {
+        for (Patient patient : patientArrayList) {
+            if (patient.getPatientId().equals(patientId)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    // check the contact number is unique
+    public static boolean checkContactNumber(String contactNumber) {
+        for (Patient patient : patientArrayList) {
+            if (patient.getContactNumber().equals(contactNumber)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     /**
      * @param patientId the patientId to set
      * @param name the name to set
@@ -99,8 +122,19 @@ public class Patient extends Parson {
      */
     // method to add patient details
     public static void addPatientObject(String name, String surname, Date DateOfBirth, String contactNumber, String  patientId, String patientAddress, String patientEmail, String patientGender) {
-        Patient patient = new Patient(name, surname, DateOfBirth, contactNumber, patientId, patientAddress, patientEmail, patientGender);
-        patientArrayList.add(patient);
+
+        if (checkPatientId(patientId)) {
+            if (checkContactNumber(contactNumber)) {
+                Patient patient = new Patient(name, surname, DateOfBirth, contactNumber, patientId, patientAddress, patientEmail, patientGender);
+                patientArrayList.add(patient);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Contact number already exists");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Patient ID already exists");
+        }
+
     }
 
 
@@ -110,7 +144,7 @@ public class Patient extends Parson {
      */
     @Override
     public String toString() {
-        return getName() + "," + getSurname() + "," + getDateOfBirth() + "," + getContactNumber() + "," + getPatientId() + "," + getPatientAddress() + "," + getPatientEmail() + "," + getPatientGender();
+        return getName() + "," + getSurname() + "," + getDateOfBirth() + "," + getContactNumber()  + "," + getPatientAddress() + "," + getPatientId()+ "," + getPatientEmail() + "," + getPatientGender();
     }
     /**
      *
@@ -136,7 +170,6 @@ public class Patient extends Parson {
         try {
             FileWriter fileWriter = new FileWriter("PatientDetails.txt");
             Writer output = new BufferedWriter(fileWriter);
-
             //FILE CLERAING
             output.write("");
             for (int i = 0; i < patientArrayList.size(); i++) {
@@ -160,8 +193,15 @@ public class Patient extends Parson {
             // read the file line by line
             while ((line = bufferedReader.readLine()) != null) {
                 String[] patientDetails = line.split(",");
-//                Date dateOfBirth = new SimpleDateFormat("dd/MM/yyyy").parse(patientDetails[2]);
-                Patient.addPatientObject(patientDetails[0], patientDetails[1],null, patientDetails[3], patientDetails[4], patientDetails[5], patientDetails[6], patientDetails[7]);
+                String name = patientDetails[0];
+                String surname = patientDetails[1];
+                Date dateOfBirth = Doctor.StringToDate(patientDetails[2]);
+                String contactNumber = patientDetails[3];
+                String address = patientDetails[4];
+                String patientId = patientDetails[5];
+                String email= patientDetails[6];
+                String gender = patientDetails[7];
+                Patient.addPatientObject(name,surname,dateOfBirth,contactNumber,patientId,address,email,gender);
             }
             bufferedReader.close();
         } catch (Exception e) { // if any missing file or any other error
