@@ -21,6 +21,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         Patient.loadPatientListFromFile();
         Consultation.loadConsultationFromFile();
         Session.loadSessionFromFile();
+        Consultation.loadConsultationFromFile();
         westminsterSkinConsultationManager.consoleMenu();
     }
 
@@ -47,15 +48,12 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
                 "PS - Save the Patients Details.\n" +
 
 
-
                 "E. Exit the Program.\n" +
 
                 "===============================================================");
         Scanner userInput = new Scanner(System.in);
         consoleCommand = userInput.next();
         consoleCommandSwitch(consoleCommand);
-
-
     }
 
     /**
@@ -88,10 +86,9 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
             case "CA":
                 addConsultation();
                 break;
-//
-//            case "CD":
-//                deleteConsultation();
-//                break;
+            case "CD":
+                deleteConsultation();
+                break;
             case "AS":
                 addSessionByManager();
                 break;
@@ -228,20 +225,18 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
             String sessionID = input.nextLine();
             System.out.println("Please enter the Doctor Licence Number: ");
             int licenceNumber = input.nextInt();
-//            System.out.println("Please enter the session Date and time dd/MM/yyyy/HH:mm : ");
-//            String sessionDate = input.nextLine();
-//            Date sessionDateTime = new SimpleDateFormat("dd/MM/yyyy/HH:mm").parse(sessionDate);
             System.out.println("Please enter the count of patient : ");
             int patientCount = input.nextInt();
             System.out.println("Please enter the Consultation duration in 30/60/120 minutes : ");
             int consultationDuration = input.nextInt();
             System.out.println("Please enter the Consultation description : ");
             String consultationDescription = input.next();
-            consultationDescription+=input.nextLine();
+            consultationDescription += input.nextLine();
             System.out.println("\n");
+            // no need to interrupt the user can get this details buy session id it already applies in below method
             int maxPatient = 10;
             Date sessionDateTime = new Date();
-            Consultation.addConsultationObject(patientID,sessionID,licenceNumber,sessionDateTime,maxPatient,consultationID,patientCount,consultationDuration,consultationDescription);
+            Consultation.addConsultationObject(patientID, sessionID, licenceNumber, sessionDateTime, maxPatient, consultationID, patientCount, consultationDuration, consultationDescription);
             consoleMenu();
             System.out.println("Consultation added successfully");
         } catch (Exception e) {
@@ -249,6 +244,32 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         }
         consoleMenu();
     }
+
+
+    // Delete Consultation part
+
+    /**
+     * Delete a Consultation
+     * get the details of the Consultation
+     * delete the Consultation from the Consultation array list
+     */
+
+    @Override
+
+    public void deleteConsultation() {
+
+        Consultation.loadConsultationFromFile();
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Please enter the Consultation ID to delete : ");
+
+        String consultationID = scanner.nextLine();
+
+        Consultation.deleteConsultationObject(consultationID);
+
+    }
+
     // Patient part
     @Override
     public void addPatient() {

@@ -63,50 +63,57 @@ public class HomePage extends JFrame implements ActionListener {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(new Color(0x16163B)); // set the background color of the panel
         buttonPanel.setBounds(9, 120, 281, 590); // set the size of the panel
-        buttonPanel.setLayout(new GridLayout(4, 1, 50, 70)); // set the layout of the panel
+        buttonPanel.setLayout(new GridLayout(5, 1, 50, 70)); // set the layout of the panel
 
         // create a notice panel
+        JPanel noticePanel0 = new JPanel();
+        noticePanel0.setBackground(new Color(0xFF3E3542, true)); // set the background color of the panel
+        noticePanel0.setBounds(300, 110, 550, 201); // set the size of the panel
+
         JPanel noticePanel = new JPanel();
-        noticePanel.setBackground(new Color(0xFF9956AF, true)); // set the background color of the panel
-        noticePanel.setBounds(300, 110, 550, 610); // set the size of the panel
+        noticePanel.setBackground(new Color(0xFF3E3542, true)); // set the background color of the panel
+        noticePanel.setBounds(300, 310, 550, 610); // set the size of the panel
 
 
         // create a notice label to display the notice
 
 
-        JLabel noticeLabel = new JLabel("Notice: in this version, the system can view Doctors. "); // create a label to display the text
+        JLabel noticeLabel = new JLabel("Center can add/remove a session.According "); // create a label to display the text
         noticeLabel.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
         noticeLabel.setForeground(Color.WHITE); // set the color of the text
 
-        JLabel noticeLabel1 = new JLabel("Notice: in this version, the system can view Doctors. "); // create a label to display the text
+
+        JLabel noticeLabel1 = new JLabel("to system its free to set sessions only 10 Doctors . "); // create a label to display the text
         noticeLabel1.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
         noticeLabel1.setForeground(Color.WHITE); // set the color of the text
 
-        JLabel noticeLabel2 = new JLabel("Notice: in this version, the system can view Doctors. "); // create a label to display the text
+
+
+        JLabel noticeLabel2 = new JLabel(" On sessions,user can go and or remove a consultation,"); // create a label to display the text
         noticeLabel2.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
         noticeLabel2.setForeground(Color.WHITE); // set the color of the text
 
-        JLabel noticeLabel3 = new JLabel("Notice: in this version, the system can view Doctors. "); // create a label to display the text
+        JLabel noticeLabel3 = new JLabel("Consultation ID must remember.Doctor list and Patient . "); // create a label to display the text
         noticeLabel3.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
         noticeLabel3.setForeground(Color.WHITE); // set the color of the text
 
-        JLabel noticeLabel4 = new JLabel("Notice: in this version, the system can view Doctors. "); // create a label to display the text
+        JLabel noticeLabel4 = new JLabel("List show the current list of patients.in this version"); // create a label to display the text
         noticeLabel4.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
         noticeLabel4.setForeground(Color.WHITE); // set the color of the text
 
-        JLabel noticeLabel5 = new JLabel("Notice: in this version, the system can view Doctors. "); // create a label to display the text
+        JLabel noticeLabel5 = new JLabel(", the system can view Doctors and patient. "); // create a label to display the text
         noticeLabel5.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
         noticeLabel5.setForeground(Color.WHITE); // set the color of the text
 
 
         // create a notice panel right top
         JPanel noticePanelRightTop = new JPanel();
-        noticePanelRightTop.setBackground(new Color(0xFF9956AF, true)); // set the background color of the panel
+        noticePanelRightTop.setBackground(new Color(0xFF3E3542, true)); // set the background color of the panel
         noticePanelRightTop.setBounds(850, 110, 140, 560); // set the size of the panel
 
         // create a notice panel right bottom
         JPanel noticePanelRightBottom = new JPanel();
-        noticePanelRightBottom.setBackground(new Color(0xFF9956AF, true)); // set the background color of the panel
+        noticePanelRightBottom.setBackground(new Color(0xFF3E3542, true)); // set the background color of the panel
         noticePanelRightBottom.setBounds(850, 670, 140, 50); // set the size of the panel
 
         // Create panel for footer text
@@ -125,7 +132,7 @@ public class HomePage extends JFrame implements ActionListener {
 
         // buttons
         // create a button for enter doctor page
-        JButton AddSessionButton = new JButton("Add OR Remove Session");
+        JButton AddSessionButton = new JButton("Add Or Remove Session");
         AddSessionButton.setBackground(new Color(0x5E0393)); // set the background color of the button
         AddSessionButton.setForeground(Color.WHITE); // set the color of the text
         AddSessionButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
@@ -142,17 +149,22 @@ public class HomePage extends JFrame implements ActionListener {
         });
 
 
-
-//        // create a button to open the patient page
-//        JButton patientButton = new JButton("Go to Patient Page");
-//        patientButton.setBackground(new Color(0xFF814301)); // set the background color of the button
-//        patientButton.setForeground(Color.WHITE); // set the color of the text
-//        patientButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-//        patientButton.setBorder(BorderFactory.createLineBorder(Color.WHITE,10)); // set the border of the button
-//        patientButton.setFocusPainted(false); // remove the focus paint
-
-
-
+        // create a button to open the patient page
+        JButton ConsultationButton = new JButton("Add Consultation");
+        ConsultationButton.setBackground(new Color(0x5E0393)); // set the background color of the button
+        ConsultationButton.setForeground(Color.WHITE); // set the color of the text
+        ConsultationButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        ConsultationButton.setBorder(BorderFactory.createLineBorder(Color.WHITE, 10)); // set the border of the button
+        ConsultationButton.setFocusPainted(false); // remove the focus paint
+        // action listener for the patient page button
+        ConsultationButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // create a new frame
+                frame.dispose();
+                new ConsultationAdd();
+            }
+        });
 
 
         //create a button to SkinCareCenter page
@@ -242,6 +254,7 @@ public class HomePage extends JFrame implements ActionListener {
         frame.add(buttonPanelRight);
 
         frame.add(footerPanel);
+        frame.add(noticePanel0);
         frame.add(noticePanel);
         frame.add(noticePanelRightTop);
         frame.add(noticePanelRightBottom);
@@ -251,7 +264,7 @@ public class HomePage extends JFrame implements ActionListener {
 
         // button panel add components
         buttonPanel.add(AddSessionButton);
-//buttonPanel.add(patientButton);
+        buttonPanel.add(ConsultationButton);
         buttonPanel.add(SkinCareCenterButton);
         buttonPanel.add(doctorListButton);
         buttonPanel.add(patientListButton);

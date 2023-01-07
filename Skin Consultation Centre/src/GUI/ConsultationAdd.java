@@ -18,7 +18,7 @@ public class ConsultationAdd extends JFrame {
         // create a panel for the label top left  of the frame
         // panel top left  1
         JPanel consultationPanelTopLeft1 = new JPanel(); // patient ID
-        consultationPanelTopLeft1.setBounds(0, 10, 800, 40); // set the size of the panel
+        consultationPanelTopLeft1.setBounds(10, 10, 790, 40); // set the size of the panel
         consultationPanelTopLeft1.setBackground(new Color(0x212121));// set the background color of the panel
         consultationPanelTopLeft1.setLayout(null);// set the layout of the panel
         consultationPanelTopLeft1.setVisible(true);// set the visibility of the panel
@@ -26,7 +26,7 @@ public class ConsultationAdd extends JFrame {
 
         // panel top left  2
         JPanel consultationPanelTopLeft2 = new JPanel(); // Sesstion ID
-        consultationPanelTopLeft2.setBounds(0, 70, 800, 40); // set the size of the panel
+        consultationPanelTopLeft2.setBounds(10, 70, 790, 40); // set the size of the panel
         consultationPanelTopLeft2.setBackground(new Color(0x212121));// set the background color of the panel
         consultationPanelTopLeft2.setLayout(null);// set the layout of the panel
         consultationPanelTopLeft2.setVisible(true);// set the visibility of the panel
@@ -34,7 +34,7 @@ public class ConsultationAdd extends JFrame {
 
         // panel top left  3
         JPanel consultationPanelTopLeft3 = new JPanel(); // Lisesnce Number
-        consultationPanelTopLeft3.setBounds(0, 130, 800, 40); // set the size of the panel
+        consultationPanelTopLeft3.setBounds(10, 130, 790, 40); // set the size of the panel
         consultationPanelTopLeft3.setBackground(new Color(0x212121));// set the background color of the panel
         consultationPanelTopLeft3.setLayout(null);// set the layout of the panel
         consultationPanelTopLeft3.setVisible(true);// set the visibility of the panel
@@ -42,7 +42,7 @@ public class ConsultationAdd extends JFrame {
 
         // panel top left  4
         JPanel consultationPanelTopLeft4 = new JPanel();  // Consultation ID
-        consultationPanelTopLeft4.setBounds(0, 190, 800, 40); // set the size of the panel
+        consultationPanelTopLeft4.setBounds(10, 190, 790, 40); // set the size of the panel
         consultationPanelTopLeft4.setBackground(new Color(0x212121));// set the background color of the panel
         consultationPanelTopLeft4.setLayout(null);// set the layout of the panel
         consultationPanelTopLeft4.setVisible(true);// set the visibility of the panel
@@ -50,7 +50,7 @@ public class ConsultationAdd extends JFrame {
 
         // panel top left  5
         JPanel consultationPanelTopLeft5 = new JPanel();  // patient Count
-        consultationPanelTopLeft5.setBounds(0, 250, 800, 40); // set the size of the panel
+        consultationPanelTopLeft5.setBounds(10, 250, 790, 40); // set the size of the panel
         consultationPanelTopLeft5.setBackground(new Color(0x212121));// set the background color of the panel
         consultationPanelTopLeft5.setLayout(null);// set the layout of the panel
         consultationPanelTopLeft5.setVisible(true);// set the visibility of the panel
@@ -58,7 +58,7 @@ public class ConsultationAdd extends JFrame {
 
         // panel top left  6
         JPanel consultationPanelTopLeft6 = new JPanel(); // requested time
-        consultationPanelTopLeft6.setBounds(0, 310, 800, 40); // set the size of the panel
+        consultationPanelTopLeft6.setBounds(10, 310, 790, 40); // set the size of the panel
         consultationPanelTopLeft6.setBackground(new Color(0x212121));// set the background color of the panel
         consultationPanelTopLeft6.setLayout(null);// set the layout of the panel
         consultationPanelTopLeft6.setVisible(true);// set the visibility of the panel
@@ -66,27 +66,34 @@ public class ConsultationAdd extends JFrame {
 
         // panel top left  7
         JPanel consultationPanelTopLeft7 = new JPanel(); // descripton
-        consultationPanelTopLeft7.setBounds(0, 370, 800, 40); // set the size of the panel
+        consultationPanelTopLeft7.setBounds(10, 370, 790, 40); // set the size of the panel
         consultationPanelTopLeft7.setBackground(new Color(0x212121));// set the background color of the panel
         consultationPanelTopLeft7.setLayout(null);// set the layout of the panel
         consultationPanelTopLeft7.setVisible(true);// set the visibility of the panel
         consultationPanelTopLeft7.setLayout(new GridLayout(1, 2, 10, 10)); // set the layout of the panel
 
-//        // panel top left  8
-//        JPanel consultationPanelTopLeft8 = new JPanel();
-//        consultationPanelTopLeft8.setBounds(0, 430, 800, 40); // set the size of the panel
-//        consultationPanelTopLeft8.setBackground(new Color(0x212121));// set the background color of the panel
-//        consultationPanelTopLeft8.setLayout(null);// set the layout of the panel
-//        consultationPanelTopLeft8.setVisible(true);// set the visibility of the panel
-//        consultationPanelTopLeft8.setLayout(new GridLayout(1, 2, 10, 10)); // set the layout of the panel
-//
-//        // panel top left  9
-//        JPanel consultationPanelTopLeft9 = new JPanel();
-//        consultationPanelTopLeft9.setBounds(0, 490, 800, 40); // set the size of the panel
-//        consultationPanelTopLeft9.setBackground(new Color(0x212121));// set the background color of the panel
-//        consultationPanelTopLeft9.setLayout(null);// set the layout of the panel
-//        consultationPanelTopLeft9.setVisible(true);// set the visibility of the panel
-//        consultationPanelTopLeft9.setLayout(new GridLayout(1, 2, 10, 10)); // set the layout of the panel
+        JPanel consultationPanelTopRightLong = new JPanel(); // table patient name and ID
+        consultationPanelTopRightLong.setBounds(840, 10, 330, 400); // set the size of the panel
+        consultationPanelTopRightLong.setBackground(new Color(0x212121));// set the background color of the panel
+        consultationPanelTopRightLong.setLayout(null);// set the layout of the panel
+        consultationPanelTopRightLong.setVisible(true);// set the visibility of the panel
+        consultationPanelTopRightLong.setLayout(new GridLayout(1, 2, 10, 10)); // set the layout of the panel
+
+        // panel top left  8
+        JPanel consultationPanelTopLeft8 = new JPanel(); //Session ID snd details on session
+        consultationPanelTopLeft8.setBounds(10, 430, 560, 380); // set the size of the panel
+        consultationPanelTopLeft8.setBackground(new Color(0x212121));// set the background color of the panel
+        consultationPanelTopLeft8.setLayout(null);// set the layout of the panel
+        consultationPanelTopLeft8.setVisible(true);// set the visibility of the panel
+        consultationPanelTopLeft8.setLayout(new GridLayout(1, 2, 10, 10)); // set the layout of the panel
+
+        // panel top left  9
+        JPanel consultationPanelTopRight9 = new JPanel(); // table Doctor name and license number and specialization
+        consultationPanelTopRight9.setBounds(610, 430, 560, 380); // set the size of the panel
+        consultationPanelTopRight9.setBackground(new Color(0x212121));// set the background color of the panel
+        consultationPanelTopRight9.setLayout(null);// set the layout of the panel
+        consultationPanelTopRight9.setVisible(true);// set the visibility of the panel
+        consultationPanelTopRight9.setLayout(new GridLayout(1, 2, 10, 10)); // set the layout of the panel
 
 
 
@@ -210,7 +217,7 @@ public class ConsultationAdd extends JFrame {
         });
 
         JButton btnAddDataConsultation = new JButton(" Add Consultation ");
-        btnAddDataConsultation.setBounds(790, 10, 180, 30);
+        btnAddDataConsultation.setBounds(790, 10, 200, 30);
         btnAddDataConsultation.setBackground(new Color(0x5E0393));
         btnAddDataConsultation.setForeground(new Color(0xFFFFFF));
         btnAddDataConsultation.setFont(new Font("Serif", Font.BOLD, 20));
@@ -232,14 +239,24 @@ public class ConsultationAdd extends JFrame {
                     Date date = new Date();
                     int maxPatientCount = 10;
                     Consultation.addConsultationObject(patientId, sessionId, licenseNumber,date, maxPatientCount ,consultationId, patientCount, patientrequestedTime, description);
-                    JOptionPane.showMessageDialog(null, "Consultation added successfully");
                     frame.dispose();
-                    new HomePage();
+                    new ViewConsultation();
 //                    new ViewConsultation();
                 } catch (Exception ex) {
 
                 }
             }
+        });
+        // viwe the data in the consultation table
+        JButton btnViewConsultation = new JButton(" View Consultation ");
+        btnViewConsultation.setBounds(1000, 10, 200, 30);
+        btnViewConsultation.setBackground(new Color(0x5E0393));
+        btnViewConsultation.setForeground(new Color(0xFFFFFF));
+        btnViewConsultation.setFont(new Font("Serif", Font.BOLD, 20));
+        btnViewConsultation.setFocusPainted(false);
+        btnViewConsultation.addActionListener(e -> {
+            frame.dispose();
+            new ViewConsultation();
         });
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -250,6 +267,18 @@ public class ConsultationAdd extends JFrame {
         frame.getContentPane().setBackground(new Color(0xFFFEFE));
         frame.setIconImage(new ImageIcon("src\\GUI\\Image\\icon.png").getImage());
 
+        // Delete consultation
+        JButton btnDeleteConsultation = new JButton(" Delete Consultation ");
+        btnDeleteConsultation.setBounds(580, 10, 200, 30);
+        btnDeleteConsultation.setBackground(new Color(0x5E0393));
+        btnDeleteConsultation.setForeground(new Color(0xFFFFFF));
+        btnDeleteConsultation.setFont(new Font("Serif", Font.BOLD, 20));
+        btnDeleteConsultation.setFocusPainted(false);
+        btnDeleteConsultation.addActionListener(e -> {
+            frame.dispose();
+            new DeleteConsultation();
+        });
+
 
         // Add the panel to frame
         frame.add(consultationPanelTopLeft1);
@@ -259,7 +288,10 @@ public class ConsultationAdd extends JFrame {
         frame.add(consultationPanelTopLeft5);
         frame.add(consultationPanelTopLeft6);
         frame.add(consultationPanelTopLeft7);
+        frame.add(consultationPanelTopLeft8);
+        frame.add(consultationPanelTopRight9);
         frame.add(panelBottom);
+        frame.add(consultationPanelTopRightLong);
 
 
 
@@ -274,7 +306,8 @@ public class ConsultationAdd extends JFrame {
 
         panelBottom.add(btnBack);
         panelBottom.add(btnAddDataConsultation);
-
+        panelBottom.add(btnViewConsultation);
+        panelBottom.add(btnDeleteConsultation);
 
         // add the text field to the panel
         consultationPanelTopLeft1.add(consultationTextFieldTopLeft1);

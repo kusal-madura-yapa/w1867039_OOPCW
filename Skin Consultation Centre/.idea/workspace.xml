@@ -2,21 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dea1f6d7-4264-4f24-aa45-b6f9609dfcad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/GUI/ViewConsultation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/DeleteConsultation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConsultationDetails.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ConsultationDetails.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PatientDetails.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PatientDetails.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Consultation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Consultation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Session.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Session.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/SkinConsultationManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/SkinConsultationManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/WestminsterSkinConsultationManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/WestminsterSkinConsultationManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/AddSession.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/AddSession.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/ConsultationAdd.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/ConsultationAdd.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/SkinCareCenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/SkinCareCenter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/session.txt" beforeDir="false" afterPath="$PROJECT_DIR$/session.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/ViewConsultation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/ViewConsultation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ConsoleSystem/Consultation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleSystem/Consultation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConsoleSystem/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleSystem/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConsoleSystem/SkinConsultationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleSystem/SkinConsultationManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ConsoleSystem/WestminsterSkinConsultationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleSystem/WestminsterSkinConsultationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/AddSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/AddSession.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/ConsultationAdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ConsultationAdd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/SkinCareCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SkinCareCenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ViewConsultation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ViewConsultation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +76,7 @@
       <recent name="C:\Users\kusal\Desktop\w1867039_OOPCW\Skin Consultation Centre\src\Images" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ConsultationAdd">
+  <component name="RunManager" selected="Application.HomePage">
     <configuration name="AddSession" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI.AddSession" />
       <module name="Skin Consultation Centre." />
@@ -135,8 +142,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RemoveSession" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GUI.RemoveSession" />
+    <configuration name="ViewConsultation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.ViewConsultation" />
       <module name="Skin Consultation Centre." />
       <extension name="coverage">
         <pattern>
@@ -163,11 +170,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ConsultationAdd" />
         <item itemvalue="Application.HomePage" />
+        <item itemvalue="Application.ViewConsultation" />
         <item itemvalue="Application.WestminsterSkinConsultationManager" />
+        <item itemvalue="Application.ConsultationAdd" />
         <item itemvalue="Application.AddSession" />
-        <item itemvalue="Application.RemoveSession" />
       </list>
     </recent_temporary>
   </component>
@@ -206,7 +213,8 @@
       <workItem from="1672637614095" duration="270000" />
       <workItem from="1672651225907" duration="1364000" />
       <workItem from="1672981039653" duration="13887000" />
-      <workItem from="1672999822150" duration="21544000" />
+      <workItem from="1672999822150" duration="23929000" />
+      <workItem from="1673069328780" duration="4854000" />
     </task>
     <servers />
   </component>
