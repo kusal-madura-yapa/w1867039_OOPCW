@@ -7,14 +7,9 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class WestminsterSkinConsultationManager implements SkinConsultationManager {
-
-
     public static String consoleCommand;
-
-
     //main method.
     public static void main(String[] args) {
-
 
         WestminsterSkinConsultationManager westminsterSkinConsultationManager = new WestminsterSkinConsultationManager();
         Doctor.loadDoctorListFromFile();
@@ -23,8 +18,8 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         Session.loadSessionFromFile();
         Consultation.loadConsultationFromFile();
         westminsterSkinConsultationManager.consoleMenu();
-    }
 
+    }
     @Override
     public void consoleMenu() {
 
@@ -34,7 +29,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
                 "Please select one of the following Letters to Execute:\n" +
                 "DA - Add Doctor\n" +
                 "DP - Display Doctor\n" +
-                "DF - Find Doctor\n" +
+                "DF - Find Doctor and Delete \n" +
                 "DL - Load  Doctors Details.\n" +
                 "DO - Sort the Doctors Details.\n" +
                 "DS - Save the Doctors Details.\n" +
@@ -55,7 +50,6 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         consoleCommand = userInput.next();
         consoleCommandSwitch(consoleCommand);
     }
-
     /**
      * @param consoleCommand it will execute the command
      *                       according to the user input
@@ -75,12 +69,14 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
             case "DO":
                 Doctor.sortDoctorListBySurName(Doctor.doctorArrayList);
             case "DP":
+                Doctor.sortDoctorListBySurName(Doctor.doctorArrayList);
                 Doctor.printDoctorList();
                 break;
             case "DF": // in find include the delete option also
                 findDoctor();
                 break;
             case "DS":
+                Doctor.sortDoctorListBySurName(Doctor.doctorArrayList);
                 Doctor.saveDoctorListToFile();
                 break;
             case "CA":
@@ -121,7 +117,6 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         }
         consoleMenu();
     }
-
     /**
      * Add a new Doctor only 10 allowed in the system
      * get the details of the doctor
@@ -129,7 +124,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
      */
     @Override
     public void addDoctor() {
-        if (Doctor.doctorArrayList.size() < 10) {
+        if (Doctor.doctorArrayList.size() <= 10) {
             boolean boolcatch = false;
             do {
                 try {
@@ -202,8 +197,6 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
             System.out.println("Invalid input");
         }
     }
-
-
     // add Consultation part
 
     /**
@@ -255,17 +248,11 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
      */
 
     @Override
-
     public void deleteConsultation() {
-
         Consultation.loadConsultationFromFile();
-
         Scanner scanner = new Scanner(System.in);
-
         System.out.println("Please enter the Consultation ID to delete : ");
-
         String consultationID = scanner.nextLine();
-
         Consultation.deleteConsultationObject(consultationID);
 
     }
@@ -299,8 +286,6 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
             System.out.println("Invalid input");
         }
     }
-
-
 }
 
 

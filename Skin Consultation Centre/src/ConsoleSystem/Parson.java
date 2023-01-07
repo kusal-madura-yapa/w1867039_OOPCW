@@ -8,15 +8,7 @@ import java.util.Date;
 public  class  Parson {
     private  String name;
     private String surname;
-
     Date dateOfBirth ;
-
-
-//    SimpleDateFormat formatterOfDate = new SimpleDateFormat("dd/MM/yyyy");\
-//    String date = formatterOfDate.format(dateOfBirth);
-
-
-
     private  String contactNumber;
 
     public Parson(String name, String surname, Date DateOfBirth, String contactNumber) {
@@ -38,8 +30,6 @@ public  class  Parson {
     public  Date getDateOfBirth(){
         return dateOfBirth;
     }
-
-
 
     public String getContactNumber(){
         return contactNumber;

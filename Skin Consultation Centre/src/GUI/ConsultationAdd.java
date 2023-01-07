@@ -1,8 +1,12 @@
 package GUI;
 
 import ConsoleSystem.Consultation;
+import ConsoleSystem.Doctor;
+import ConsoleSystem.Patient;
+import ConsoleSystem.Session;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.Date;
 
@@ -12,6 +16,7 @@ public class ConsultationAdd extends JFrame {
     ConsultationAdd() {
 
 
+        Doctor.loadDoctorListFromFile();
         JFrame frame = new JFrame("Add Consultation.");
 
 
@@ -77,7 +82,43 @@ public class ConsultationAdd extends JFrame {
         consultationPanelTopRightLong.setBackground(new Color(0x212121));// set the background color of the panel
         consultationPanelTopRightLong.setLayout(null);// set the layout of the panel
         consultationPanelTopRightLong.setVisible(true);// set the visibility of the panel
-        consultationPanelTopRightLong.setLayout(new GridLayout(1, 2, 10, 10)); // set the layout of the panel
+        
+        // create a table
+        JTable patientTable = new JTable();
+        Object[] columns = {"Firstname ", "Surname ", "Patient ID"};
+        // create a table model and design the table as not edit by using the override method
+        DefaultTableModel patientModel = new DefaultTableModel(){
+            @Override 
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        patientModel.setColumnIdentifiers(columns); // set the column identifiers of the table
+        patientTable.setModel(patientModel);  // set the model of the table
+        JScrollPane patientPane = new JScrollPane(patientTable);
+        patientPane.setBounds(842, 12, 323, 395); 
+        patientPane.setForeground(new Color(0x474783));
+        patientTable.setModel(patientModel);  // set the model of the table
+        patientTable.setBackground(new Color(0xAD91E7)); // set the background color of the table
+        patientTable.setForeground(new Color(0x000000)); // set the foreground color of the table
+        patientTable.setGridColor(new Color(0xFFFFFF)); // set the grid color of the table
+        patientTable.setSelectionBackground(new Color(0xFFFFFF));
+        patientTable.setAutoCreateRowSorter(false); // set the auto create row sorter of the table to false
+        patientTable.setFont(new Font("Serif", Font.PLAIN, 15));
+        patientTable.setRowHeight(40); // set the row height of the table
+        patientTable.setAutoCreateRowSorter(true); // set the auto create row sorter of the table to true
+        frame.getContentPane().add(patientPane); // add the scroll pane to the frame
+
+        // add objects to the panel
+        Patient.patientArrayList.forEach(patient -> {
+            Object[] row = new Object[3];
+            row[0] = patient.getName();
+            row[1] = patient.getSurname();
+            row[2] = patient.getPatientId();
+                        // add row to the model
+            patientModel.addRow(row);
+        });
+
 
         // panel top left  8
         JPanel consultationPanelTopLeft8 = new JPanel(); //Session ID snd details on session
@@ -85,7 +126,42 @@ public class ConsultationAdd extends JFrame {
         consultationPanelTopLeft8.setBackground(new Color(0x212121));// set the background color of the panel
         consultationPanelTopLeft8.setLayout(null);// set the layout of the panel
         consultationPanelTopLeft8.setVisible(true);// set the visibility of the panel
-        consultationPanelTopLeft8.setLayout(new GridLayout(1, 2, 10, 10)); // set the layout of the panel
+        // create a table
+        JTable Sessiontable = new JTable();
+        Object[] Sessioncolumns = {"Session ID", "Licence Number", "Session Date and Time", "Max Patients"};
+        // create a table model and design the table as not edit by using the override method
+        DefaultTableModel sessionModel = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        sessionModel.setColumnIdentifiers(Sessioncolumns); // set the column identifiers of the table
+        Sessiontable.setModel(sessionModel);  // set the model of the table
+        JScrollPane SessionPane = new JScrollPane(Sessiontable);
+        SessionPane.setBounds(13, 432, 553, 375);
+        SessionPane.setForeground(new Color(0x474783));
+        Sessiontable.setModel(sessionModel);  // set the model of the table
+        Sessiontable.setBackground(new Color(0xAD91E7)); // set the background color of the table
+        Sessiontable.setForeground(new Color(0x000000)); // set the foreground color of the table
+        Sessiontable.setGridColor(new Color(0xFFFFFF)); // set the grid color of the table
+        Sessiontable.setSelectionBackground(new Color(0xFFFFFF));
+        Sessiontable.setAutoCreateRowSorter(false); // set the auto create row sorter of the table to false
+        Sessiontable.setFont(new Font("Serif", Font.PLAIN, 15));
+        Sessiontable.setRowHeight(40); // set the row height of the table
+        Sessiontable.setAutoCreateRowSorter(true); // set the auto create row sorter of the table to true
+        frame.getContentPane().add(SessionPane); // add the scroll pane to the frame
+
+        // add objects to the panel
+        Session.sessionList.forEach(session -> {
+            Object[] row = new Object[4];
+            row[0] = session.getSessionID();
+            row[1] = session.getLicenceNumber();
+            row[2] = session.getSessionDateAndTime();
+            row[3] = session.getMaxPatients();
+            // add row to the model
+            sessionModel.addRow(row);
+        });
 
         // panel top left  9
         JPanel consultationPanelTopRight9 = new JPanel(); // table Doctor name and license number and specialization
@@ -93,11 +169,45 @@ public class ConsultationAdd extends JFrame {
         consultationPanelTopRight9.setBackground(new Color(0x212121));// set the background color of the panel
         consultationPanelTopRight9.setLayout(null);// set the layout of the panel
         consultationPanelTopRight9.setVisible(true);// set the visibility of the panel
-        consultationPanelTopRight9.setLayout(new GridLayout(1, 2, 10, 10)); // set the layout of the panel
 
 
+        // create a table
+        JTable DoctorTable = new JTable();
+        Object[] DoctorColumns = {"Firstname ", "Surname ", "Specialization", "License Number"};
+        // create a table model and design the table as not edit by using the override method
+        DefaultTableModel Doctormodel = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        Doctormodel.setColumnIdentifiers(DoctorColumns); // set the column identifiers of the table
+        DoctorTable.setModel(Doctormodel);  // set the model of the table
+        JScrollPane DoctorPane = new JScrollPane(DoctorTable);
+        DoctorPane.setBounds(612, 432, 553, 375);
+        DoctorPane.setForeground(new Color(0x474783));
+        DoctorTable.setModel(Doctormodel);  // set the model of the table
+        DoctorTable.setBackground(new Color(0xAD91E7)); // set the background color of the table
+        DoctorTable.setForeground(new Color(0x000000)); // set the foreground color of the table
+        DoctorTable.setGridColor(new Color(0xFFFFFF)); // set the grid color of the table
+        DoctorTable.setSelectionBackground(new Color(0xFFFFFF));
+        DoctorTable.setAutoCreateRowSorter(false); // set the auto create row sorter of the table to false
+        DoctorTable.setFont(new Font("Serif", Font.PLAIN, 15));
+        DoctorTable.setRowHeight(40); // set the row height of the table
+        DoctorTable.setAutoCreateRowSorter(true); // set the auto create row sorter of the table to true
+//        consultationPanelTopRight9(getContentPane().add(pane)); // add the scroll pane to the frame
+        frame.getContentPane().add(DoctorPane); // add the scroll pane to the frame
 
-
+        // add objects to the panel
+        Doctor.doctorArrayList.forEach(doctor -> {
+            Object[] row = new Object[4];
+            row[0] = doctor.getName();
+            row[1] = doctor.getSurname();
+            row[2] = doctor.getSpecialization();
+            row[3] = doctor.getLicenceNumber();
+            // add row to the model
+            Doctormodel.addRow(row);
+        });
 
 
         // Labels for the panel top  left

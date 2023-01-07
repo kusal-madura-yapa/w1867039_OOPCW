@@ -12,7 +12,8 @@ public class Session {
     private Date sessionDateTime;
     private int maxPatients;
 
-
+    // session ArrayList
+    public static ArrayList<Session> sessionList = new ArrayList<Session>();
     //    // session constructor
     public Session(String sessionID, int licenceNumber, Date sessionDate, int maxPatients) {
         this.sessionID = sessionID;
@@ -65,8 +66,8 @@ public class Session {
         this.maxPatients = maxPatients;
     }
 
-    // session ArrayList
-    public static ArrayList<Session> sessionList = new ArrayList<Session>();
+
+
 
 
     //check the session date already exist or not by pass the session date and return true or false

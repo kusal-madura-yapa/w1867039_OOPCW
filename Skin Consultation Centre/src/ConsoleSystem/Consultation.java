@@ -304,5 +304,4 @@ public class Consultation extends Session {
             System.out.println("Consultation ID does not exist");
         }
     }
-
 }

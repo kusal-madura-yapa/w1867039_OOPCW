@@ -8,7 +8,7 @@ import java.awt.*;
 public class DeleteConsultation extends JFrame {
 
     DeleteConsultation(){
-        JFrame frame = new JFrame("Westminster Center for Skin Delete Consultation");
+        JFrame frame = new JFrame("Westminster Center for Skin Delete and Edit Consultation");
         // IconImage
         ImageIcon imageIcon = new ImageIcon("src\\GUI\\Image\\icon.png");
         frame.setIconImage(imageIcon.getImage()); // set the icon of the frame
@@ -75,6 +75,7 @@ public class DeleteConsultation extends JFrame {
 
 
 
+        frame.add(deleteButtonPanel); // add the panel to the frame
 
         frame.setVisible(true); // set the visibility of the frame
         frame.getContentPane().setLayout(null);
