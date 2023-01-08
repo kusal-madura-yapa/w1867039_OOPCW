@@ -1,4 +1,5 @@
 package ConsoleSystem;
+
 import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
@@ -11,27 +12,34 @@ public class Consultation extends Session {
     private int patientCount;
 
     private Date sessionDate;
-    private int requestedTime;
 
+    private String patientID;
+    private int requestedTime;
+    private double sessionCost;
     private String description;
 
     // consultation List
     public static ArrayList<Consultation> consultationList = new ArrayList<Consultation>();
 
-    // patent list for future usage first time patient can get the discount.
-    public static ArrayList<Patient> pricePatientList = new ArrayList<Patient>();
-
 
     // consultation constructor
-    public Consultation(String sessionID, int licenceNumber, Date sessionDate, int maxPatients, String consultationID, int patientCount, int requestedTime, String description) {
+    public Consultation(String patientID, String sessionID, int licenceNumber, Date sessionDate, int maxPatients, String consultationID, int patientCount, int requestedTime, String description ,double sessionCost) {
         super(sessionID, licenceNumber, sessionDate, maxPatients);
+        this.patientID = patientID;
         this.consultationID = consultationID;
         this.patientCount = patientCount;
         this.requestedTime = requestedTime;
         this.description = description;
+        this.sessionCost = sessionCost;
     }
 
     // Getters and Setters
+
+
+    // get patientID
+    public String getPatientID() {
+        return patientID;
+    }
     // get consultationID
     public String getConsultationID() {
         return consultationID;
@@ -55,11 +63,17 @@ public class Consultation extends Session {
         return description;
     }
 
-
-
+    // get sessionCost
+    public double getSessionCost() {
+        return sessionCost;
+    }
 
     // set consultationID
 
+    // set patientID
+    public void setPatientID(String patientID) {
+        this.patientID = patientID;
+    }
     public void setConsultationID(String consultationID) {
         this.consultationID = consultationID;
     }
@@ -82,6 +96,10 @@ public class Consultation extends Session {
         this.description = description;
     }
 
+    // set sessionCost
+    public void setSessionCost(double sessionCost) {
+        this.sessionCost = sessionCost;
+    }
     // consultation Id check
     public static boolean consultationIDCheck(String consultationID) {
         for (Consultation consultation : consultationList) {
@@ -100,7 +118,7 @@ public class Consultation extends Session {
                 maxPatient = session.getMaxPatients();
 
                 maxPatient = maxPatient - patientCount;
-                int temp= maxPatient;
+                int temp = maxPatient;
                 if (maxPatient < 0) {
                     return false;
 
@@ -133,6 +151,7 @@ public class Consultation extends Session {
         }
         return decryptedDescription;
     }
+
     // get session max patient
     public static int getmaxPatientFromSessionID(String sessionID) {
         int maxPatient = 0;
@@ -143,6 +162,7 @@ public class Consultation extends Session {
         }
         return maxPatient;
     }
+
     // get session date in Date type
     public static Date getSessionDateFromSessionID(String sessionID) {
         Date sessionDate = null;
@@ -154,16 +174,17 @@ public class Consultation extends Session {
         return sessionDate;
     }
     // add consultation object
+
     /**
      * @param consultationID // consultation id
-     * @param patientId // patient id
-     * @param sessionID // session id
-     * @param licenceNumber //  licence number
-     * @param sessionDate // session date
-     * @param maxPatients // max patient
+     * @param patientId      // patient id
+     * @param sessionID      // session id
+     * @param licenceNumber  //  licence number
+     * @param sessionDate    // session date
+     * @param maxPatients    // max patient
      * @param consultationID // consultation id
-     * @param patientCount // patient count
-     * @param requestedTime // requested time
+     * @param patientCount   // patient count
+     * @param requestedTime  // requested time
      * @param description    // description
      */
     public static void addConsultationObject(String patientId, String sessionID, int licenceNumber, Date sessionDate, int maxPatients, String consultationID, int patientCount, int requestedTime, String description) {
@@ -177,7 +198,9 @@ public class Consultation extends Session {
                         if (consultationIDCheck(consultationID)) {
                             System.out.println("Consultation ID is valid");
 //                            encryptDescription(description);
-                            Consultation consultation = new Consultation(sessionID, licenceNumber, sessionDate, maxPatients, consultationID, patientCount, requestedTime, description);
+                            double price =  priceCalculation(patientId,requestedTime, patientCount);
+                            System.out.println("Price is : " + price);
+                            Consultation consultation = new Consultation(patientId, sessionID, licenceNumber, sessionDate, maxPatients, consultationID, patientCount, requestedTime, description, price);
                             consultationList.add(consultation);
                             System.out.println("Consultation added successfully");
                             saveConsultationIntoFile();
@@ -197,11 +220,37 @@ public class Consultation extends Session {
             System.out.println("Session ID does not exist");
         }
     }
+
+    // Price Calculation if patient is old one 25 euro new one 15 euro.
+
+    public static double priceCalculation(String patientID, int requestedTime, int patientCount) {
+        double price = 0;
+        double requestTime = 0.0;
+        requestTime = requestedTime;
+        for (Consultation consultation :  Consultation.consultationList) {
+            if (consultation.getPatientID().equals(patientID)) {
+                price = (requestTime/60.0)*25;
+                price= price * patientCount;
+                return price;
+            }
+            if (!consultation.getPatientID().equals(patientID)) {
+                price = (requestTime/60.0)*15;
+                price= price * patientCount;
+                return price;
+            }
+        }
+
+      return price;
+
+    }
+
+
     // toString method
     @Override
     public String toString() {
-        return getSessionID() + "," + getLicenceNumber() + "," +getSessionDateAndTime() + ","+ getMaxPatients() +","+ getConsultationID() + "," + getPatientCount() + "," + getRequestedTime() + "," + getDescription();
+        return getPatientID()+","+getSessionID() + "," + getLicenceNumber() + "," + getSessionDateAndTime() + "," + getMaxPatients() + "," + getConsultationID() + "," + getPatientCount() + "," + getRequestedTime() + "," + getDescription()+","+getSessionCost();
     }
+
     // save consultation into file
     public static void saveConsultationIntoFile() {
         try {
@@ -231,15 +280,17 @@ public class Consultation extends Session {
             while ((line = bufferedReader.readLine()) != null) {
                 String[] consultationDetails = line.split(",");
                 // add the consultation details to the array list
-                String sessionID = consultationDetails[0];
-                int licenceNumber = Integer.parseInt(consultationDetails[1]);
-                Date sessionDate = Doctor.StringToDate(consultationDetails[2]);
-                int maxPatients = Integer.parseInt(consultationDetails[3]);
-                String consultationID = consultationDetails[4];
-                int patientCount = Integer.parseInt(consultationDetails[5]);
-                int requestedTime = Integer.parseInt(consultationDetails[6]);
-                String description = consultationDetails[7];
-                Consultation consultation = new Consultation(sessionID, licenceNumber, sessionDate, maxPatients, consultationID, patientCount, requestedTime, description);
+                String patientID = consultationDetails[0];
+                String sessionID = consultationDetails[1];
+                int licenceNumber = Integer.parseInt(consultationDetails[2]);
+                Date sessionDate = Doctor.StringToDate(consultationDetails[3]);
+                int maxPatients = Integer.parseInt(consultationDetails[4]);
+                String consultationID = consultationDetails[5];
+                int patientCount = Integer.parseInt(consultationDetails[6]);
+                int requestedTime = Integer.parseInt(consultationDetails[7]);
+                String description = consultationDetails[8];
+                double price = Double.parseDouble(consultationDetails[9]);
+                Consultation consultation = new Consultation(patientID, sessionID, licenceNumber, sessionDate, maxPatients, consultationID, patientCount, requestedTime, description,price);
                 consultationList.add(consultation);
             }
             bufferedReader.close();
@@ -247,6 +298,7 @@ public class Consultation extends Session {
             System.out.println("Error in loading this file");
         }
     }
+
     // delete consultation object
     public static void deleteConsultationObject(String consultationID) {
         if (consultationIDCheck(consultationID)) {

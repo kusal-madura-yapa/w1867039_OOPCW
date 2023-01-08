@@ -2,22 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dea1f6d7-4264-4f24-aa45-b6f9609dfcad" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsultationDetails.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ConsultationDetails.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PatientDetails.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PatientDetails.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/doctors.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Consultation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Doctor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Doctor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Patient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/WestminsterSkinConsultationManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/WestminsterSkinConsultationManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/DeleteConsultation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/DeleteConsultation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/session.txt" beforeDir="false" afterPath="$PROJECT_DIR$/session.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Consultation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Consultation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ConsoleSystem/Consultation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleSystem/Consultation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConsoleSystem/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleSystem/Doctor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConsoleSystem/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleSystem/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConsoleSystem/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleSystem/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConsoleSystem/WestminsterSkinConsultationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleSystem/WestminsterSkinConsultationManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +199,7 @@
       <workItem from="1672999822150" duration="23929000" />
       <workItem from="1673069328780" duration="20527000" />
       <workItem from="1673153280009" duration="12864000" />
-      <workItem from="1673168327121" duration="2290000" />
+      <workItem from="1673168327121" duration="5369000" />
     </task>
     <servers />
   </component>
@@ -228,16 +216,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ConsoleSystem/Consultation.java</url>
-          <line>197</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
