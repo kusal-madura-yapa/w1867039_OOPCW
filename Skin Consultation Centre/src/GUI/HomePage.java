@@ -2,6 +2,7 @@ package GUI;
 
 import ConsoleSystem.Doctor;
 import ConsoleSystem.Patient;
+import ConsoleSystem.Session;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,6 +12,9 @@ import java.awt.event.ActionListener;
 public class HomePage extends JFrame implements ActionListener {
 
     public HomePage() {
+        Session.loadSessionFromFile();
+        Doctor.loadDoctorListFromFile();
+        Patient.loadPatientListFromFile();
 
         JFrame frame = new JFrame("Welcome Westminster Center for Skin.");
 

@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Consultation extends Session {
 
@@ -23,7 +24,7 @@ public class Consultation extends Session {
 
 
     // consultation constructor
-    public Consultation(String patientID, String sessionID, int licenceNumber, Date sessionDate, int maxPatients, String consultationID, int patientCount, int requestedTime, String description ,double sessionCost) {
+    public Consultation(String patientID, String sessionID, int licenceNumber, Date sessionDate, int maxPatients, String consultationID, int patientCount, int requestedTime, String description, double sessionCost) {
         super(sessionID, licenceNumber, sessionDate, maxPatients);
         this.patientID = patientID;
         this.consultationID = consultationID;
@@ -40,6 +41,7 @@ public class Consultation extends Session {
     public String getPatientID() {
         return patientID;
     }
+
     // get consultationID
     public String getConsultationID() {
         return consultationID;
@@ -74,6 +76,7 @@ public class Consultation extends Session {
     public void setPatientID(String patientID) {
         this.patientID = patientID;
     }
+
     public void setConsultationID(String consultationID) {
         this.consultationID = consultationID;
     }
@@ -99,15 +102,6 @@ public class Consultation extends Session {
     // set sessionCost
     public void setSessionCost(double sessionCost) {
         this.sessionCost = sessionCost;
-    }
-    // consultation Id check
-    public static boolean consultationIDCheck(String consultationID) {
-        for (Consultation consultation : consultationList) {
-            if (consultation.getConsultationID().equals(consultationID)) {
-                return false;
-            }
-        }
-        return true;
     }
 
     // patient count check
@@ -136,20 +130,32 @@ public class Consultation extends Session {
 
     // Description encryption
     public static String encryptDescription(String description) {
-        String encryptedDescription = "";
-        for (int i = 0; i < description.length(); i++) {
-            encryptedDescription += (char) (description.charAt(i) + 1);
+        int key = 5;
+        String Description = description;
+
+        String returnString = "";
+        char[] chars = Description.toCharArray();
+        for (int i =0;i<description.length();i++) {
+            returnString+=(char)(description.charAt(i)^key);
+
+
         }
-        return encryptedDescription;
+        return returnString;
     }
 
     // Description decryption
     public static String decryptDescription(String description) {
-        String decryptedDescription = "";
-        for (int i = 0; i < description.length(); i++) {
-            decryptedDescription += (char) (description.charAt(i) - 1);
+        int key = -5;
+        String Description = description;
+
+        String returnString = "";
+        char[] chars = Description.toCharArray();
+        for (int i =0;i<description.length();i++) {
+            returnString+=(char)(description.charAt(i)^key);
+
+
         }
-        return decryptedDescription;
+        return returnString;
     }
 
     // get session max patient
@@ -197,8 +203,8 @@ public class Consultation extends Session {
                         System.out.println("Patient ID is valid");
                         if (consultationIDCheck(consultationID)) {
                             System.out.println("Consultation ID is valid");
-//                            encryptDescription(description);
-                            double price =  priceCalculation(patientId,requestedTime, patientCount);
+                            description= encryptDescription(description);
+                            double price = priceCalculation(patientId, requestedTime, patientCount);
                             System.out.println("Price is : " + price);
                             Consultation consultation = new Consultation(patientId, sessionID, licenceNumber, sessionDate, maxPatients, consultationID, patientCount, requestedTime, description, price);
                             consultationList.add(consultation);
@@ -227,28 +233,25 @@ public class Consultation extends Session {
         double price = 0;
         double requestTime = 0.0;
         requestTime = requestedTime;
-        for (Consultation consultation :  Consultation.consultationList) {
+        for (Consultation consultation : Consultation.consultationList) {
             if (consultation.getPatientID().equals(patientID)) {
-                price = (requestTime/60.0)*25;
-                price= price * patientCount;
+                price = (requestTime / 60.0) * 25;
+                price = price * patientCount;
                 return price;
             }
             if (!consultation.getPatientID().equals(patientID)) {
-                price = (requestTime/60.0)*15;
-                price= price * patientCount;
+                price = (requestTime / 60.0) * 15;
+                price = price * patientCount;
                 return price;
             }
         }
-
-      return price;
-
+        return price;
     }
-
 
     // toString method
     @Override
     public String toString() {
-        return getPatientID()+","+getSessionID() + "," + getLicenceNumber() + "," + getSessionDateAndTime() + "," + getMaxPatients() + "," + getConsultationID() + "," + getPatientCount() + "," + getRequestedTime() + "," + getDescription()+","+getSessionCost();
+        return getPatientID() + "," + getSessionID() + "," + getLicenceNumber() + "," + getSessionDateAndTime() + "," + getMaxPatients() + "," + getConsultationID() + "," + getPatientCount() + "," + getRequestedTime() + "," + getDescription() + "," + getSessionCost();
     }
 
     // save consultation into file
@@ -288,9 +291,9 @@ public class Consultation extends Session {
                 String consultationID = consultationDetails[5];
                 int patientCount = Integer.parseInt(consultationDetails[6]);
                 int requestedTime = Integer.parseInt(consultationDetails[7]);
-                String description = consultationDetails[8];
+                String description = decryptDescription(consultationDetails[8]);
                 double price = Double.parseDouble(consultationDetails[9]);
-                Consultation consultation = new Consultation(patientID, sessionID, licenceNumber, sessionDate, maxPatients, consultationID, patientCount, requestedTime, description,price);
+                Consultation consultation = new Consultation(patientID, sessionID, licenceNumber, sessionDate, maxPatients, consultationID, patientCount, requestedTime, description, price);
                 consultationList.add(consultation);
             }
             bufferedReader.close();
@@ -301,15 +304,28 @@ public class Consultation extends Session {
 
     // delete consultation object
     public static void deleteConsultationObject(String consultationID) {
-        if (consultationIDCheck(consultationID)) {
-            for (int i = 0; i < consultationList.size(); i++) {
-                if (consultationList.get(i).getConsultationID().equals(consultationID)) {
-                    consultationList.remove(i);
-                    saveConsultationIntoFile();
+
+        if (!consultationIDCheck(consultationID)) {
+
+                for (int i = 0; i < consultationList.size(); i++) {
+                    if (consultationList.get(i).getConsultationID().equals(consultationID)) {
+                        consultationList.remove(i);
+                        System.out.println("Consultation deleted successfully");
+                        saveConsultationIntoFile();
                 }
             }
-        } else {
-            System.out.println("Consultation ID does not exist");
-        }
+            } else {
+                System.out.println("Invalid input");
+            }
     }
+    // consultation Id check
+    public static boolean consultationIDCheck(String consultationID) {
+        for (Consultation consultation : consultationList) {
+            if (consultation.getConsultationID().equals(consultationID)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

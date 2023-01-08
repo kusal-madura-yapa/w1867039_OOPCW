@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class SkinCareCenter extends JFrame {
+
     SkinCareCenter(){
         {
             JFrame frame = new JFrame("Skin Care Center");
@@ -138,7 +139,7 @@ public class SkinCareCenter extends JFrame {
             labelTopLeft6.setVisible(true); // set the visibility of the label
 
 
-            JLabel labelTopLeft7 = new JLabel(" * Patient Date of Birth");
+            JLabel labelTopLeft7 = new JLabel(" * Patient Date of Birth format dd/MM/yyyy");
             labelTopLeft7.setBounds(0, 0, 300, 30); // set the size of the label
             labelTopLeft7.setForeground(Color.WHITE); // set the color of the text
             labelTopLeft7.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
@@ -259,10 +260,10 @@ public class SkinCareCenter extends JFrame {
                     throw new RuntimeException(ex);
                 }
                 String patientGender = null;
-                if (e.getSource() == radioButtonTopLeft1) {
-                    patientGender = radioButtonTopLeft1.getText();
-                } else if (e.getSource() == radioButtonTopLeft2) {
-                    patientGender = radioButtonTopLeft2.getText();
+                if (radioButtonTopLeft1.isSelected()) {
+                    patientGender = "Male";
+                } else if (radioButtonTopLeft2.isSelected()) {
+                    patientGender = "Female";
                 }
 //            String patientDateOfBirth = textFieldTopLeft7.getText();
                 Patient.addPatientObject(patientName, patientSurname,patientDateOfBirth ,patientContactNumber,patientID, patientAddress, patientEmail, patientGender);

@@ -144,7 +144,7 @@ public class Patient extends Parson {
      */
     @Override
     public String toString() {
-        return getName() + "," + getSurname() + "," + getDateOfBirth() + "," + getContactNumber()  + "," + getPatientAddress() + "," + getPatientId()+ "," + getPatientEmail() + "," + getPatientGender();
+        return getName() + "," + getSurname() + "," + getDateOfBirth() + "," + getContactNumber()  + ","+ getPatientId()+ "," + getPatientAddress() +"," + getPatientEmail() + "," + getPatientGender();
     }
     /**
      *

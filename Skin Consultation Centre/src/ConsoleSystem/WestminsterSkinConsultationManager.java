@@ -251,7 +251,13 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the Consultation ID to delete : ");
         String consultationID = scanner.nextLine();
+        System.out.println("Are you sure you want to delete this consultation? (Y/N)");
+        String answer = scanner.nextLine();
+        if (answer.equals("Y")) {
         Consultation.deleteConsultationObject(consultationID);
+        }else if (answer.equals("N")) {
+            System.out.println("Consultation not deleted");
+        }
 
     }
 
