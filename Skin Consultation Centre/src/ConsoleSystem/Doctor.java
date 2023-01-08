@@ -9,8 +9,8 @@ import java.util.*;
 public class Doctor extends Parson implements Serializable {
 
     // Doctor unique attributes (specialization, licence number)
-    private String specialization;
-    private int licenceNumber;
+    private String specialization;// specialization of the doctor
+    private int licenceNumber;// licence number of the doctor
 
     // array list to store doctors
     public static ArrayList<Doctor> doctorArrayList = new ArrayList<Doctor>();
@@ -235,6 +235,9 @@ public class Doctor extends Parson implements Serializable {
         }
     }
 
+    /**
+     * this methode going to load the arrayList data from a file called doctors.txt
+     */
     public static void loadDoctorListFromFile() {
         doctorArrayList.clear();
         try {

@@ -17,7 +17,7 @@ public class ViewConsultation extends JFrame {
 
         // create a table
         JTable tableConsultation = new JTable();
-        Object[] columns = {" Session ID ", "License Number","Date and Time"," Max Patient", "Consultation ID", "Patient Count", "requested Time ","Description"};
+        Object[] columns = {" Patient Id","Session ID ", "License Number","Date and Time"," Max Patient", "Consultation ID", "Patient Count", "requested Time ","Description","Price"};
         // create a table model and design the table as not edit by using the override method
         DefaultTableModel model = new DefaultTableModel(){
             @Override
@@ -72,15 +72,18 @@ public class ViewConsultation extends JFrame {
 
         // get the data in patient array list and add to the table
         Consultation.consultationList.forEach(consultation -> {
-            Object[] row = new Object[8];
-            row[0] = consultation.getSessionID();
-            row[1] = consultation.getLicenceNumber();
-            row[2] = consultation.getSessionDateAndTime();
-            row[3] = consultation.getMaxPatients();
-            row[4] = consultation.getConsultationID();
-            row[5] = consultation.getPatientCount();
-            row[6] = consultation.getRequestedTime();
-            row[7] = consultation.getDescription();
+            Object[] row = new Object[10];
+
+            row[0] = consultation.getPatientID();
+            row[1] = consultation.getSessionID();
+            row[2] = consultation.getLicenceNumber();
+            row[3] = consultation.getSessionDateAndTime();
+            row[4] = consultation.getMaxPatients();
+            row[5] = consultation.getConsultationID();
+            row[6] = consultation.getPatientCount();
+            row[7] = consultation.getRequestedTime();
+            row[8] = consultation.getDescription();
+            row[9] = consultation.getSessionCost();
             model.addRow(row);
         });
 

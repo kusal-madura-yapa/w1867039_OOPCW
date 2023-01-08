@@ -7,13 +7,17 @@ import java.util.Date;
 
 public class Session {
 
-    private String sessionID;
-    private int licenceNumber;
-    private Date sessionDateTime;
-    private int maxPatients;
+    private String sessionID; // session id
+    private int licenceNumber; // licence number
+    private Date sessionDateTime; // session date and time
+    private int maxPatients; // max patients
 
     // session ArrayList
+    /**
+     * session ArrayList
+     */
     public static ArrayList<Session> sessionList = new ArrayList<Session>();
+
     //    // session constructor
     public Session(String sessionID, int licenceNumber, Date sessionDate, int maxPatients) {
         this.sessionID = sessionID;
@@ -67,8 +71,12 @@ public class Session {
     }
 
 
-
-
+    /**
+     * loadSessionFromFile method
+     *
+     * @param sessionDate session date
+     * @return
+     */
 
     //check the session date already exist or not by pass the session date and return true or false
     public static boolean checkSessionDate(Date sessionDate) {
@@ -80,8 +88,10 @@ public class Session {
         return true;
     }
 
+    /**
+     * loadSessionFromFile method
+     */
     //find the session object by passing the sessionID and return the session object
-
     public static Session findSessionObject(String sessionID) {
         for (Session session : sessionList) {
             if (session.getSessionID().equals(sessionID)) {
@@ -90,6 +100,10 @@ public class Session {
         }
         return null;
     }
+
+    /**
+     * loadSessionFromFile method
+     */
     // check the session id already get or not
     public static boolean sessionIDCheck(String sessionID) {
         for (Session session : sessionList) {
@@ -101,7 +115,14 @@ public class Session {
 
     }
 
-
+    /**
+     * loadSessionFromFile method
+     *
+     * @param sessionID       session id
+     * @param licenceNumber   licence number
+     * @param sessionDateTime session date and time
+     * @param maxPatients     max patients
+     */
     // add session
     public static void addSessionObject(String sessionID, int licenceNumber, Date sessionDateTime, int maxPatients) {
         // check the doctorID is valid
@@ -136,11 +157,17 @@ public class Session {
     }
 
 
+    /**
+     * loadSessionFromFile method
+     */
     @Override
     public String toString() {
-        return getSessionID() + "," +getLicenceNumber() + "," +getSessionDateAndTime() + "," + getMaxPatients();
+        return getSessionID() + "," + getLicenceNumber() + "," + getSessionDateAndTime() + "," + getMaxPatients();
     }
 
+    /**
+     * use to display the session details
+     */
     // display all sessions
     public static void displayAllSessions() {
         for (Session session : sessionList) {
@@ -149,6 +176,10 @@ public class Session {
     }
 
     // save session into file
+
+    /**
+     * saveSessionIntoFile method
+     */
     public static void saveSessionIntoFile() {
         // delete the array list and save the information
         try {
@@ -167,6 +198,9 @@ public class Session {
         }
     }
 
+    /**
+     * loadSessionFromFile method
+     */
     // load the session from the session.txt
     public static void loadSessionFromFile() {
 
@@ -188,7 +222,7 @@ public class Session {
             }
             bufferedReader.close();
         } catch (Exception e) { // LOOP NOT CRASHING IF FILE NOT FOUND
-
+            System.out.println("Error in loading the file");
         }
     }
 

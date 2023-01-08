@@ -105,6 +105,13 @@ public class Consultation extends Session {
     }
 
     // patient count check
+    /**
+     * @param patientCount patient count
+     * @param maxPatient max patients
+     * @param patientCount patient count
+     * @param sessionDate session date
+     * @return true if patientCount is less than maxPatients
+     */
     public static boolean MaxmumPationtCheck(String SessionID, int maxPatient, int patientCount, int licenceNumber, Date sessionDate) {
 
         for (Session session : Session.sessionList) {
@@ -129,6 +136,10 @@ public class Consultation extends Session {
 
 
     // Description encryption
+    /**
+     * @param description description
+     * @return encrypted description
+     */
     public static String encryptDescription(String description) {
         int key = 5;
         String Description = description;
@@ -136,7 +147,7 @@ public class Consultation extends Session {
         String returnString = "";
         char[] chars = Description.toCharArray();
         for (int i =0;i<description.length();i++) {
-            returnString+=(char)(description.charAt(i)^key);
+            returnString+=(char)(description.charAt(i) +key);
 
 
         }
@@ -144,21 +155,29 @@ public class Consultation extends Session {
     }
 
     // Description decryption
+    /**
+     * @param description description
+     * @return decrypted description
+     */
     public static String decryptDescription(String description) {
-        int key = -5;
+        int key = 5;
         String Description = description;
-
         String returnString = "";
         char[] chars = Description.toCharArray();
         for (int i =0;i<description.length();i++) {
-            returnString+=(char)(description.charAt(i)^key);
 
+            returnString+=(char)(description.charAt(i)-key );
 
         }
+        System.out.println(returnString);
         return returnString;
     }
 
     // get session max patient
+    /**
+     * @param sessionID session ID
+     * @return max patient
+     */
     public static int getmaxPatientFromSessionID(String sessionID) {
         int maxPatient = 0;
         for (Session session : Session.sessionList) {
@@ -170,6 +189,10 @@ public class Consultation extends Session {
     }
 
     // get session date in Date type
+    /**
+     * @param sessionID session ID
+     * @return session date
+     */
     public static Date getSessionDateFromSessionID(String sessionID) {
         Date sessionDate = null;
         for (Session session : Session.sessionList) {
@@ -228,7 +251,12 @@ public class Consultation extends Session {
     }
 
     // Price Calculation if patient is old one 25 euro new one 15 euro.
-
+/**
+     * @param patientID     // patient id
+     * @param requestedTime // requested time
+     * @param patientCount  // patient count
+     * @return price
+     */
     public static double priceCalculation(String patientID, int requestedTime, int patientCount) {
         double price = 0;
         double requestTime = 0.0;
@@ -249,12 +277,18 @@ public class Consultation extends Session {
     }
 
     // toString method
+    /**
+     * @return toString for saving into file
+     */
     @Override
     public String toString() {
         return getPatientID() + "," + getSessionID() + "," + getLicenceNumber() + "," + getSessionDateAndTime() + "," + getMaxPatients() + "," + getConsultationID() + "," + getPatientCount() + "," + getRequestedTime() + "," + getDescription() + "," + getSessionCost();
     }
 
     // save consultation into file
+    /**
+     * save consultation into file
+     */
     public static void saveConsultationIntoFile() {
         try {
             FileWriter fileWriter = new FileWriter("ConsultationDetails.txt");
@@ -272,6 +306,9 @@ public class Consultation extends Session {
     }
 
     // load consultation from file
+    /**
+     * load consultation from file
+     */
     public static void loadConsultationFromFile() {
         try {
             FileReader fileReader = new FileReader("ConsultationDetails.txt");
@@ -303,6 +340,9 @@ public class Consultation extends Session {
     }
 
     // delete consultation object
+    /**
+     * @param consultationID // consultation id
+     */
     public static void deleteConsultationObject(String consultationID) {
 
         if (!consultationIDCheck(consultationID)) {
@@ -319,6 +359,10 @@ public class Consultation extends Session {
             }
     }
     // consultation Id check
+    /**
+     * @param consultationID // consultation id
+     * @return true or false
+     */
     public static boolean consultationIDCheck(String consultationID) {
         for (Consultation consultation : consultationList) {
             if (consultation.getConsultationID().equals(consultationID)) {

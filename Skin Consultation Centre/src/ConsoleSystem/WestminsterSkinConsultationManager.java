@@ -12,14 +12,16 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
     public static void main(String[] args) {
 
         WestminsterSkinConsultationManager westminsterSkinConsultationManager = new WestminsterSkinConsultationManager();
-        Doctor.loadDoctorListFromFile();
-        Patient.loadPatientListFromFile();
-        Consultation.loadConsultationFromFile();
-        Session.loadSessionFromFile();
-
-        westminsterSkinConsultationManager.consoleMenu();
+        Doctor.loadDoctorListFromFile(); // load doctor list from file
+        Patient.loadPatientListFromFile(); // load patient list from file
+        Consultation.loadConsultationFromFile(); // load consultation list from file
+        Session.loadSessionFromFile(); // load session list from file
+        westminsterSkinConsultationManager.consoleMenu(); // console menu
 
     }
+    /**
+     * This method is used to show the console menu
+     */
     @Override
     public void consoleMenu() {
 
@@ -262,6 +264,11 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
     }
 
     // Patient part
+    /**
+     * Add a new Patient
+     * get the details of the patient
+     * add the patient to the patient array list
+     */
     @Override
     public void addPatient() {
         try {

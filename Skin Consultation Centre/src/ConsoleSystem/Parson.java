@@ -5,12 +5,13 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public  class  Parson {
-    private  String name;
-    private String surname;
-    Date dateOfBirth ;
-    private  String contactNumber;
+public class Parson {
+    private String name; // name of the person
+    private String surname; // surname of the person
+    Date dateOfBirth; // date of birth of the person
+    private String contactNumber; // contact number of the person
 
+    // constructor for the person
     public Parson(String name, String surname, Date DateOfBirth, String contactNumber) {
         this.name = name;
         this.surname = surname;
@@ -19,35 +20,46 @@ public  class  Parson {
 
     }
 
-    public  String getName(){
+    // getter and setter for the person
+    // getters
+    // get the name of the person
+    public String getName() {
         return name;
     }
 
-    public String getSurname(){
+    // get the surname of the person
+    public String getSurname() {
         return surname;
     }
 
-    public  Date getDateOfBirth(){
+    // get the date of birth of the person
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public String getContactNumber(){
+    // get the contact number of the person
+    public String getContactNumber() {
         return contactNumber;
     }
 
-    public void setName(String name){
+    // setters
+// set the name of the person
+    public void setName(String name) {
         this.name = name;
     }
 
-    public void setSurname(String surname){
+    // set the surname of the person
+    public void setSurname(String surname) {
         this.surname = surname;
     }
 
-    public void setDateOfBirth(Date DateOfBirth){
+    // set the date of birth of the person
+    public void setDateOfBirth(Date DateOfBirth) {
         this.dateOfBirth = DateOfBirth;
     }
 
-    public void setContactNumber(String contactNumber){
+    // set the contact number of the person
+    public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
 

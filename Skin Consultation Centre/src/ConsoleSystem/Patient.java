@@ -86,8 +86,9 @@ public class Patient extends Parson {
         this.patientGender = patientGender;}
 
 
-
-
+   /**
+     * @return the patientArrayList boolean value if the patient is added
+     */
     // check the patient id is unique
     public static boolean checkPatientId(String patientId) {
         for (Patient patient : patientArrayList) {
@@ -100,6 +101,10 @@ public class Patient extends Parson {
 
 
     // check the contact number is unique
+    /**
+     * @param contactNumber get the contact number of the patient
+     * @return
+     */
     public static boolean checkContactNumber(String contactNumber) {
         for (Patient patient : patientArrayList) {
             if (patient.getContactNumber().equals(contactNumber)) {
@@ -183,6 +188,11 @@ public class Patient extends Parson {
     }
 
     // methode for get the details from the file
+    /**
+     *
+     * @throws IOException if the file is not found or not able to read
+     * @return the patient details read from the file
+     */
 
     public static void loadPatientListFromFile() {
         try {
