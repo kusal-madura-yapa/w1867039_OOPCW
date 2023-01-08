@@ -138,7 +138,7 @@ public class Session {
 
     @Override
     public String toString() {
-        return getSessionID() + "," + getLicenceNumber() + "," + getSessionDateAndTime() + "," + getMaxPatients();
+        return getSessionID() + "," +getLicenceNumber() + "," +getSessionDateAndTime() + "," + getMaxPatients();
     }
 
     // display all sessions

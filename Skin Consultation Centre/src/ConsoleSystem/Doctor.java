@@ -80,6 +80,7 @@ public class Doctor extends Parson implements Serializable {
     public static void addDoctorObject(String name, String surname, Date DateOfBirth, String contactNumber, String specialization, int licenceNumber) {
         Doctor doctor = new Doctor(name, surname, DateOfBirth, contactNumber, specialization, licenceNumber);
         doctorArrayList.add(doctor);
+        System.out.println("Doctor added successfully");
 
     }
 
@@ -173,7 +174,7 @@ public class Doctor extends Parson implements Serializable {
                 }
             }
         }
-        System.out.println("Doctors list sorted by surname");
+
     }
 
     // when delete a doctor from the system the doctorArrayList will be updated and need to update the doctorArrayList in the file
@@ -209,6 +210,7 @@ public class Doctor extends Parson implements Serializable {
                 output.write(doctorArrayList.get(i).toString() + "\n");
             }
             output.flush();
+            System.out.println("Doctor list saved to file");
             output.close();
         } catch (Exception e) { // if any missing file or any other error
             JOptionPane.showMessageDialog(null, "Error in saving this file");
@@ -254,9 +256,10 @@ public class Doctor extends Parson implements Serializable {
                 Doctor doctor = new Doctor(name, surname, dateOfBirth, contactNumber, specialization, licenceNumber);
                 doctorArrayList.add(doctor);
             }
+            System.out.println("Doctors list loaded from file");
             bufferedReader.close();
         } catch (Exception e) { // LOOP NOT CRASHING IF FILE NOT FOUND
-
+            JOptionPane.showMessageDialog(null, "Error in saving this file");
         }
     }
     /**

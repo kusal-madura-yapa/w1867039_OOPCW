@@ -16,7 +16,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         Patient.loadPatientListFromFile();
         Consultation.loadConsultationFromFile();
         Session.loadSessionFromFile();
-        Consultation.loadConsultationFromFile();
+
         westminsterSkinConsultationManager.consoleMenu();
 
     }
@@ -206,7 +206,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
      */
     @Override
     public void addConsultation() {
-        Consultation.loadConsultationFromFile();
+
         Session.loadSessionFromFile();
         try {
             Scanner input = new Scanner(System.in);
@@ -217,18 +217,16 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
             System.out.println("Please enter the Session ID: ");
             String sessionID = input.nextLine();
             System.out.println("Please enter the Doctor Licence Number: ");
-            int licenceNumber = input.nextInt();
+            int licenceNumber = Integer.parseInt(input.nextLine());
             System.out.println("Please enter the count of patient : ");
-            int patientCount = input.nextInt();
+            int patientCount = Integer.parseInt(input.nextLine());
             System.out.println("Please enter the Consultation duration in 30/60/120 minutes : ");
-            int consultationDuration = input.nextInt();
+            int consultationDuration = Integer.parseInt(input.nextLine());
             System.out.println("Please enter the Consultation description : ");
-            String consultationDescription = input.next();
-            consultationDescription += input.nextLine();
-            System.out.println("\n");
-            // no need to interrupt the user can get this details buy session id it already applies in below method
+            String consultationDescription = input.nextLine();
             int maxPatient = 10;
             Date sessionDateTime = new Date();
+
             Consultation.addConsultationObject(patientID, sessionID, licenceNumber, sessionDateTime, maxPatient, consultationID, patientCount, consultationDuration, consultationDescription);
             consoleMenu();
             System.out.println("Consultation added successfully");

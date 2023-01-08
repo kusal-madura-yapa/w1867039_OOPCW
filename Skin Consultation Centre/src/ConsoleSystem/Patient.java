@@ -176,6 +176,7 @@ public class Patient extends Parson {
                 output.write(patientArrayList.get(i).toString() + "\n");
             }
             output.close();
+            System.out.println("Patient details saved successfully");
         } catch (Exception e) { // if any missing file or any other error
             JOptionPane.showMessageDialog(null, "Error in saving this file");
         }
@@ -204,6 +205,7 @@ public class Patient extends Parson {
                 Patient.addPatientObject(name,surname,dateOfBirth,contactNumber,patientId,address,email,gender);
             }
             bufferedReader.close();
+            System.out.println("Patient details loaded successfully");
         } catch (Exception e) { // if any missing file or any other error
             System.out.println("Error in loading this file");
 

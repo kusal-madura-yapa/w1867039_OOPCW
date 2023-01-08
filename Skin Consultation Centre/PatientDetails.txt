@@ -1,3 +1,1 @@
-dd,ddd,Sun Apr 23 00:00:00 IST 2000,112,edwd3,21,wefr,null
-s,s,Sat Jan 01 00:00:00 IST 2000,00000s,dd,0122,@D,null
-KUSAL,YAPA,Thu Jul 20 00:00:00 IST 2000,0771196802,004,04.FFFF,@KUSAL,Male
+Rani,Kularathne,Thu Jan 01 00:00:00 IST 1987,0118025362,10,04 baptis Road Kotte ,rani@gmail.com,Female
