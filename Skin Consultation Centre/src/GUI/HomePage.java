@@ -80,8 +80,6 @@ public class HomePage extends JFrame implements ActionListener {
 
 
         // create a notice label to display the notice
-
-
         JLabel noticeLabel = new JLabel("Center can add/remove a session.According "); // create a label to display the text
         noticeLabel.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
         noticeLabel.setForeground(Color.WHITE); // set the color of the text

@@ -226,4 +226,13 @@ public class Session {
         }
     }
 
+    public static Boolean checkThelicenseNumer(int licenceNumber) {
+        for (Session session : sessionList) {
+            if (session.getLicenceNumber() == licenceNumber) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

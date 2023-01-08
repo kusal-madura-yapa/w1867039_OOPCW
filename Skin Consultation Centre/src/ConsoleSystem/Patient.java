@@ -132,6 +132,7 @@ public class Patient extends Parson {
             if (checkContactNumber(contactNumber)) {
                 Patient patient = new Patient(name, surname, DateOfBirth, contactNumber, patientId, patientAddress, patientEmail, patientGender);
                 patientArrayList.add(patient);
+                Patient.savePatientDetails();
 
             } else {
                 JOptionPane.showMessageDialog(null, "Contact number already exists");
@@ -208,8 +209,8 @@ public class Patient extends Parson {
                 String surname = patientDetails[1];
                 Date dateOfBirth = Doctor.StringToDate(patientDetails[2]);
                 String contactNumber = patientDetails[3];
-                String address = patientDetails[4];
-                String patientId = patientDetails[5];
+                String patientId = patientDetails[4];
+                String address = patientDetails[5];
                 String email= patientDetails[6];
                 String gender = patientDetails[7];
                 Patient.addPatientObject(name,surname,dateOfBirth,contactNumber,patientId,address,email,gender);

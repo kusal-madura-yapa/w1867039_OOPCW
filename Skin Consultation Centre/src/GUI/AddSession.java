@@ -166,7 +166,7 @@ public class AddSession extends JFrame {
             int licenceNumber = parseInt(textFieldTopLeft2.getText());
             Date sessionDateAndTime;
             try {
-                sessionDateAndTime = new SimpleDateFormat("dd/MM/yyyy").parse(textFieldTopLeft3.getText());
+                sessionDateAndTime = new SimpleDateFormat("dd/MM/yyyy/HH:mm").parse(textFieldTopLeft3.getText());
             } catch (ParseException ex) {
                 throw new RuntimeException(ex);
             }

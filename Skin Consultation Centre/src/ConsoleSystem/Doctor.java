@@ -278,5 +278,29 @@ public class Doctor extends Parson implements Serializable {
         return false;
     }
 
+
+    /**
+     * this methode going to print the arrayList of doctors names and surNames
+     */
+    public static String getDoctorNameFromLicenceNumber(int licenceNumber) {
+        for (Doctor doctor : doctorArrayList) {
+            if (doctor.getLicenceNumber() != licenceNumber) {
+                return doctor.getName() + " " + doctor.getSurname();
+            }
+        }
+        return "Sorry no any doctor with this time slot";
+    }
+
+    /**
+     * this methode going to print the arrayList of specializations
+     */
+    public static String getDoctorSpecialityFromLicenceNumber(int licenceNumber){
+        for (Doctor doctor : doctorArrayList) {
+            if (doctor.getLicenceNumber() == licenceNumber) {
+                return doctor.getSpecialization();
+            }
+        }
+        return null;
+    }
 }
 

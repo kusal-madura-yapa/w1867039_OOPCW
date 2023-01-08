@@ -10,10 +10,9 @@ import java.awt.*;
 public class ViewConsultation extends JFrame {
 
     ViewConsultation(){
-        Consultation.loadConsultationFromFile();
         // Create a new JFrame container.
         JFrame frame = new JFrame("Welcome Westminster Center Consultation Details.");
-        Patient.loadPatientListFromFile();
+
 
         // create a table
         JTable tableConsultation = new JTable();

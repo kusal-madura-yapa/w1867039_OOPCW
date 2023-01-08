@@ -287,13 +287,13 @@ public class ConsultationAdd extends JFrame {
         consultationTextFieldTopLeft4.setVisible(true); // set the visibility of the text field
         consultationTextFieldTopLeft4.setBackground(new Color(0xA6A0A8)); // set the background color of the text field
 
-        JTextField consultationtTextFieldTopLeft5 = new JTextField(); //
+        JTextField consultationtTextFieldTopLeft5 = new JTextField(); //patient count
         consultationtTextFieldTopLeft5.setPreferredSize(new Dimension(600, 50)); // set the size of the text field
         consultationtTextFieldTopLeft5.setFont(new Font("Arial", Font.PLAIN, 20)); // set the font of the text field
         consultationtTextFieldTopLeft5.setVisible(true); // set the visibility of the text field
         consultationtTextFieldTopLeft5.setBackground(new Color(0xA6A0A8)); // set the background color of the text field
 
-        JTextField consultationTextFieldTopLeft6 = new JTextField(); // patient email
+        JTextField consultationTextFieldTopLeft6 = new JTextField(); // requested time
         consultationTextFieldTopLeft6.setPreferredSize(new Dimension(600, 50)); // set the size of the text field
         consultationTextFieldTopLeft6.setFont(new Font("Arial", Font.PLAIN, 20)); // set the font of the text field
         consultationTextFieldTopLeft6.setVisible(true); // set the visibility of the text field
@@ -339,22 +339,29 @@ public class ConsultationAdd extends JFrame {
             int licenseNumber = parseInt(consultationTextFieldTopLeft3.getText());
             String consultationId = consultationTextFieldTopLeft4.getText();
             int patientCount = parseInt(consultationtTextFieldTopLeft5.getText());
-            int patientrequestedTime = parseInt(consultationtTextFieldTopLeft5.getText());
+            int patientrequestedTime = parseInt(consultationTextFieldTopLeft6.getText());
             String description = consultationTextFieldTopLeft7.getText();
 
-            if (patientId.isEmpty() || sessionId.isEmpty() || consultationId.isEmpty() || description.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Please fill all the fields");
-            } else {
                 try {
                     Date date = new Date();
-                    int maxPatientCount = 10;
+                    int maxPatientCount = 0;
+                    System.out.println("patientId: " + patientId);
+                    System.out.println("sessionId: " + sessionId);
+                    System.out.println("licenseNumber: " + licenseNumber);
+                    System.out.println("consultationId: " + consultationId);
+                    System.out.println("patientCount: " + patientCount);
+                    System.out.println("patientrequestedTime: " + patientrequestedTime);
+                    System.out.println("description: " + description);
+                    System.out.println("date: " + date);
+                    System.out.println("maxPatientCount: " + maxPatientCount);
+
                     Consultation.addConsultationObject(patientId, sessionId, licenseNumber,date, maxPatientCount ,consultationId, patientCount, patientrequestedTime, description);
                     frame.dispose();
                     new ViewConsultation();
 //                    new ViewConsultation();
                 } catch (Exception ex) {
 
-                }
+
             }
         });
         // viwe the data in the consultation table

@@ -105,11 +105,12 @@ public class Consultation extends Session {
     }
 
     // patient count check
+
     /**
      * @param patientCount patient count
-     * @param maxPatient max patients
+     * @param maxPatient   max patients
      * @param patientCount patient count
-     * @param sessionDate session date
+     * @param sessionDate  session date
      * @return true if patientCount is less than maxPatients
      */
     public static boolean MaxmumPationtCheck(String SessionID, int maxPatient, int patientCount, int licenceNumber, Date sessionDate) {
@@ -120,7 +121,7 @@ public class Consultation extends Session {
 
                 maxPatient = maxPatient - patientCount;
                 int temp = maxPatient;
-                if (maxPatient < 0) {
+                if (temp <= 0) {
                     return false;
 
                 } else {
@@ -136,6 +137,7 @@ public class Consultation extends Session {
 
 
     // Description encryption
+
     /**
      * @param description description
      * @return encrypted description
@@ -146,15 +148,15 @@ public class Consultation extends Session {
 
         String returnString = "";
         char[] chars = Description.toCharArray();
-        for (int i =0;i<description.length();i++) {
-            returnString+=(char)(description.charAt(i) +key);
-
+        for (int i = 0; i < description.length(); i++) {
+            returnString += (char) (description.charAt(i) + key);
 
         }
         return returnString;
     }
 
     // Description decryption
+
     /**
      * @param description description
      * @return decrypted description
@@ -164,16 +166,16 @@ public class Consultation extends Session {
         String Description = description;
         String returnString = "";
         char[] chars = Description.toCharArray();
-        for (int i =0;i<description.length();i++) {
+        for (int i = 0; i < description.length(); i++) {
 
-            returnString+=(char)(description.charAt(i)-key );
+            returnString += (char) (description.charAt(i) - key);
 
         }
-        System.out.println(returnString);
         return returnString;
     }
 
     // get session max patient
+
     /**
      * @param sessionID session ID
      * @return max patient
@@ -189,6 +191,7 @@ public class Consultation extends Session {
     }
 
     // get session date in Date type
+
     /**
      * @param sessionID session ID
      * @return session date
@@ -218,40 +221,71 @@ public class Consultation extends Session {
      */
     public static void addConsultationObject(String patientId, String sessionID, int licenceNumber, Date sessionDate, int maxPatients, String consultationID, int patientCount, int requestedTime, String description) {
         if (!Session.sessionIDCheck(sessionID)) {
-            if (Doctor.checkDoctorAlreadyInList(licenceNumber)) {
+            if (Doctor.checkDoctorAlreadyInList(licenceNumber) && (Session.checkThelicenseNumer(licenceNumber))) {
                 maxPatients = getmaxPatientFromSessionID(sessionID);
                 sessionDate = getSessionDateFromSessionID(sessionID);
-                if (MaxmumPationtCheck(sessionID, maxPatients, patientCount, licenceNumber, sessionDate)) {
-                    if (Patient.checkPatientId(patientId)) {
+                if (maxPatients > patientCount && MaxmumPationtCheck(sessionID, maxPatients, patientCount, licenceNumber, sessionDate)) {
+                    if (!Patient.checkPatientId(patientId)) {
                         System.out.println("Patient ID is valid");
                         if (consultationIDCheck(consultationID)) {
                             System.out.println("Consultation ID is valid");
-                            description= encryptDescription(description);
                             double price = priceCalculation(patientId, requestedTime, patientCount);
                             System.out.println("Price is : " + price);
                             Consultation consultation = new Consultation(patientId, sessionID, licenceNumber, sessionDate, maxPatients, consultationID, patientCount, requestedTime, description, price);
                             consultationList.add(consultation);
                             System.out.println("Consultation added successfully");
+                            JOptionPane.showMessageDialog(null, "Consultation added successfully");
                             saveConsultationIntoFile();
                         } else {
                             System.out.println("Consultation ID already in used");
+                            JOptionPane.showMessageDialog(null, "Consultation ID already in used");
                         }
                     } else {
                         System.out.println("Patient ID not found");
+                        JOptionPane.showMessageDialog(null, "Patient ID not found");
                     }
                 } else {
+                    getAnotherDoctrorSameDateAndTime(licenceNumber, sessionDate);
                     System.out.println("Maximum patient number exceeded");
+                    JOptionPane.showMessageDialog(null, "Maximum patient number exceeded");
                 }
             } else {
                 System.out.println("Doctor is not in the list");
+                JOptionPane.showMessageDialog(null, "Doctor is not in the list");
             }
         } else {
             System.out.println("Session ID does not exist");
+            JOptionPane.showMessageDialog(null, "Session ID does not exist");
         }
     }
 
+    // get another doctor same date and time
+
+    /**
+     * @param sessionDate session date
+     */
+    public static void getAnotherDoctrorSameDateAndTime(int licenceNumber, Date sessionDate) {
+        for (Session session : Session.sessionList) {
+
+            if ((session.getSessionDateAndTime().equals(sessionDate)) && (licenceNumber != session.getLicenceNumber())) {
+                System.out.println("Another doctor available on same date and time");
+                System.out.println("Doctor Licence Number : " + session.getLicenceNumber());
+                System.out.println("Doctor Name : " + Doctor.getDoctorNameFromLicenceNumber(session.getLicenceNumber()));
+                System.out.println("Doctor Speciality : " + Doctor.getDoctorSpecialityFromLicenceNumber(session.getLicenceNumber()));
+                JOptionPane.showMessageDialog(null, "Another doctor available on same date and time" +
+                        "\n" + "Doctor Licence Number : " + session.getLicenceNumber() + "\n"
+                        + "Doctor Name : " + Doctor.getDoctorNameFromLicenceNumber(session.getLicenceNumber())
+                        + "\n" + "Doctor Speciality : " + Doctor.getDoctorSpecialityFromLicenceNumber(session.getLicenceNumber()));
+            }
+        }
+        System.out.println("No doctor available on same date and time");
+        JOptionPane.showMessageDialog(null, "No doctor available on same date and time");
+    }
+
+
     // Price Calculation if patient is old one 25 euro new one 15 euro.
-/**
+
+    /**
      * @param patientID     // patient id
      * @param requestedTime // requested time
      * @param patientCount  // patient count
@@ -267,7 +301,7 @@ public class Consultation extends Session {
                 price = price * patientCount;
                 return price;
             }
-            if (!consultation.getPatientID().equals(patientID)) {
+            else if (!consultation.getPatientID().equals(patientID)) {
                 price = (requestTime / 60.0) * 15;
                 price = price * patientCount;
                 return price;
@@ -277,15 +311,17 @@ public class Consultation extends Session {
     }
 
     // toString method
+
     /**
      * @return toString for saving into file
      */
     @Override
     public String toString() {
-        return getPatientID() + "," + getSessionID() + "," + getLicenceNumber() + "," + getSessionDateAndTime() + "," + getMaxPatients() + "," + getConsultationID() + "," + getPatientCount() + "," + getRequestedTime() + "," + getDescription() + "," + getSessionCost();
+        return getPatientID() + "," + getSessionID() + "," + getLicenceNumber() + "," + getSessionDateAndTime() + "," + getMaxPatients() + "," + getConsultationID() + "," + getPatientCount() + "," + getRequestedTime() + "," + encryptDescription(getDescription()) + "," + getSessionCost();
     }
 
     // save consultation into file
+
     /**
      * save consultation into file
      */
@@ -306,6 +342,7 @@ public class Consultation extends Session {
     }
 
     // load consultation from file
+
     /**
      * load consultation from file
      */
@@ -335,11 +372,12 @@ public class Consultation extends Session {
             }
             bufferedReader.close();
         } catch (Exception e) { // if any missing file or any other error
-            System.out.println("Error in loading this file");
+            System.out.println("Error in  loading this file");
         }
     }
 
     // delete consultation object
+
     /**
      * @param consultationID // consultation id
      */
@@ -347,18 +385,19 @@ public class Consultation extends Session {
 
         if (!consultationIDCheck(consultationID)) {
 
-                for (int i = 0; i < consultationList.size(); i++) {
-                    if (consultationList.get(i).getConsultationID().equals(consultationID)) {
-                        consultationList.remove(i);
-                        System.out.println("Consultation deleted successfully");
-                        saveConsultationIntoFile();
+            for (int i = 0; i < consultationList.size(); i++) {
+                if (consultationList.get(i).getConsultationID().equals(consultationID)) {
+                    consultationList.remove(i);
+                    System.out.println("Consultation deleted successfully");
+                    saveConsultationIntoFile();
                 }
             }
-            } else {
-                System.out.println("Invalid input");
-            }
+        } else {
+            System.out.println("Invalid input");
+        }
     }
     // consultation Id check
+
     /**
      * @param consultationID // consultation id
      * @return true or false
