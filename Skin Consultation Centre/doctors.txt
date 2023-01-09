@@ -1,3 +1,4 @@
-Amla,Amarasiri,Sun Feb 20 00:00:00 IST 2000,0123456789,Medical,4
-Kamal,Hettiarachi,Thu Jul 01 00:00:00 IST 1999,0119500258,Dermatologist,10
-Kusal,Yapa,Sat Jul 29 00:00:00 IST 2000,0771196802,Dermatologist,1
+Jayani,Bandara,Sat Aug 01 00:00:00 IST 1987,0456789123,Cosmetic,4
+Kasun,Faruk,Tue Jul 05 00:00:00 IST 1988,0456123897,Dermatologist,5
+Lalith,Yapa,Sat Sep 06 00:00:00 IST 1997,0789456123,Dermatologist,3
+Danuka,Yapa,Sat Jan 01 00:00:00 IST 2000,0771196802,Dermatologist,1

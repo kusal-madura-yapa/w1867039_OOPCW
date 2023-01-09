@@ -295,19 +295,18 @@ public class Consultation extends Session {
         double price = 0;
         double requestTime = 0.0;
         requestTime = requestedTime;
-        for (Consultation consultation : Consultation.consultationList) {
+        for (Consultation consultation : consultationList) {
             if (consultation.getPatientID().equals(patientID)) {
                 price = (requestTime / 60.0) * 25;
                 price = price * patientCount;
                 return price;
             }
-            else if (!consultation.getPatientID().equals(patientID)) {
-                price = (requestTime / 60.0) * 15;
-                price = price * patientCount;
-                return price;
-            }
+
         }
+        price = (requestTime / 60.0) * 15;
+        price = price * patientCount;
         return price;
+
     }
 
     // toString method

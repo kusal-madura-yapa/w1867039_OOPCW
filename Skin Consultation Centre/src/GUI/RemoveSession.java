@@ -1,18 +1,11 @@
 package GUI;
 
-
-
-import ConsoleSystem.Doctor;
 import ConsoleSystem.Session;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
-import static java.lang.Integer.parseInt;
 
 public class RemoveSession extends JFrame {
     RemoveSession(){
@@ -21,26 +14,26 @@ public class RemoveSession extends JFrame {
         Session.loadSessionFromFile();
 
         // panel top left  1
-        JPanel panelTopLeft1 = new JPanel(); // Session ID
-        panelTopLeft1.setBounds(0, 10, 800, 40); // set the size of the panel
-        panelTopLeft1.setBackground(new Color(0x212121));// set the background color of the panel
-        panelTopLeft1.setLayout(null);// set the layout of the panel
-        panelTopLeft1.setVisible(true);// set the visibility of the panel
-        panelTopLeft1.setLayout(new GridLayout(1, 2, 10, 10)); // set the layout of the panel
+        JPanel removePanelTopLeft1 = new JPanel(); // Session ID
+        removePanelTopLeft1.setBounds(0, 10, 800, 40); // set the size of the panel
+        removePanelTopLeft1.setBackground(new Color(0x212121));// set the background color of the panel
+        removePanelTopLeft1.setLayout(null);// set the layout of the panel
+        removePanelTopLeft1.setVisible(true);// set the visibility of the panel
+        removePanelTopLeft1.setLayout(new GridLayout(1, 2, 10, 10)); // set the layout of the panel
 
 
 
         // panel top left  5
-        JPanel panelForTableOfSesssion = new JPanel();  // patient address
-        panelForTableOfSesssion.setBounds(0, 250, 1000, 300); // set the size of the panel
-        panelForTableOfSesssion.setBackground(new Color(0x212121));// set the background color of the panel
-        panelForTableOfSesssion.setLayout(null);// set the layout of the panel
-        panelForTableOfSesssion.setVisible(true);// set the visibility of the panel
-        panelForTableOfSesssion.setLayout(new GridLayout(1, 2, 10, 10)); // set the layout of the panel
+        JPanel removePanelForTableOfSesssion = new JPanel();  // patient address
+        removePanelForTableOfSesssion.setBounds(0, 250, 1000, 300); // set the size of the panel
+        removePanelForTableOfSesssion.setBackground(new Color(0x212121));// set the background color of the panel
+        removePanelForTableOfSesssion.setLayout(null);// set the layout of the panel
+        removePanelForTableOfSesssion.setVisible(true);// set the visibility of the panel
+        removePanelForTableOfSesssion.setLayout(new GridLayout(1, 2, 10, 10)); // set the layout of the panel
 
 
 
-        JTable table = new JTable();
+        JTable reomveTable = new JTable();
         Object[] columns = {"Session ID", "Licence Number", "Session Date and Time", "Max Patients"};
         // create a table model and design the table as not edit by using the override method
         DefaultTableModel model = new DefaultTableModel(){
@@ -49,39 +42,39 @@ public class RemoveSession extends JFrame {
                 return false;
             }
         };
-        table.setModel(model);
-        JScrollPane pane = new JScrollPane(table);
+        reomveTable.setModel(model);
+        JScrollPane pane = new JScrollPane(reomveTable);
         pane.setBounds(0, 0, 1000, 455);
         pane.setForeground(new Color(0x474783));
 
 
 
         // Labels for the panel top left
-        JLabel labelTopLeft1 = new JLabel(" * Enter Session ID to remove : ");
-        labelTopLeft1.setBounds(0, 0, 250, 30); // set the size of the label
-        labelTopLeft1.setForeground(Color.WHITE); // set the color of the text
-        labelTopLeft1.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        labelTopLeft1.setHorizontalAlignment(JLabel.LEFT); // set the alignment of the text
-        labelTopLeft1.setVisible(true); // set the visibility of the label
+        JLabel removelabelTopLeft1 = new JLabel(" * Enter Session ID to remove : ");
+        removelabelTopLeft1.setBounds(0, 0, 250, 30); // set the size of the label
+        removelabelTopLeft1.setForeground(Color.WHITE); // set the color of the text
+        removelabelTopLeft1.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        removelabelTopLeft1.setHorizontalAlignment(JLabel.LEFT); // set the alignment of the text
+        removelabelTopLeft1.setVisible(true); // set the visibility of the label
 
 
 
 
 
         // Text fields for the panel top left
-        JTextField textFieldTopLeft1 = new JTextField(); // patient name
-        textFieldTopLeft1.setPreferredSize(new Dimension(300, 40)); // set the size of the text field
-        textFieldTopLeft1.setFont(new Font("Arial", Font.PLAIN, 20)); // set the font of the text field
-        textFieldTopLeft1.setVisible(true); // set the visibility of the text field
-        textFieldTopLeft1.setBackground(new Color(0xA6A0A8)); // set the background color of the text field
+        JTextField removeTextFieldTopLeft1   = new JTextField(); // patient name
+        removeTextFieldTopLeft1.setPreferredSize(new Dimension(300, 40)); // set the size of the text field
+        removeTextFieldTopLeft1.setFont(new Font("Arial", Font.PLAIN, 20)); // set the font of the text field
+        removeTextFieldTopLeft1.setVisible(true); // set the visibility of the text field
+        removeTextFieldTopLeft1.setBackground(new Color(0xA6A0A8)); // set the background color of the text field
 
 
         // create a panel for the bottom of the frame
-        JPanel panelBottom = new JPanel();
-        panelBottom.setBounds(0, 710, 1000, 50); // set the size of the panel
-        panelBottom.setBackground(new Color(0x212121));// set the background color of the panel
-        panelBottom.setLayout(null);// set the layout of the panel
-        panelBottom.setVisible(true);// set the visibility of the panel
+        JPanel removePanelBottom = new JPanel();
+        removePanelBottom.setBounds(0, 710, 1000, 50); // set the size of the panel
+        removePanelBottom.setBackground(new Color(0x212121));// set the background color of the panel
+        removePanelBottom.setLayout(null);// set the layout of the panel
+        removePanelBottom.setVisible(true);// set the visibility of the panel
 
         // create a button
         JButton btnBack = new JButton("Back");
@@ -104,7 +97,7 @@ public class RemoveSession extends JFrame {
         btnAddDataSession.setVisible(true);
         btnAddDataSession.addActionListener(e -> {
             // get the data from the text field
-            String sessionID = textFieldTopLeft1.getText();
+            String sessionID = removeTextFieldTopLeft1.getText();
 
             // find and remove the session
 
@@ -135,18 +128,18 @@ public class RemoveSession extends JFrame {
 
 
         model.setColumnIdentifiers(columns); // set the column identifiers of the table
-        table.setModel(model);  // set the model of the table
+        reomveTable.setModel(model);  // set the model of the table
 
-        table.setBackground(new Color(0xAD91E7)); // set the background color of the table
-        table.setForeground(new Color(0x000000)); // set the foreground color of the table
-        table.setGridColor(new Color(0xFFFFFF)); // set the grid color of the table
-        table.setSelectionBackground(new Color(0xFFFFFF));
-        table.setAutoCreateRowSorter(false); // set the auto create row sorter of the table to false
-        table.setFont(new Font("Serif", Font.PLAIN, 15));
-        table.setRowHeight(40); // set the row height of the table
-        table.setAutoCreateRowSorter(true); // set the auto create row sorter of the table to true
-        panelForTableOfSesssion.add(pane); // add the scroll pane to the frame
-        panelForTableOfSesssion.add(panelBottom); // add the panel to the frame
+        reomveTable.setBackground(new Color(0xAD91E7)); // set the background color of the table
+        reomveTable.setForeground(new Color(0x000000)); // set the foreground color of the table
+        reomveTable.setGridColor(new Color(0xFFFFFF)); // set the grid color of the table
+        reomveTable.setSelectionBackground(new Color(0xFFFFFF));
+        reomveTable.setAutoCreateRowSorter(false); // set the auto create row sorter of the table to false
+        reomveTable.setFont(new Font("Serif", Font.PLAIN, 15));
+        reomveTable.setRowHeight(40); // set the row height of the table
+        reomveTable.setAutoCreateRowSorter(true); // set the auto create row sorter of the table to true
+        removePanelForTableOfSesssion.add(pane); // add the scroll pane to the frame
+        removePanelForTableOfSesssion.add(removePanelBottom); // add the panel to the frame
 
 
         // add the data in to object and add the object to the table
@@ -161,22 +154,22 @@ public class RemoveSession extends JFrame {
 
 
         // add the panel to the frame
-        frame.add(panelTopLeft1);
-        frame.add(panelForTableOfSesssion);
-        frame.add(panelBottom);
+        frame.add(removePanelTopLeft1);
+        frame.add(removePanelForTableOfSesssion);
+        frame.add(removePanelBottom);
 
 
         // add the label to the panel
-        panelTopLeft1.add(labelTopLeft1);
+        removePanelTopLeft1.add(removelabelTopLeft1);
 
 
         // add the text field to the panel
-        panelTopLeft1.add(textFieldTopLeft1);
+        removePanelTopLeft1.add(removeTextFieldTopLeft1);
 
 
         // add the button to the panel
-        panelBottom.add(btnBack);
-        panelBottom.add(btnAddDataSession);
+        removePanelBottom.add(btnBack);
+        removePanelBottom.add(btnAddDataSession);
 
 
         frame.setVisible(true);

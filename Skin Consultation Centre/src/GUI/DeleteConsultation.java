@@ -18,25 +18,25 @@ public class DeleteConsultation extends JFrame {
         frame.setResizable(false);// prevent the frame from being resized
         frame.setLayout(null); // set the layout of the frame
 
-        JPanel consultationIDPanel = new JPanel();  // Consultation ID
-        consultationIDPanel.setBounds(10, 190, 460, 40); // set the size of the panel
-        consultationIDPanel.setBackground(new Color(0x212121));// set the background color of the panel
-        consultationIDPanel.setLayout(null);// set the layout of the panel
-        consultationIDPanel.setVisible(true);// set the visibility of the panel
-        consultationIDPanel.setLayout(new GridLayout(1, 2, 10, 10)); // set the layout of the panel
+        JPanel DeletconsultationPanel = new JPanel();  // Consultation ID
+        DeletconsultationPanel.setBounds(10, 190, 460, 40); // set the size of the panel
+        DeletconsultationPanel.setBackground(new Color(0x212121));// set the background color of the panel
+        DeletconsultationPanel.setLayout(null);// set the layout of the panel
+        DeletconsultationPanel.setVisible(true);// set the visibility of the panel
+        DeletconsultationPanel.setLayout(new GridLayout(1, 2, 10, 10)); // set the layout of the panel
 
 
-        JLabel consultationIDLabel = new JLabel("Consultation ID:"); // create a label for the consultation ID
-        consultationIDLabel.setBounds(10, 10, 100, 20); // set the size of the label
-        consultationIDLabel.setForeground(new Color(0xFFFFFF)); // set the color of the label
-        consultationIDLabel.setVisible(true); // set the visibility of the label
-        consultationIDPanel.add(consultationIDLabel); // add the label to the panel
+        JLabel DeleteconsultationIDLabel = new JLabel("Consultation ID:"); // create a label for the consultation ID
+        DeleteconsultationIDLabel.setBounds(10, 10, 100, 20); // set the size of the label
+        DeleteconsultationIDLabel.setForeground(new Color(0xFFFFFF)); // set the color of the label
+        DeleteconsultationIDLabel.setVisible(true); // set the visibility of the label
+        DeletconsultationPanel.add(DeleteconsultationIDLabel); // add the label to the panel
 
-        JTextField consultationIDTextField = new JTextField(); // create a text field for the consultation ID
-        consultationIDTextField.setBounds(10, 10, 100, 20); // set the size of the text field
-        consultationIDTextField.setForeground(new Color(0x474783)); // set the color of the text field
-        consultationIDTextField.setVisible(true); // set the visibility of the text field
-        consultationIDPanel.add(consultationIDTextField); // add the text field to the panel
+        JTextField DeleteconsultationIDTextField = new JTextField(); // create a text field for the consultation ID
+        DeleteconsultationIDTextField.setBounds(10, 10, 100, 20); // set the size of the text field
+        DeleteconsultationIDTextField.setForeground(new Color(0x474783)); // set the color of the text field
+        DeleteconsultationIDTextField.setVisible(true); // set the visibility of the text field
+        DeletconsultationPanel.add(DeleteconsultationIDTextField); // add the text field to the panel
 
 
         JPanel deleteButtonPanel = new JPanel();  // Delete Button
@@ -53,7 +53,7 @@ public class DeleteConsultation extends JFrame {
         deleteButton.setVisible(true); // set the visibility of the button
         deleteButtonPanel.add(deleteButton); // add the button to the panel
         deleteButton.addActionListener(e -> {
-            Consultation.deleteConsultationObject(consultationIDTextField.getText());
+            Consultation.deleteConsultationObject(DeleteconsultationIDTextField.getText());
             frame.dispose();
             new ConsultationAdd();
         });
@@ -70,7 +70,7 @@ public class DeleteConsultation extends JFrame {
         });
 
 
-        frame.add(consultationIDPanel); // add the panel to the frame
+        frame.add(DeletconsultationPanel); // add the panel to the frame
 
 
 

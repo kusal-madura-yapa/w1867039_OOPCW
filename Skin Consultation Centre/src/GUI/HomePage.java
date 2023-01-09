@@ -1,5 +1,6 @@
 package GUI;
 
+import ConsoleSystem.Consultation;
 import ConsoleSystem.Doctor;
 import ConsoleSystem.Patient;
 import ConsoleSystem.Session;
@@ -15,6 +16,7 @@ public class HomePage extends JFrame implements ActionListener {
         Session.loadSessionFromFile();
         Doctor.loadDoctorListFromFile();
         Patient.loadPatientListFromFile();
+        Consultation.loadConsultationFromFile();
 
         JFrame frame = new JFrame("Welcome Westminster Center for Skin.");
 
@@ -48,100 +50,100 @@ public class HomePage extends JFrame implements ActionListener {
 
         // JPanel for the buttons
         // create a panel to hold the buttons
-        JPanel buttonPanelTop = new JPanel();
-        buttonPanelTop.setBackground(new Color(0x16163B)); // set the background color of the panel
-        buttonPanelTop.setBounds(0, 110, 300, 10); // set the size of the panel
+        JPanel HomebuttonPanelTop = new JPanel();
+        HomebuttonPanelTop.setBackground(new Color(0x16163B)); // set the background color of the panel
+        HomebuttonPanelTop.setBounds(0, 110, 300, 10); // set the size of the panel
+ 
+        JPanel homeButtonPanelBottom = new JPanel();
+        homeButtonPanelBottom.setBackground(new Color(0x16163B)); // set the background color of the panel
+        homeButtonPanelBottom.setBounds(0, 710, 300, 10); // set the size of the panel
 
-        JPanel buttonPanelBottom = new JPanel();
-        buttonPanelBottom.setBackground(new Color(0x16163B)); // set the background color of the panel
-        buttonPanelBottom.setBounds(0, 710, 300, 10); // set the size of the panel
+        JPanel HomeButtonPanelLeft = new JPanel();
+        HomeButtonPanelLeft.setBackground(new Color(0x16163B)); // set the background color of the panel
+        HomeButtonPanelLeft.setBounds(0, 110, 10, 600); // set the size of the panel
 
-        JPanel buttonPanelLeft = new JPanel();
-        buttonPanelLeft.setBackground(new Color(0x16163B)); // set the background color of the panel
-        buttonPanelLeft.setBounds(0, 110, 10, 600); // set the size of the panel
+        JPanel homeButtonPanelRight = new JPanel();
+        homeButtonPanelRight.setBackground(new Color(0x16163B)); // set the background color of the panel
+        homeButtonPanelRight.setBounds(290, 110, 10, 600); // set the size of the panel
 
-        JPanel buttonPanelRight = new JPanel();
-        buttonPanelRight.setBackground(new Color(0x16163B)); // set the background color of the panel
-        buttonPanelRight.setBounds(290, 110, 10, 600); // set the size of the panel
-
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setBackground(new Color(0x16163B)); // set the background color of the panel
-        buttonPanel.setBounds(9, 120, 281, 590); // set the size of the panel
-        buttonPanel.setLayout(new GridLayout(5, 1, 50, 70)); // set the layout of the panel
+        JPanel homeButtonPanel  = new JPanel();
+        homeButtonPanel.setBackground(new Color(0x16163B)); // set the background color of the panel
+        homeButtonPanel.setBounds(9, 120, 281, 590); // set the size of the panel
+        homeButtonPanel.setLayout(new GridLayout(5, 1, 50, 70)); // set the layout of the panel
 
         // create a notice panel
-        JPanel noticePanel0 = new JPanel();
-        noticePanel0.setBackground(new Color(0xFF3E3542, true)); // set the background color of the panel
-        noticePanel0.setBounds(300, 110, 550, 201); // set the size of the panel
-
-        JPanel noticePanel = new JPanel();
-        noticePanel.setBackground(new Color(0xFF3E3542, true)); // set the background color of the panel
-        noticePanel.setBounds(300, 310, 550, 610); // set the size of the panel
+        JPanel homenoticePanel0 = new JPanel();
+        homenoticePanel0.setBackground(new Color(0xFF3E3542, true)); // set the background color of the panel
+        homenoticePanel0.setBounds(300, 110, 550, 201); // set the size of the panel
+ 
+        JPanel  homeSecnoticePanel = new JPanel();
+        homeSecnoticePanel.setBackground(new Color(0xFF3E3542, true)); // set the background color of the panel
+        homeSecnoticePanel.setBounds(300, 310, 550, 610); // set the size of the panel
 
 
         // create a notice label to display the notice
-        JLabel noticeLabel = new JLabel("Center can add/remove a session.According "); // create a label to display the text
-        noticeLabel.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        noticeLabel.setForeground(Color.WHITE); // set the color of the text
+        JLabel homeNoticeLabel = new JLabel("Center can add/remove a session.According "); // create a label to display the text
+        homeNoticeLabel.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        homeNoticeLabel.setForeground(Color.WHITE); // set the color of the text
 
 
-        JLabel noticeLabel1 = new JLabel("to system its free to set sessions only 10 Doctors . "); // create a label to display the text
-        noticeLabel1.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        noticeLabel1.setForeground(Color.WHITE); // set the color of the text
+        JLabel  homeNoticeLabel1 = new JLabel("to system its free to set sessions only 10 Doctors . "); // create a label to display the text
+        homeNoticeLabel1.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        homeNoticeLabel1.setForeground(Color.WHITE); // set the color of the text
 
 
 
-        JLabel noticeLabel2 = new JLabel(" On sessions,user can go and or remove a consultation,"); // create a label to display the text
-        noticeLabel2.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        noticeLabel2.setForeground(Color.WHITE); // set the color of the text
+        JLabel homeNoticeLabel2 = new JLabel(" On sessions,user can go and or remove a consultation,"); // create a label to display the text
+        homeNoticeLabel2.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        homeNoticeLabel2.setForeground(Color.WHITE); // set the color of the text
 
-        JLabel noticeLabel3 = new JLabel("Consultation ID must remember.Doctor list and Patient . "); // create a label to display the text
-        noticeLabel3.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        noticeLabel3.setForeground(Color.WHITE); // set the color of the text
+        JLabel homeNoticeLabel3 = new JLabel("Consultation ID must remember.Doctor list and Patient . "); // create a label to display the text
+        homeNoticeLabel3.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        homeNoticeLabel3.setForeground(Color.WHITE); // set the color of the text
 
-        JLabel noticeLabel4 = new JLabel("List show the current list of patients.in this version"); // create a label to display the text
-        noticeLabel4.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        noticeLabel4.setForeground(Color.WHITE); // set the color of the text
+        JLabel homeNoticeLabel4  = new JLabel("List show the current list of patients.in this version"); // create a label to display the text
+        homeNoticeLabel4.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        homeNoticeLabel4.setForeground(Color.WHITE); // set the color of the text
 
-        JLabel noticeLabel5 = new JLabel(", the system can view Doctors and patient. "); // create a label to display the text
-        noticeLabel5.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        noticeLabel5.setForeground(Color.WHITE); // set the color of the text
+        JLabel homeNoticeLabel5 = new JLabel(", the system can view Doctors and patient. "); // create a label to display the text
+        homeNoticeLabel5.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        homeNoticeLabel5.setForeground(Color.WHITE); // set the color of the text
 
-
+  
         // create a notice panel right top
-        JPanel noticePanelRightTop = new JPanel();
-        noticePanelRightTop.setBackground(new Color(0xFF3E3542, true)); // set the background color of the panel
-        noticePanelRightTop.setBounds(850, 110, 140, 560); // set the size of the panel
+        JPanel homeNoticePanelRightTop = new JPanel();
+        homeNoticePanelRightTop.setBackground(new Color(0xFF3E3542, true)); // set the background color of the panel
+        homeNoticePanelRightTop.setBounds(850, 110, 140, 560); // set the size of the panel
 
         // create a notice panel right bottom
-        JPanel noticePanelRightBottom = new JPanel();
-        noticePanelRightBottom.setBackground(new Color(0xFF3E3542, true)); // set the background color of the panel
-        noticePanelRightBottom.setBounds(850, 670, 140, 50); // set the size of the panel
-
+        JPanel homeNoticePanelRightBottom = new JPanel();
+        homeNoticePanelRightBottom.setBackground(new Color(0xFF3E3542, true)); // set the background color of the panel
+        homeNoticePanelRightBottom.setBounds(850, 670, 140, 50); // set the size of the panel
+ 
         // Create panel for footer text
-        JPanel footerPanel = new JPanel();
-        footerPanel.setBackground(new Color(0x262628)); // set the background color of the panel
-        footerPanel.setBounds(0, 721, 1000, 50); // set the size of the panel
+        JPanel homeFooterPanel = new JPanel();
+        homeFooterPanel.setBackground(new Color(0x262628)); // set the background color of the panel
+        homeFooterPanel.setBounds(0, 721, 1000, 50); // set the size of the panel
 
-
+ 
         // create a text field to display note in notice panel
-        JTextField noticeText = new JTextField("This is a notice");
-        noticeText.setPreferredSize(new Dimension(500, 500));
-        noticeText.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        noticeText.setForeground(Color.WHITE); // set the color of the text
-        noticeText.setVisible(true); // set the label to be visible
-
+        JTextField homeNoticeText = new JTextField("This is a notice");
+        homeNoticeText.setPreferredSize(new Dimension(500, 500));
+        homeNoticeText.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        homeNoticeText.setForeground(Color.WHITE); // set the color of the text
+        homeNoticeText.setVisible(true); // set the label to be visible
+ 
 
         // buttons
         // create a button for enter doctor page
-        JButton AddSessionButton = new JButton("Add Or Remove Session");
-        AddSessionButton.setBackground(new Color(0x5E0393)); // set the background color of the button
-        AddSessionButton.setForeground(Color.WHITE); // set the color of the text
-        AddSessionButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
-        AddSessionButton.setBorder(BorderFactory.createLineBorder(Color.WHITE, 10)); // set the border of the button
-        AddSessionButton.setFocusPainted(false); // remove the focus paint
+        JButton homeAddSessionButton = new JButton("Add Or Remove Session");
+        homeAddSessionButton.setBackground(new Color(0x5E0393)); // set the background color of the button
+        homeAddSessionButton.setForeground(Color.WHITE); // set the color of the text
+        homeAddSessionButton.setFont(new Font("Arial", Font.BOLD, 20)); // set the font of the text
+        homeAddSessionButton.setBorder(BorderFactory.createLineBorder(Color.WHITE, 10)); // set the border of the button
+        homeAddSessionButton.setFocusPainted(false); // remove the focus paint
         // action listener for the add session page button
-        AddSessionButton.addActionListener(new ActionListener() {
+        homeAddSessionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // create a new frame
@@ -249,41 +251,41 @@ public class HomePage extends JFrame implements ActionListener {
         frame.add(titlePanelForImage);
         frame.add(titlePanelForTextTop);
         frame.add(titlePanelForText);
-        frame.add(buttonPanel);
-        frame.add(buttonPanelTop);
-        frame.add(buttonPanelBottom);
-        frame.add(buttonPanelLeft);
-        frame.add(buttonPanelRight);
+        frame.add(homeButtonPanel);
+        frame.add(HomebuttonPanelTop);
+        frame.add(homeButtonPanelBottom);
+        frame.add(HomeButtonPanelLeft);
+        frame.add(homeButtonPanelRight);
 
-        frame.add(footerPanel);
-        frame.add(noticePanel0);
-        frame.add(noticePanel);
-        frame.add(noticePanelRightTop);
-        frame.add(noticePanelRightBottom);
+        frame.add(homeFooterPanel);
+        frame.add(homenoticePanel0);
+        frame.add(homeSecnoticePanel);
+        frame.add(homeNoticePanelRightTop);
+        frame.add(homeNoticePanelRightBottom);
         // Panel add components
         titlePanelForImage.add(titleImageLabel);
         titlePanelForText.add(titleTextLable);
 
         // button panel add components
-        buttonPanel.add(AddSessionButton);
-        buttonPanel.add(ConsultationButton);
-        buttonPanel.add(SkinCareCenterButton);
-        buttonPanel.add(doctorListButton);
-        buttonPanel.add(patientListButton);
+        homeButtonPanel.add(homeAddSessionButton);
+        homeButtonPanel.add(ConsultationButton);
+        homeButtonPanel.add(SkinCareCenterButton);
+        homeButtonPanel.add(doctorListButton);
+        homeButtonPanel.add(patientListButton);
 
 
         // notice panel add components
-        noticePanel.add(noticeLabel);
-        noticePanel.add(noticeLabel1);
-        noticePanel.add(noticeLabel2);
-        noticePanel.add(noticeLabel3);
-        noticePanel.add(noticeLabel4);
+        homeSecnoticePanel.add(homeNoticeLabel);
+        homeSecnoticePanel.add(homeNoticeLabel1);
+        homeSecnoticePanel.add(homeNoticeLabel2);
+        homeSecnoticePanel.add(homeNoticeLabel3);
+        homeSecnoticePanel.add(homeNoticeLabel4);
 
-        noticePanel.add(noticeLabel5);
+        homeSecnoticePanel.add(homeNoticeLabel5);
 
 
         //notice panel right add components
-        noticePanelRightBottom.add(exitButton);
+        homeNoticePanelRightBottom.add(exitButton);
 
         // footer panel add components
 

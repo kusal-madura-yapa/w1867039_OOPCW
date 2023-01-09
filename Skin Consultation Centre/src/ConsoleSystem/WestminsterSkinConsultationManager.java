@@ -18,6 +18,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         Session.loadSessionFromFile(); // load session list from file
         westminsterSkinConsultationManager.consoleMenu(); // console menu
 
+
     }
     /**
      * This method is used to show the console menu
@@ -126,7 +127,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
      */
     @Override
     public void addDoctor() {
-        if (Doctor.doctorArrayList.size() <= 10) {
+        if (Doctor.doctorArrayList.size() <= 9) {
             boolean boolcatch = false;
             do {
                 try {
@@ -158,7 +159,6 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         }
         consoleMenu();
     }
-
     /**
      * Find a Doctor
      * get the details of the doctor
@@ -187,11 +187,13 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
             String sessionID = input.nextLine();
             System.out.println("Please enter the Doctor's licence number: ");
             int licenceNumber = input.nextInt();
+            input.nextLine();
             System.out.println("Please enter the Doctor's session Date and time dd/MM/yyyy/HH:mm : ");
             String SessionDate = input.nextLine();
             Date sessionDateTime = new SimpleDateFormat("dd/MM/yyyy/HH:mm").parse(SessionDate);
             System.out.println("Please enter the maximum patient going to see during the session : ");
             int maxPatients = input.nextInt();
+            input.nextLine();
 //            Session session = new Session(licenceNumber,sessionDuration, sessionDate, maxPatients,sessionStartTime);
             Session.addSessionObject(sessionID, licenceNumber, sessionDateTime, maxPatients);
             System.out.println("Session added successfully");
@@ -289,9 +291,14 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
             System.out.println("Please enter the Patient's Email address: ");
             String emailAddress = input.nextLine();
             System.out.println("\n");
-            String patientGender = "Male";
-            Patient.addPatientObject(name, surname, DateOfBirth, contactNumber, address, patientId, emailAddress, patientGender);
-            System.out.println("Patient added successfully");
+            System.out.println("Please enter the Patient's Gender M/F: ");
+            String patientGender = input.nextLine();
+            if (patientGender.equals("M"))
+                patientGender="Male";
+            else if (patientGender.equals("F")) {
+                patientGender  ="Female";
+            }
+            Patient.addPatientObject(name, surname, DateOfBirth, contactNumber,patientId, address, emailAddress, patientGender);
 
         } catch (Exception e) {
             System.out.println("Invalid input");

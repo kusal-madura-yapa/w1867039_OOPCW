@@ -267,7 +267,6 @@ public class SkinCareCenter extends JFrame {
                 }
 //            String patientDateOfBirth = textFieldTopLeft7.getText();
                 Patient.addPatientObject(patientName, patientSurname,patientDateOfBirth ,patientContactNumber,patientID, patientAddress, patientEmail, patientGender);
-                Patient.savePatientDetails();
                 // add patient to the data in to patient class addObjectPatient
                 frame.dispose();
                 new ConsultationAdd();

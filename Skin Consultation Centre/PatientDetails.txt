@@ -1,2 +1,2 @@
-Kusal,yapa,Mon Jul 03 00:00:00 IST 2000,01,01,01ccrfvr,@kkk,Male
-Lukuge,Podibanda,Sat Sep 09 00:00:00 IST 1967,01364,02,01 mahaverla,@lokubandar,Male
+Hasitha,Maduranga,Fri May 05 00:00:00 IST 2000,0123654789,1,01 kaluthra uthura,hasith@gmail.com,Male
+Pamith,Salwathura,Wed Feb 02 00:00:00 IST 2000,0771196802,2,02 Galle road colombo,pamith@Gmail.com,Male

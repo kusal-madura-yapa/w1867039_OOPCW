@@ -19,9 +19,9 @@ public class ViewDoctors extends JFrame {
         Doctor.loadDoctorListFromFile();
 
         // create a table
-        JTable table = new JTable();
+        JTable DoctorTable = new JTable();
         Object[] columns = {"Firstname ", "Surname ", "DateOfBirth", "Contact Number", "Specialization", "License Number"};
-
+ 
         // create a table model and design the table as not edit by using the override method
         DefaultTableModel model = new DefaultTableModel(){
             @Override
@@ -29,21 +29,21 @@ public class ViewDoctors extends JFrame {
                 return false;
             }
         };
-        table.setModel(model);
+        DoctorTable.setModel(model);
 
 
         // add the table to the scroll pane for show the data in the table
-        JScrollPane pane = new JScrollPane(table);
+        JScrollPane pane = new JScrollPane(DoctorTable);
         pane.setBounds(0, 0, 1000, 455);
         pane.setForeground(new Color(0x474783));
 
 
         // create a panel for the bottom of the frame
-        JPanel panelBottom = new JPanel();
-        panelBottom.setBounds(0, 460, 1000, 50); // set the size of the panel
-        panelBottom.setBackground(new Color(0x212121));// set the background color of the panel
-        panelBottom.setLayout(null);// set the layout of the panel
-        panelBottom.setVisible(true);// set the visibility of the panel
+        JPanel DoctorPanelBottom = new JPanel();
+        DoctorPanelBottom.setBounds(0, 460, 1000, 50); // set the size of the panel
+        DoctorPanelBottom.setBackground(new Color(0x212121));// set the background color of the panel
+        DoctorPanelBottom.setLayout(null);// set the layout of the panel
+        DoctorPanelBottom.setVisible(true);// set the visibility of the panel
 
         // create a button
         JButton btnBack = new JButton("Back");
@@ -72,18 +72,18 @@ public class ViewDoctors extends JFrame {
         frame.setLayout(null); // set the layout of the frame
 
         model.setColumnIdentifiers(columns); // set the column identifiers of the table
-        table.setModel(model);  // set the model of the table
+        DoctorTable.setModel(model);  // set the model of the table
 
-        table.setBackground(new Color(0xAD91E7)); // set the background color of the table
-        table.setForeground(new Color(0x000000)); // set the foreground color of the table
-        table.setGridColor(new Color(0xFFFFFF)); // set the grid color of the table
-        table.setSelectionBackground(new Color(0xFFFFFF));
-        table.setAutoCreateRowSorter(false); // set the auto create row sorter of the table to false
-        table.setFont(new Font("Serif", Font.PLAIN, 15));
-        table.setRowHeight(40); // set the row height of the table
-        table.setAutoCreateRowSorter(true); // set the auto create row sorter of the table to true
+        DoctorTable.setBackground(new Color(0xAD91E7)); // set the background color of the table
+        DoctorTable.setForeground(new Color(0x000000)); // set the foreground color of the table
+        DoctorTable.setGridColor(new Color(0xFFFFFF)); // set the grid color of the table
+        DoctorTable.setSelectionBackground(new Color(0xFFFFFF));
+        DoctorTable.setAutoCreateRowSorter(false); // set the auto create row sorter of the table to false
+        DoctorTable.setFont(new Font("Serif", Font.PLAIN, 15));
+        DoctorTable.setRowHeight(40); // set the row height of the table
+        DoctorTable.setAutoCreateRowSorter(true); // set the auto create row sorter of the table to true
         frame.getContentPane().add(pane); // add the scroll pane to the frame
-        frame.add(panelBottom); // add the panel to the frame
+        frame.add(DoctorPanelBottom); // add the panel to the frame
 
 
         // add the data in to object and add the object to the table
@@ -101,7 +101,7 @@ public class ViewDoctors extends JFrame {
         // frame visible.
         frame.setVisible(true);
         // add the button to the panel
-        panelBottom.add(btnBack);
+        DoctorPanelBottom.add(btnBack);
     }
 
 

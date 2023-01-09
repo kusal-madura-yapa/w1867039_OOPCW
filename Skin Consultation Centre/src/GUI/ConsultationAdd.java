@@ -345,16 +345,6 @@ public class ConsultationAdd extends JFrame {
                 try {
                     Date date = new Date();
                     int maxPatientCount = 0;
-                    System.out.println("patientId: " + patientId);
-                    System.out.println("sessionId: " + sessionId);
-                    System.out.println("licenseNumber: " + licenseNumber);
-                    System.out.println("consultationId: " + consultationId);
-                    System.out.println("patientCount: " + patientCount);
-                    System.out.println("patientrequestedTime: " + patientrequestedTime);
-                    System.out.println("description: " + description);
-                    System.out.println("date: " + date);
-                    System.out.println("maxPatientCount: " + maxPatientCount);
-
                     Consultation.addConsultationObject(patientId, sessionId, licenseNumber,date, maxPatientCount ,consultationId, patientCount, patientrequestedTime, description);
                     frame.dispose();
                     new ViewConsultation();

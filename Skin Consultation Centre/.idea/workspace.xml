@@ -2,22 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dea1f6d7-4264-4f24-aa45-b6f9609dfcad" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConsultationDetails.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ConsultationDetails.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PatientDetails.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PatientDetails.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/doctors.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Consultation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Consultation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Doctor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Doctor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Patient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Session.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/Session.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/WestminsterSkinConsultationManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/ConsoleSystem/WestminsterSkinConsultationManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/DeleteConsultation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/DeleteConsultation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/HomePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/RemoveSession$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/RemoveSession$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/RemoveSession.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/RemoveSession.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/SkinCareCenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/SkinCareCenter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/ViewConsultation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/ViewConsultation$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/ViewConsultation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/ViewConsultation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/ViewDoctors.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Skin Consultation Centre/GUI/ViewDoctors.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/session.txt" beforeDir="false" afterPath="$PROJECT_DIR$/session.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ConsoleSystem/Consultation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleSystem/Consultation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConsoleSystem/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleSystem/Doctor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ConsoleSystem/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleSystem/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConsoleSystem/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleSystem/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/AddSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/AddSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConsoleSystem/WestminsterSkinConsultationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleSystem/WestminsterSkinConsultationManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/ConsultationAdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ConsultationAdd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/DeleteConsultation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/DeleteConsultation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/RemoveSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/RemoveSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/SkinCareCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SkinCareCenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ViewDoctors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ViewDoctors.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +72,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/kusal/Desktop/Draw/GUI.drawio&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kusal/Desktop/GUI.drawio&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
@@ -167,8 +183,8 @@
       <list>
         <item itemvalue="Application.HomePage" />
         <item itemvalue="Application.WestminsterSkinConsultationManager" />
-        <item itemvalue="Application.ConsultationAdd" />
         <item itemvalue="Application.ViewConsultation" />
+        <item itemvalue="Application.ConsultationAdd" />
         <item itemvalue="Application.AddSession" />
       </list>
     </recent_temporary>
@@ -211,7 +227,9 @@
       <workItem from="1672999822150" duration="23929000" />
       <workItem from="1673069328780" duration="20527000" />
       <workItem from="1673153280009" duration="12864000" />
-      <workItem from="1673168327121" duration="28123000" />
+      <workItem from="1673168327121" duration="31741000" />
+      <workItem from="1673219170526" duration="10604000" />
+      <workItem from="1673230725803" duration="435000" />
     </task>
     <servers />
   </component>
